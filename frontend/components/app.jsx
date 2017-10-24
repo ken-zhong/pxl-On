@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Splash from './splash';
-import SplashHeader from './header/splash_header';
+import Header from './header/header';
 import SessionFormContainer from './session_form/session_form_container';
 
 const App = () => (
   <div id='app'>
-    <SplashHeader />
+    <Header />
     <Switch>
       <Route exact path='/' component={Splash} />
       <Route path='/login' component={SessionFormContainer} />

@@ -20,14 +20,34 @@ class SessionForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
+    console.log(this.props);
     this.props.processForm(this.state);
   }
 
   render () {
+    let headerText, submitText, footerComponent;
+    if (this.props.formType === '/login') {
+      headerText = 'Log in to pxl-On';
+      submitText = 'Log in';
+      footerComponent = (
+        <div className='login-container-footer'>
+          <p>Don't have an account? <Link to='/signup'>Sign up</Link></p>
+        </div>
+      );
+    } else {
+      headerText = 'Sign up for pxl-On';
+      submitText = 'Sign up';
+      footerComponent = (
+        <div className='login-container-footer'>
+          <p>Already have an account? <Link to='/login'>Log in</Link></p>
+        </div>
+      );
+    }
+
     return (
       <div className='container login-grid'>
         <main className='container flex-col login-body'>
-          <h3>Log in to pxl-On</h3>
+          <h3>{headerText}</h3>
           <form onSubmit={this.handleSubmit} className='flex-col' action='index.html' method='post'>
             <label>Username
               <br />
@@ -37,11 +57,9 @@ class SessionForm extends React.Component {
               <br />
               <input type='password' value={this.state.password} onChange={this.handleInput('password')} />
             </label>
-            <button type='button' name='button' className='session-submit-btn'>Log in</button>
+            <button className='session-submit-btn'>{submitText}</button>
           </form>
-          <div className='login-container-footer'>
-            <p>Don't have an account? <a href='#'>Sign up</a></p>
-          </div>
+          { footerComponent }
         </main>
       </div>
     );
