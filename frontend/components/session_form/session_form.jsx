@@ -13,11 +13,14 @@ class SessionForm extends React.Component {
   }
 
   handleInput (field) {
-
+    return (e) => {
+      this.setState({[field]: e.target.value});
+    };
   }
 
-  handleSubmit () {
-
+  handleSubmit (e) {
+    e.preventDefault();
+    this.props.processForm(this.state);
   }
 
   render () {
@@ -25,14 +28,14 @@ class SessionForm extends React.Component {
       <div className='container login-grid'>
         <main className='container flex-col login-body'>
           <h3>Log in to pxl-On</h3>
-          <form className='flex-col' action='index.html' method='post'>
+          <form onSubmit={this.handleSubmit} className='flex-col' action='index.html' method='post'>
             <label>Username
               <br />
-              <input type='text' name=' value=' />
+              <input type='text' value={this.state.username} onChange={this.handleInput('username')} />
             </label>
             <label>Password
               <br />
-              <input type='password' name=' value=' />
+              <input type='password' value={this.state.password} onChange={this.handleInput('password')} />
             </label>
             <button type='button' name='button' className='session-submit-btn'>Log in</button>
           </form>
@@ -42,7 +45,6 @@ class SessionForm extends React.Component {
         </main>
       </div>
     );
-
   }
 }
 

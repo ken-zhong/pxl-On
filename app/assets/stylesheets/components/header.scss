@@ -1,0 +1,70 @@
+ @import "base/specs.scss";
+
+.nav-btn {
+  color: black;
+  text-decoration: none;
+  margin-right: 1em;
+}
+
+.nav-btn:hover {
+  color: #2da7ff;
+}
+
+.signup-nav-btn {
+  background-color: #34bf49;
+  color: #fff;
+  padding: 0 1em;
+  margin: 0 1.5em;
+  text-decoration: none;
+}
+
+.signup-nav-btn:hover {
+  background-color: #36c94c;
+}
+
+.nav-logo {
+  font-size: 1.7em;
+  letter-spacing: .1em;
+  padding-right: .5em;
+  text-decoration: none;
+  color: black;
+}
+
+// splash
+.nav-logo {
+  color: white;
+}
+
+.nav-logo:hover {
+  color: #2da7ff;
+}
+
+
+.navbar {
+  justify-content: space-between;
+  height: 3.5em;
+  color: white;
+  z-index: 3;
+}
+
+.signup-nav-btn {
+  background-color: $btn-blue;
+  height: 60%;
+  border-radius: 1em;
+}
+
+.signup-nav-btn:hover {
+  background-color: $btn-blue-hover;
+  color: $white;
+}
+
+// splash
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 1em;
+}
+
+.nav-link:hover {
+  color: $nav-blue-hover;
+}

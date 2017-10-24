@@ -42,37 +42,3 @@ html, body, #root, #app {
 .btn-blue-lg:hover {
   background-color: $btn-blue-hover;
 }
-
-.navbar {
-  justify-content: space-between;
-
-  height: 3.5em;
-  color: white;
-  z-index: 3;
-}
-
-
-.signup-nav-btn {
-  background-color: $btn-blue;
-  height: 60%;
-  border-radius: 1em;
-}
-
-.signup-nav-btn:hover {
-  background-color: $btn-blue-hover;
-  color: $white;
-}
-
-.nav-logo {
-  color: white;
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  margin-right: 1em;
-}
-
-.nav-link:hover {
-  color: #2da7ff;
-}
