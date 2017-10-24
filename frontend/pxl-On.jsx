@@ -8,12 +8,21 @@ import { signup, login } from './util/session_api_util';
 // *** DELETE ***
 
 document.addEventListener('DOMContentLoaded', () => {
+  let store;
+  if (window.currentUser) {
+    const state = {session: {currentUser: window.currentUser}};
+    store = configureStore(state);
+    // delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
   // *** TESTING ***
   window.signup = signup;
   window.login = login;
+  window.dispatch = store.dispatch;
+  window.getState = store.getState;
   // *** DELETE ***
 
-  const store = configureStore();
   const root = document.querySelector('#root');
   ReactDom.render(<Root store={store} />, root);
 });
