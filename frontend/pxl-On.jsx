@@ -4,7 +4,7 @@ import Root from './components/root.jsx';
 import configureStore from './store/store';
 
 // *** TESTING ***
-import { signup, login } from './util/session_api_util';
+import { signup, login, logout } from './util/session_api_util';
 // *** DELETE ***
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // *** TESTING ***
   window.signup = signup;
   window.login = login;
+  window.logout = logout;
   window.dispatch = store.dispatch;
   window.getState = store.getState;
   // *** DELETE ***

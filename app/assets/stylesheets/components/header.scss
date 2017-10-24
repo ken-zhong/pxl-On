@@ -1,25 +1,45 @@
  @import "base/specs.scss";
 
-.nav-btn {
-  color: black;
-  text-decoration: none;
-  margin-right: 1em;
-}
+ .navbar {
+   justify-content: space-between;
+   position: relative;
+   height: 3.5em;
+   z-index: 5;
+   color: $white;
+ }
 
-.nav-btn:hover {
-  color: #2da7ff;
+.navbar-std {
+   border-bottom: 1px solid $light-grey;
+   background-color: $white;
+   color: $dark-grey;
+ }
+
+.nav-component {
+  height: 100%;
 }
 
 .signup-nav-btn {
-  background-color: #34bf49;
-  color: #fff;
+  background-color: $btn-green;
+  color: $white;
   padding: 0 1em;
   margin: 0 1.5em;
   text-decoration: none;
+  height: 100%;
 }
 
 .signup-nav-btn:hover {
-  background-color: #36c94c;
+  background-color: $btn-green-hover;
+}
+
+.signup-nav-btn-light {
+  background-color: $btn-blue;
+  height: 60%;
+  border-radius: 1em;
+}
+
+.signup-nav-btn-light:hover {
+  background-color: $btn-blue-hover;
+  color: $white;
 }
 
 .nav-logo {
@@ -28,39 +48,31 @@
   padding-right: .5em;
   text-decoration: none;
   color: black;
-}
-
-// splash
-.nav-logo {
-  color: white;
+  font-family: 'Maven Pro', sans-serif;
+  margin-left: 1.5em;
 }
 
 .nav-logo:hover {
-  color: #2da7ff;
-}
-
-
-.navbar {
-  justify-content: space-between;
-  height: 3.5em;
-  color: white;
-  z-index: 3;
-}
-
-.signup-nav-btn {
-  background-color: $btn-blue;
-  height: 60%;
-  border-radius: 1em;
-}
-
-.signup-nav-btn:hover {
-  background-color: $btn-blue-hover;
-  color: $white;
+  color: $nav-blue-hover;
 }
 
 // splash
-.nav-link {
+.text-light {
   color: white;
+}
+
+.nav-link-light {
+  color: white;
+  text-decoration: none;
+  margin-right: 1em;
+}
+
+.nav-link-light:hover {
+  color: $nav-blue-hover;
+}
+
+.nav-link {
+  color: black;
   text-decoration: none;
   margin-right: 1em;
 }

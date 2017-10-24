@@ -16,7 +16,7 @@
  */
 
  // CSS Reset
- @import "base/reset.scss";
+ @import "base/base.scss";
 
  // Specs
  @import url('https://fonts.googleapis.com/css?family=Maven+Pro');
@@ -24,5 +24,4 @@
  @import "base/specs.scss";
 
  // Components
- @import "main.scss";
  @import "components/*";

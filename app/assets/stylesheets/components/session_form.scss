@@ -1,18 +1,9 @@
  @import "base/specs.scss";
 
-.navbar {
-  justify-content: space-between;
-  position: relative;
-  height: 3.5em;
-  z-index: 5;
-  // border-bottom: 1px solid #eee;
-  // background-color: rgb(253, 253, 253);
-}
 
 .flex-center {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .container {
@@ -20,24 +11,11 @@
   justify-content: center;
 }
 
-h3 {
+.login-grid h3 {
   font-size: 1.5em;
   padding: .5em;
   margin-bottom: 1em;
   color: rgb(82, 85, 88)
-}
-
-.navbar {
-  justify-content: space-between;
-  height: 3.5em;
-  // border-bottom: 1px solid #eee;
-  // background-color: rgb(253, 253, 253);
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  height: 100%
 }
 
 .login-grid {
@@ -48,7 +26,7 @@ h3 {
   border: solid 1px $light-grey;
   display: flex;
   width: 25em;
-  max-width: 50%;
+  max-width: 100%;
 }
 
 .login-body {
@@ -98,13 +76,6 @@ h3 {
   display: flex;
 }
 
-.font-maven {
-  font-family: 'Maven Pro', sans-serif;
-  margin-left: 1.5em;
-}
-
-
-
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -117,4 +88,11 @@ h3 {
 .login-container-footer a {
   color: #2da7ff;
   text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .login-grid {
+    max-width: 50%;
+  }
+
 }
