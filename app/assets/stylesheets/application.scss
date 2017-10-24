@@ -12,5 +12,15 @@
  *
  *= require_tree .
  *= require_self
- 
+
  */
+
+ // CSS Reset
+ @import "base/reset.scss";
+
+ // Specs
+ @import "base/specs.scss";
+
+ // Components
+ @import "main.scss";
+ @import "components/*";
