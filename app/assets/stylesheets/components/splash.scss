@@ -5,8 +5,7 @@ html, body, #root, #app {
 }
 
 .splash {
-  // margin-top: -3.6em;
-  top: -3.6em;
+  top: -3.5em;
   position: relative;
   display: block;
   height: 100%;
@@ -52,9 +51,6 @@ html, body, #root, #app {
   z-index: 3;
 }
 
-.navbar a:hover {
-  color: #2da7ff;
-}
 
 .signup-nav-btn {
   background-color: $btn-blue;
@@ -71,8 +67,12 @@ html, body, #root, #app {
   color: white;
 }
 
-.navbar a {
+.nav-link {
   color: white;
   text-decoration: none;
   margin-right: 1em;
+}
+
+.nav-link:hover {
+  color: #2da7ff;
 }
