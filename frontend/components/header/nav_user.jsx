@@ -24,6 +24,7 @@ class UserNavComponent extends React.Component {
       <div className='flex-center nav-component'>
         <span onMouseEnter={this.dropdownEnter.bind(this)}
           onMouseLeave={this.dropdownLeave.bind(this)}
+          conClick={(e) => e.preventDefault()}
           className='nav-user-profile flex-center'>DROPDOWN
           <ul className={dropdownClass}>
             <li>My Profile</li>

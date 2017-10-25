@@ -3,7 +3,7 @@
 .nav-component {
   height: 100%;
   color: $black;
-  margin-right: 1em;
+  margin-right: .2em;
 }
 
 .nav-btn-tall {
@@ -67,4 +67,10 @@
 .nav-dropdown li:hover {
   color: $nav-blue-hover;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 668px) {
+  .nav-component {
+    margin-right: 1em;
+  }
 }
