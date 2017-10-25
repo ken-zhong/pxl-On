@@ -5,6 +5,7 @@ import NavAuth from './nav_auth.jsx';
 
 class StandardHeader extends React.Component {
   render () {
+    console.log(this.props);
     let navComponentRight;
     console.log(this.props);
     if (this.props.loggedIn) {
@@ -16,7 +17,7 @@ class StandardHeader extends React.Component {
     return (
       <header>
         <nav className='flex-center navbar navbar-std'>
-          <div className='flex-center nav-component'>
+          <div className='flex-center nav-component nav-left'>
             <Link to='/' className='nav-logo flex-center'>pxl-On</Link>
             <ul className='flex-center'>
               <li><Link className='nav-link' to='/discover'>

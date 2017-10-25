@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SplashHeader = (props) => (
   <header>
     <nav className='flex-center navbar'>
-      <div className='flex-center nav-component'>
+      <div className='flex-center nav-component nav-left'>
         <Link to='/' className='nav-link-light nav-logo flex-center'>pxl-On</Link>
         <ul className='flex-center'>
           <li><Link className='nav-link-light' to='/discover'>
@@ -19,7 +19,7 @@ const SplashHeader = (props) => (
       </div>
       <div className='flex-center nav-component'>
         <span className='flex-center'><Link className='nav-link-light' to='/login'>Log In</Link></span>
-        <Link to='/signup' className='flex-center signup-nav-btn signup-nav-btn-light'>Sign Up</Link>
+        <Link to='/signup' className='flex-center nav-btn-tall nav-btn-tall-light'>Sign Up</Link>
       </div>
     </nav>
   </header>

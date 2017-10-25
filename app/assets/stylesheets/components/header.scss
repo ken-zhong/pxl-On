@@ -14,39 +14,11 @@
    color: $dark-grey;
  }
 
-.nav-component {
-  height: 100%;
-  color: black;
-}
-
-.signup-nav-btn {
-  background-color: $btn-green;
-  color: $white;
-  padding: 0 1em;
-  margin: 0 .2em;
-  text-decoration: none;
-  height: 100%;
-}
-
-.signup-nav-btn:hover {
-  background-color: $btn-green-hover;
-}
-
-.signup-nav-btn-light {
-  background-color: $btn-blue;
-  height: 60%;
-  border-radius: 1em;
-}
-
-.signup-nav-btn-light:hover {
-  background-color: $btn-blue-hover;
-  color: $white;
-}
 
 .nav-logo {
   font-size: 1.7em;
   letter-spacing: .1em;
-  padding-right: .5em;
+  margin-right: .5em;
   text-decoration: none;
   color: black;
   font-family: 'Maven Pro', sans-serif;
@@ -59,11 +31,11 @@
 
 // splash
 .text-light {
-  color: white;
+  color: $white;
 }
 
 .nav-link-light {
-  color: white;
+  color: $white;
   text-decoration: none;
   margin-right: .2em;
 }
@@ -86,9 +58,12 @@
   display: none;
 }
 
+.nav-left .fa {
+  margin: 0 .2em;
+}
+
 header .fa {
   font-size: 1.7em;
-  margin-right: .8em;
 }
 
 @media only screen and (min-width: 668px) {
@@ -97,15 +72,15 @@ header .fa {
     margin-right: 1em;
   }
   [class*="nav-link"] {
-    margin-right: 1em;
+    margin: 0 .3em;
   }
-  .signup-nav-btn {
+  .nav-btn-tall {
     margin: 0 1.5em;
   }
   .nav-link-text {
     display: inline-block;
   }
-  header .fa {
+  .nav-left .fa {
     display: none;
   }
 }

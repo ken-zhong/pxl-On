@@ -1,0 +1,60 @@
+ @import "base/specs.scss";
+
+.nav-component {
+  height: 100%;
+  color: $black;
+}
+
+.nav-btn-tall {
+  background-color: $btn-green;
+  color: $white;
+  padding: 0 1em;
+  margin: 0 .2em;
+  text-decoration: none;
+  height: 100%;
+}
+
+.nav-btn-tall:hover {
+  background-color: $btn-green-hover;
+}
+
+.nav-btn-tall-light {
+  background-color: $btn-blue;
+  height: 60%;
+  border-radius: 1em;
+}
+
+.nav-btn-tall-light:hover {
+  background-color: $btn-blue-hover;
+  color: $white;
+}
+
+.nav-dropdown {
+  position: absolute;
+  color: gray;
+  margin-top: .5em;
+  background: $white;
+  width: 10em;
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.nav-dropdown li {
+  margin: .2 .5em;
+  padding: .3em;
+  padding-left: 1.2em;
+}
+
+.nav-dropdown li:last-child {
+  border-top: 1px solid $light-grey;
+  padding-top: 1em;
+  margin-top: 1em;
+}
+
+.nav-dropdown li:hover {
+  color: $nav-blue-hover;
+  cursor: pointer;
+}
