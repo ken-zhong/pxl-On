@@ -49,7 +49,7 @@
   text-decoration: none;
   color: black;
   font-family: 'Maven Pro', sans-serif;
-  margin-left: 1.5em;
+  margin-left: .2em;
 }
 
 .nav-logo:hover {
@@ -64,7 +64,7 @@
 .nav-link-light {
   color: white;
   text-decoration: none;
-  margin-right: 1em;
+  margin-right: .2em;
 }
 
 .nav-link-light:hover {
@@ -74,9 +74,39 @@
 .nav-link {
   color: black;
   text-decoration: none;
-  margin-right: 1em;
+  margin-right: .2em;
 }
 
 .nav-link:hover {
   color: $nav-blue-hover;
+}
+
+.nav-link-text {
+  display: none;
+}
+
+header .fa {
+  font-size: 1.7em;
+  margin-right: .8em;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-logo {
+    margin-left: 1.5em;
+  }
+  [class*="nav-link"] {
+    margin-right: 1em;
+  }
+  .nav-link-text {
+    display: inline-block;
+  }
+  header .fa {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  body {
+    font-size: 12px;
+  }
 }

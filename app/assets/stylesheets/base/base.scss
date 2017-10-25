@@ -13,7 +13,7 @@ aside, figure, figcaption, footer, header, nav {
 
 body {
   line-height: 1.5;
-  font-size: 18px;
+  font-size: 14px;
   font-family: Helvetica;
   background-color: $background-blue;
 }
@@ -25,12 +25,6 @@ ol, ul {
 img {
   width: 100%;
 }
-
-@viewport {
-   width: device-width;
-   zoom:1;
-}
-
 
 @media only screen and (min-width: 768px) {
   body {

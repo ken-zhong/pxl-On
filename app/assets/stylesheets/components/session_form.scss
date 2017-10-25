@@ -22,7 +22,7 @@
   background-color: rgb(253, 253, 253);
   margin: 0 auto;
   margin-top: 10%;
-  padding: 1em;
+  padding: .1em;
   border: solid 1px $light-grey;
   display: flex;
   width: 25em;
@@ -36,7 +36,7 @@
 }
 
 .login-grid form {
-  width: 80%;
+  width: 95%;
 }
 
 .login-grid label {
@@ -93,6 +93,10 @@
 @media (min-width: 768px) {
   .login-grid {
     max-width: 50%;
+    padding: 1em;
   }
 
+  .login-grid form {
+    width: 80%;
+  }
 }
