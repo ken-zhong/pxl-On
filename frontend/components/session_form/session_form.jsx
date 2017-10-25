@@ -24,8 +24,12 @@ class SessionForm extends React.Component {
     this.props.processForm(this.state);
   }
 
+  componentWillReceiveProps () {
+
+  }
+
   render () {
-    let headerText, submitText, footerComponent;
+    let headerText, submitText, footerComponent, errors;
     if (this.props.formType === '/login') {
       headerText = 'Log in to pxl-On';
       submitText = 'Log in';
@@ -43,24 +47,33 @@ class SessionForm extends React.Component {
         </div>
       );
     }
+    if (this.props.errors.session.length > 0) {
+      errors = <span className='session-errors'>{this.props.errors.session}</span>;
+    } else {
+      errors = <span />;
+    }
 
     return (
-      <div className='container login-grid'>
-        <main className='container flex-col login-body'>
-          <h3>{headerText}</h3>
-          <form onSubmit={this.handleSubmit} className='flex-col' action='index.html' method='post'>
-            <label>Username
-              <br />
-              <input type='text' value={this.state.username} onChange={this.handleInput('username')} />
-            </label>
-            <label>Password
-              <br />
-              <input type='password' value={this.state.password} onChange={this.handleInput('password')} />
-            </label>
-            <button className='session-submit-btn'>{submitText}</button>
-          </form>
-          { footerComponent }
-        </main>
+      <div>
+        <div className='container login-grid'>
+          <main className='container flex-col login-body'>
+            <h3>{headerText}</h3>
+            { errors }
+            <form onSubmit={this.handleSubmit} className='flex-col' action='index.html' method='post'>
+              <label>Username
+                <br />
+                <input type='text' value={this.state.username} onChange={this.handleInput('username')} />
+              </label>
+              <label>Password
+                <br />
+                <input type='password' value={this.state.password} onChange={this.handleInput('password')} />
+              </label>
+              <button className='session-submit-btn'>{submitText}</button>
+            </form>
+            { footerComponent }
+          </main>
+        </div>
+
       </div>
     );
   }
