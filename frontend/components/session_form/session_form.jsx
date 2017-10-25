@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.errors = this.errors.bind(this);
   }
 
   handleInput (field) {
@@ -25,7 +26,21 @@ class SessionForm extends React.Component {
   }
 
   componentWillReceiveProps () {
+    if (this.props.errors.session.length > 0) {
+      this.props.clearErrors();
+    }
+  }
 
+  errors () {
+    let errors;
+    if (this.props.errors.session.length > 0) {
+      errors = <span className='session-errors'>
+        { this.props.errors.session.map((e, idx) => <div key={idx}>{e}</div>) }
+      </span>;
+    } else {
+      errors = <span />;
+    }
+    return errors;
   }
 
   render () {
@@ -47,18 +62,13 @@ class SessionForm extends React.Component {
         </div>
       );
     }
-    if (this.props.errors.session.length > 0) {
-      errors = <span className='session-errors'>{this.props.errors.session}</span>;
-    } else {
-      errors = <span />;
-    }
 
     return (
       <div>
         <div className='container login-grid'>
           <main className='container flex-col login-body'>
             <h3>{headerText}</h3>
-            { errors }
+            { this.errors() }
             <form onSubmit={this.handleSubmit} className='flex-col' action='index.html' method='post'>
               <label>Username
                 <br />

@@ -5,7 +5,17 @@ import { connect } from 'react-redux';
 const Auth = ({component: Component, path, loggedIn}) => {
   return (<Route path={path} render={(props) => {
     if (loggedIn) {
-      return <Redirect to='/' />;
+      return <Redirect to='/home' />;
+    } else {
+      return <Component {...props} />;
+    }
+  }} />);
+};
+
+const Protected = ({component: Component, path, loggedIn}) => {
+  return (<Route path={path} render={(props) => {
+    if (!loggedIn) {
+      return <Redirect to='/login' />;
     } else {
       return <Component {...props} />;
     }
@@ -16,4 +26,6 @@ const mapStateToProps = state => {
   return { loggedIn: Boolean(state.session.currentUser) };
 };
 
-export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth))
+export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
+
+export const ProtectedRoute = withRouter(connect(mapStateToProps, null)(Protected));
