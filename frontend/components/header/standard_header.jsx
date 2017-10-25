@@ -5,9 +5,7 @@ import NavAuth from './nav_auth.jsx';
 
 class StandardHeader extends React.Component {
   render () {
-    console.log(this.props);
     let navComponentRight;
-    console.log(this.props);
     if (this.props.loggedIn) {
       navComponentRight = <NavUser logout={this.props.logout} currentUser={this.props.currentUser} />;
     } else {

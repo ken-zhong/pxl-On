@@ -14,7 +14,6 @@
    color: $dark-grey;
  }
 
-
 .nav-logo {
   font-size: 1.7em;
   letter-spacing: .1em;
@@ -67,16 +66,15 @@ header .fa {
 }
 
 @media only screen and (min-width: 668px) {
+  [class*="nav-link"] {
+    margin: 0 .3em;
+  }
+
   .nav-logo {
     margin-left: 1.5em;
     margin-right: 1em;
   }
-  [class*="nav-link"] {
-    margin: 0 .3em;
-  }
-  .nav-btn-tall {
-    margin: 0 1.5em;
-  }
+
   .nav-link-text {
     display: inline-block;
   }

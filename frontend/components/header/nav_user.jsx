@@ -22,9 +22,9 @@ class UserNavComponent extends React.Component {
 
     return (
       <div className='flex-center nav-component'>
-        <span onMouseEnter={this.dropdownEnter.bind(this)}
+        <a href='#' onMouseEnter={this.dropdownEnter.bind(this)}
           onMouseLeave={this.dropdownLeave.bind(this)}
-          conClick={(e) => e.preventDefault()}
+          onClick={(e) => e.preventDefault()}
           className='nav-user-profile flex-center'>DROPDOWN
           <ul className={dropdownClass}>
             <li>My Profile</li>
@@ -32,7 +32,7 @@ class UserNavComponent extends React.Component {
             <li>Followers</li>
             <li onClick={this.props.logout}>Logout</li>
           </ul>
-        </span>
+        </a>
         <Link to='/' className='nav-btn-tall flex-center'>
           <i className='fa fa-cloud-upload display-if' aria-hidden='true' />
           <span className='nav-link-text'>Upload</span>
