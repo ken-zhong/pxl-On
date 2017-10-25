@@ -25,8 +25,8 @@ class SessionForm extends React.Component {
     this.props.processForm(this.state);
   }
 
-  componentWillReceiveProps () {
-    if (this.props.errors.session.length > 0) {
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.formType !== this.props.formType) {
       this.props.clearErrors();
     }
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import SplashHeader from './splash_header';
-import StandardHeader from './standard_header';
+import StandardHeaderContainer from './standard_header_container';
 import { withRouter, Route, Switch } from 'react-router-dom';
 
 class Header extends React.Component {
@@ -8,7 +8,7 @@ class Header extends React.Component {
     return (
       <Switch>
         <Route exact path='/' component={SplashHeader} />
-        <Route path='/' component={StandardHeader} />
+        <Route path='/' component={StandardHeaderContainer} />
       </Switch>
     );
   }
