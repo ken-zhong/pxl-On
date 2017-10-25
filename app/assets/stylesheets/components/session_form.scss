@@ -46,7 +46,22 @@
 .login-grid button {
   box-sizing: border-box;
   width: 100%;
-  background-color: #34bf49;
+  background-color: $btn-green;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  height: 2.5em;
+  padding: .5em;
+  margin-top: 2em;
+  font-size: 16px;
+  border-radius: .2em;
+}
+
+.demo-login-btn {
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  background-color: $btn-blue;
   cursor: pointer;
   color: #fff;
   border: none;
@@ -60,6 +75,10 @@
 
 .login-grid button:hover {
   background-color: #36c94c;
+}
+
+.demo-login-btn:hover {
+  background-color: $btn-blue-hover;
 }
 
 .flex {
@@ -79,7 +98,6 @@
   color: #2da7ff;
   text-decoration: none;
 }
-
 
 .session-errors {
   text-align: center;

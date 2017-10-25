@@ -1,16 +1,21 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import Typed from 'typed.js';
 
 class SessionForm extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      typeUsername: null,
+      typePassword: null,
+      typeSubmit: null
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.errors = this.errors.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   handleInput (field) {
@@ -42,8 +47,39 @@ class SessionForm extends React.Component {
     return errors;
   }
 
+  demoLogin (e) {
+    // special thanks to Hanhee Song for helping me with the Typed animation!
+    // https://github.com/hanhee-song
+    this.setState({username: '', password: ''});
+    const guest = {username: 'demo_user', password: 'starwars' }
+    const username = {
+      strings: [guest.username],
+      typeSpeed: 50
+    };
+    const password = {
+      strings: [guest.password],
+      typeSpeed: 40
+    };
+
+    this.setState({
+      typeUsername: setTimeout(() => {
+        new Typed('.session-username', username);
+      }, 50),
+      typePassword: setTimeout(() => {
+        new Typed('.session-password', password);
+      }, 800),
+      typeSubmit: setTimeout(() => {
+        this.props.login(guest);
+      }, 1700)
+    });
+  }
+
+  componentWillUnmount () {
+
+  }
+
   render () {
-    let headerText, submitText, footerComponent, errors;
+    let headerText, submitText, footerComponent;
     if (this.props.formType === '/login') {
       headerText = 'Log in to pxl-On';
       submitText = 'Log in';
@@ -71,18 +107,18 @@ class SessionForm extends React.Component {
             <form onSubmit={this.handleSubmit} className='flex-col' action='index.html' method='post'>
               <label>Username
                 <br />
-                <input type='text' value={this.state.username} onChange={this.handleInput('username')} />
+                <input className='session-username' type='text' value={this.state.username} onChange={this.handleInput('username')} />
               </label>
               <label>Password
                 <br />
-                <input type='password' value={this.state.password} onChange={this.handleInput('password')} />
+                <input className='session-password' type='password' value={this.state.password} onChange={this.handleInput('password')} />
               </label>
-              <button className='session-submit-btn'>{submitText}</button>
+              <button>{submitText}</button>
+              <a onClick={this.demoLogin} className='demo-login-btn'>Demo log in</a>
             </form>
             { footerComponent }
           </main>
         </div>
-
       </div>
     );
   }

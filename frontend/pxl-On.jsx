@@ -12,13 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     const state = {session: {currentUser: window.currentUser}};
     store = configureStore(state);
-    // delete window.currentUser;
+    delete window.currentUser;
   } else {
     store = configureStore();
   }
   // *** TESTING ***
   window.dispatch = store.dispatch;
   window.getState = store.getState;
+  window.logout = logout;
   // *** DELETE ***
 
   const root = document.querySelector('#root');
