@@ -1,6 +1,8 @@
 class Api::UserController < ApplicationController
-  def new
+  def index
+  end
 
+  def show
   end
 
   def create
@@ -15,6 +17,6 @@ class Api::UserController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :password, :email)
+    params.require(:user).permit(:username, :password)
   end
 end

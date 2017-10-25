@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import NavUser from './nav_user';
+import NavAuth from './nav_auth.jsx';
 
 const StandardHeader = (props) => (
   <header>
@@ -7,20 +9,17 @@ const StandardHeader = (props) => (
       <div className='flex-center nav-component'>
         <Link to='/' className='nav-logo flex-center'>pxl-On</Link>
         <ul className='flex-center'>
-          <li><a className='nav-link' href='#'>
+          <li><Link className='nav-link' to='/discover'>
             <i className='fa fa-picture-o' aria-hidden='true' />
             <span className='nav-link-text'>Discover</span>
-          </a></li>
-          <li><a className='nav-link' href='#'>
+          </Link></li>
+          <li><Link className='nav-link' to='/about'>
             <i className='fa fa-info-circle' aria-hidden='true' />
             <span className='nav-link-text'>About</span>
-          </a></li>
+          </Link></li>
         </ul>
       </div>
-      <div className='flex-center nav-component'>
-        <span className='flex-center'><Link className='nav-link' to='/login'>Log In</Link></span>
-        <Link to='/signup' className='flex-center signup-nav-btn'>Sign Up</Link>
-      </div>
+      <NavAuth />
     </nav>
   </header>
 );

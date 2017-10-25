@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :user, only: [ :create]
+    resources :user, only: [:create, :show, :index]
     resource :session, only: [:create, :destroy]
   end
 
