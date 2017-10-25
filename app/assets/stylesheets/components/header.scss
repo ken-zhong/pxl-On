@@ -22,7 +22,7 @@
   background-color: $btn-green;
   color: $white;
   padding: 0 1em;
-  margin: 0 1.5em;
+  margin: 0 .2em;
   text-decoration: none;
   height: 100%;
 }
@@ -90,12 +90,16 @@ header .fa {
   margin-right: .8em;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 668px) {
   .nav-logo {
     margin-left: 1.5em;
+    margin-right: 1em;
   }
   [class*="nav-link"] {
     margin-right: 1em;
+  }
+  .signup-nav-btn {
+    margin: 0 1.5em;
   }
   .nav-link-text {
     display: inline-block;
@@ -105,8 +109,8 @@ header .fa {
   }
 }
 
-@media only screen and (max-width: 320px) {
-  body {
+@media only screen and (max-width: 360px) {
+  header {
     font-size: 12px;
   }
 }
