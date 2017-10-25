@@ -25,3 +25,13 @@ ol, ul {
 img {
   width: 100%;
 }
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}

@@ -1,16 +1,5 @@
  @import "base/specs.scss";
 
-
-.flex-center {
-  display: flex;
-  align-items: center;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-}
-
 .login-grid h3 {
   font-size: 1.5em;
   padding: .5em;
@@ -19,14 +8,15 @@
 }
 
 .login-grid {
+  box-sizing: border-box;
   background-color: rgb(253, 253, 253);
   margin: 0 auto;
   margin-top: 10%;
-  padding: .1em;
+  padding: .8em;
   border: solid 1px $light-grey;
   display: flex;
-  width: 25em;
-  max-width: 100%;
+  width: 100%;
+  max-width: 25em;
 }
 
 .login-body {
@@ -36,7 +26,7 @@
 }
 
 .login-grid form {
-  width: 95%;
+  width: 80%;
 }
 
 .login-grid label {
@@ -92,11 +82,8 @@
 
 @media (min-width: 668px) {
   .login-grid {
-    max-width: 50%;
-    padding: 1em;
+    max-width: 25em;
+    width: 50%;
   }
 
-  .login-grid form {
-    width: 80%;
-  }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SplashHeader = () => (
+const SplashHeader = (props) => (
   <header>
     <nav className='flex-center navbar'>
       <div className='flex-center nav-component'>
