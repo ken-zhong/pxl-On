@@ -26,7 +26,13 @@ img {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@viewport {
+   width: device-width;
+   zoom:1;
+}
+
+
+@media only screen and (min-width: 768px) {
   body {
     font-size: 14px;
   }
