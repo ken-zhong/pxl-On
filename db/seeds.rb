@@ -8,3 +8,5 @@
 
 user1 = User.new({username: 'demo_user', password: 'starwars'})
 user1.save
+
+Photo.create(title: 'test', author_id: user1.id)

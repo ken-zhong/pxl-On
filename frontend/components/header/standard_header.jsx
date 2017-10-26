@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import NavUser from './nav_user';
 import NavAuth from './nav_auth.jsx';
 

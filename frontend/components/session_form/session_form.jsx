@@ -51,7 +51,7 @@ class SessionForm extends React.Component {
     // special thanks to Hanhee Song for helping me with the Typed animation!
     // https://github.com/hanhee-song
     this.setState({username: '', password: ''});
-    const guest = {username: 'demo_user', password: 'starwars' }
+    const guest = { username: 'demo_user', password: 'starwars' };
     const username = {
       strings: [guest.username],
       typeSpeed: 50
