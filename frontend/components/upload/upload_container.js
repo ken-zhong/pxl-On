@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import UploadForm from './upload';
 import { createPhoto } from '../../actions/photo_actions';
 // import { login, signup, clearErrors } from '../../actions/session_actions';
@@ -17,4 +18,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UploadForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UploadForm));

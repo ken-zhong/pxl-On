@@ -12,6 +12,13 @@ export const fetchPhoto = (id) => {
   });
 };
 
+export const deletePhoto = (id) => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/photos/${id}`
+  });
+};
+
 export const createPhoto = (formData) => {
   return $.ajax({
     method: 'POST',
@@ -20,5 +27,12 @@ export const createPhoto = (formData) => {
     contentType: false,
     processData: false,
     data: formData
+  });
+};
+
+export const updatePhoto = (id) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/photos/${id}`
   });
 };

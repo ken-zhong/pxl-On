@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user1 = User.new({username: 'demo_user', password: 'starwars'})
-user1.save
+user1 = User.create({username: 'demo_user', password: 'starwars'})
+
 
 Photo.create(title: 'test', author_id: user1.id)

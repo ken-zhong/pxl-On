@@ -26,6 +26,7 @@ class UserNavComponent extends React.Component {
           className='nav-user-profile flex-center'>DROPDOWN
           <ul className={dropdownClass}>
             <li>My Profile</li>
+            <li>Manage Photos</li>
             <li>Following</li>
             <li>Followers</li>
             <li onClick={this.props.logout}>Logout</li>

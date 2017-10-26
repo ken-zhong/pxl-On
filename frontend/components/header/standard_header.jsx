@@ -5,7 +5,6 @@ import NavAuth from './nav_auth.jsx';
 
 class StandardHeader extends React.Component {
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps);
     if (nextProps.errors.session.includes('Nobody signed in')) {
       window.location.reload();
     }

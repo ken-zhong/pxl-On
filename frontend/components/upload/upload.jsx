@@ -32,14 +32,18 @@ class UploadComponent extends React.Component {
   }
 
   handleSubmit (e) {
-    const formData = new FormData();
-    formData.append('photo[title]', this.state.title);
-    formData.append('photo[description]', this.state.description);
-    formData.append('photo[imageFile]', this.state.imageFile);
+    console.log(this.props);
+    e.preventDefault();
+    // const formData = new FormData();
+    // formData.append('photo[title]', this.state.title);
+    // formData.append('photo[description]', this.state.description);
+    // formData.append('photo[imageFile]', this.state.imageFile);
+    // this.props.createPhoto().then(photo => {
+    //   this.props.history.push(`/photos/${photo.id}`);
+    // });
   }
 
   render () {
-    console.log(this.state);
     let uploadBtn = 'upload-btn';
     if (!this.state.imageUrl) {
       uploadBtn += ' upload-btn-on';
@@ -70,7 +74,7 @@ class UploadComponent extends React.Component {
                 placeholder='Tell us more about your awesome photo!'
                 value={this.state.description} ></textarea>
             </label>
-            <button className='submit-btn'>Submit</button>
+            <button onClick={this.handleSubmit} className='submit-btn'>Submit</button>
           </form>
         </div>
       </div>
