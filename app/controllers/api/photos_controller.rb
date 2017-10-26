@@ -8,9 +8,12 @@ class Api::PhotosController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
   end
 
   def show
   end
+
+  
+
 end

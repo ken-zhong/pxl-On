@@ -48,12 +48,12 @@
   width: 100%;
   background-color: $btn-green;
   cursor: pointer;
-  color: #fff;
+  color: $white;
   border: none;
   height: 2.5em;
   padding: .5em;
   margin-top: 2em;
-  font-size: 16px;
+  font-size: 1.2em;
   border-radius: .2em;
 }
 
@@ -63,18 +63,18 @@
   width: 100%;
   background-color: $btn-blue;
   cursor: pointer;
-  color: #fff;
+  color: $white;
   border: none;
   height: 2.5em;
   padding: .5em;
   margin-top: 2em;
   margin-bottom: 3em;
-  font-size: 16px;
+  font-size: 1.2em;
   border-radius: .2em;
 }
 
 .login-grid button:hover {
-  background-color: #36c94c;
+  background-color: $btn-green-hover;
 }
 
 .demo-login-btn:hover {
@@ -95,7 +95,7 @@
 
 }
 .login-container-footer a {
-  color: #2da7ff;
+  color: $nav-blue-hover;
   text-decoration: none;
 }
 

@@ -50,11 +50,11 @@
   text-align: center;
   background-color: $btn-blue;
   cursor: pointer;
-  color: #fff;
+  color: $white;
   border: none;
   height: 2.5em;
   padding: 1em 2em;
-  font-size: 16px;
+  font-size: 1.2em;
   border-radius: .2em;
   margin-top: -2em;
   display: flex;
@@ -80,6 +80,7 @@
 .upload-details-form h3 {
   font-size: 1.4em;
   padding-bottom: 2em;
+  color: $dark-grey;
 }
 
 .upload-details-form input, .upload-details-form textarea {
