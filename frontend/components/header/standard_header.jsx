@@ -1,9 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import NavUser from './nav_user';
 import NavAuth from './nav_auth.jsx';
 
 class StandardHeader extends React.Component {
+  componentWillReceiveProps (nextProps) {
+    console.log(nextProps);
+    if (nextProps.errors.session.includes('Nobody signed in')) {
+      window.location.reload();
+    }
+  }
+
   render () {
     let navComponentRight;
     if (this.props.loggedIn) {

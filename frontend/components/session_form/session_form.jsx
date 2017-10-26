@@ -75,7 +75,9 @@ class SessionForm extends React.Component {
   }
 
   componentWillUnmount () {
-
+    clearTimeout(this.typeUsername);
+    clearTimeout(this.typePassword);
+    clearTimeout(this.typeSubmit);
   }
 
   render () {
