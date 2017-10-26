@@ -35,3 +35,14 @@ img {
   display: flex;
   justify-content: center;
 }
+
+// this hide element courtesy of Osvaldas Valutis
+// https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+.hide-element {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}

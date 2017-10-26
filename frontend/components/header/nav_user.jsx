@@ -1,6 +1,4 @@
-import { connect } from 'react-redux';
 import React from 'react';
-import { logout } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 class UserNavComponent extends React.Component {
@@ -33,7 +31,7 @@ class UserNavComponent extends React.Component {
             <li onClick={this.props.logout}>Logout</li>
           </ul>
         </a>
-        <Link to='/' className='nav-btn-tall flex-center'>
+        <Link to='/upload' className='nav-btn-tall flex-center'>
           <i className='fa fa-cloud-upload display-if' aria-hidden='true' />
           <span className='nav-link-text'>Upload</span>
         </Link>
