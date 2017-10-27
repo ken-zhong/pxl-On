@@ -20,6 +20,7 @@ class UserNavComponent extends React.Component {
     this.setState({showDropdown: !showState});
   }
 
+
   render () {
     let dropdownClass = this.state.showDropdown ? 'nav-dropdown visible' : 'nav-dropdown';
 

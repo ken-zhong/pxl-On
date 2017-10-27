@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactModal from 'react-modal';
 
 class UploadComponent extends React.Component {
   constructor (props) {
