@@ -6,6 +6,9 @@ import Header from './header/header';
 import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
 import UploadFormContainer from './upload/upload_container';
+import AboutPage from './about_page';
+// import UserProfileContainer from './user_profile_container';
+// <Route path='/:username' component={UserProfileContainer} />
 
 const App = () => (
   <div id='app'>
@@ -14,6 +17,7 @@ const App = () => (
       <AuthRoute exact path='/' component={Splash} />
       <AuthRoute path='/login' component={SessionFormContainer} />
       <AuthRoute path='/signup' component={SessionFormContainer} />
+      <Route path='/about' component={AboutPage} />
       <ProtectedRoute exact path='/home' component={HomeContainer} />
       <ProtectedRoute exact path='/upload' component={UploadFormContainer} />
     </Switch>

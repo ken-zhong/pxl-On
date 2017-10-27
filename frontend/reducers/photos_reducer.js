@@ -5,7 +5,7 @@ const PhotosReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_PHOTO:
-      return [];
+      return [action.photo];
     case RECEIVE_ALL_PHOTOS:
       return [];
     case REMOVE_PHOTO:

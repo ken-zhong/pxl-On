@@ -25,6 +25,7 @@
 }
 
 .upload-preview {
+  position: relative;
   max-height: 65vh;
   max-width: 90%;
   margin-top: -3em;
@@ -61,6 +62,10 @@
   align-items: center;
 }
 
+.upload-btn-on:hover {
+  background-color: $btn-blue-hover;
+}
+
 .upload-label {
   color: $nav-blue-hover;
 }
@@ -75,6 +80,7 @@
   height: 100%;
   width: 32em;
   border-left: 1px solid $light-grey;
+  position: relative;
 }
 
 .upload-details-form h3 {
@@ -105,6 +111,34 @@
   border: solid 1px $nav-blue-hover;
   box-shadow: none;
   outline: none;
+}
+
+.modal-close {
+  display: flex;
+  position: absolute;
+  background-color: white;
+  font-size: 2em;
+  top: .5em;
+  right: .5em;
+}
+
+.modal-close:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.cancel-upload {
+  display: flex;
+  position: absolute;
+  font-size: 1.8em;
+  top: .5em;
+  left: .5em;
+  color: #c62f1d;
+}
+
+.cancel-upload:hover {
+  color: #dd3a27;
+  cursor: pointer;
 }
 
 @media (min-width: 668px) {

@@ -12,6 +12,7 @@ class UploadComponent extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.cancelPhotoUpload = this.cancelPhotoUpload.bind(this);
   }
 
   handleInput (field) {
@@ -34,19 +35,30 @@ class UploadComponent extends React.Component {
   handleSubmit (e) {
     console.log(this.props);
     e.preventDefault();
-    // const formData = new FormData();
-    // formData.append('photo[title]', this.state.title);
-    // formData.append('photo[description]', this.state.description);
-    // formData.append('photo[imageFile]', this.state.imageFile);
-    // this.props.createPhoto().then(photo => {
-    //   this.props.history.push(`/photos/${photo.id}`);
-    // });
+    const formData = new FormData();
+    formData.append('photo[title]', this.state.title);
+    formData.append('photo[description]', this.state.description);
+    formData.append('photo[image]', this.state.imageFile);
+    formData.append('photo[author_id]', this.props.currentUser.id);
+    this.props.createPhoto(formData).then(res => {
+      console.log(res);
+      this.props.history.push(`/${this.props.currentUser.username}`);
+    });
+  }
+
+  cancelPhotoUpload (e) {
+    e.preventDefault();
+    this.setState({imageUrl: null});
   }
 
   render () {
     let uploadBtn = 'upload-btn';
+    let cancelUpload;
     if (!this.state.imageUrl) {
       uploadBtn += ' upload-btn-on';
+      cancelUpload = 'hide-element';
+    } else {
+      cancelUpload = 'fa fa-window-close cancel-upload';
     }
 
     return (
@@ -56,10 +68,12 @@ class UploadComponent extends React.Component {
           <input className='hide-element' type='file'
             onChange={this.handleFile} id='fileInput' />
           <div className='upload-preview'>
+            <i className={cancelUpload} onClick={this.cancelPhotoUpload} aria-hidden='true' />
             <img src={this.state.imageUrl} />
           </div>
         </div>
         <div className='upload-details-form'>
+          <i className='fa fa-times-circle modal-close' aria-hidden='true' />
           <h3>Upload your photo!</h3>
           <form>
             <label><span className='upload-label'>Title</span>

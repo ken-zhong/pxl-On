@@ -15,14 +15,19 @@ class UserNavComponent extends React.Component {
     this.setState({showDropdown: false});
   }
 
+  toggleDropdown () {
+    let showState = this.setState.showDropdown;
+    this.setState({showDropdown: !showState});
+  }
+
   render () {
     let dropdownClass = this.state.showDropdown ? 'nav-dropdown visible' : 'nav-dropdown';
 
     return (
       <div className='flex-center nav-component'>
-        <a href='#' onMouseEnter={this.dropdownEnter.bind(this)}
+        <span href='#' onMouseEnter={this.dropdownEnter.bind(this)}
           onMouseLeave={this.dropdownLeave.bind(this)}
-          onClick={(e) => e.preventDefault()}
+          onTouchStart={this.toggleDropdown.bind(this)}
           className='nav-user-profile flex-center'>DROPDOWN
           <ul className={dropdownClass}>
             <li>My Profile</li>
@@ -31,7 +36,7 @@ class UserNavComponent extends React.Component {
             <li>Followers</li>
             <li onClick={this.props.logout}>Logout</li>
           </ul>
-        </a>
+        </span>
         <Link to='/upload' className='nav-btn-tall flex-center'>
           <i className='fa fa-cloud-upload display-if' aria-hidden='true' />
           <span className='nav-link-text'>Upload</span>

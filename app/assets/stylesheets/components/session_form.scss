@@ -57,6 +57,10 @@
   border-radius: .2em;
 }
 
+.submit-btn:hover {
+  background-color: $btn-green-hover;
+}
+
 .demo-login-btn {
   box-sizing: border-box;
   text-align: center;
@@ -71,10 +75,6 @@
   margin-bottom: 3em;
   font-size: 1.2em;
   border-radius: .2em;
-}
-
-.login-grid button:hover {
-  background-color: $btn-green-hover;
 }
 
 .demo-login-btn:hover {
