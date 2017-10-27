@@ -52,28 +52,29 @@ class UploadComponent extends React.Component {
   }
 
   render () {
-    let uploadBtn = 'upload-btn';
-    let cancelUpload;
+    let uploadBtn;
+    let imagePreviewContainer;
     if (!this.state.imageUrl) {
-      uploadBtn += ' upload-btn-on';
-      cancelUpload = 'hide-element';
+      uploadBtn = <label htmlFor='fileInput' className='upload-btn' >Select a photo</label>;
     } else {
-      cancelUpload = 'fa fa-window-close cancel-upload';
+      imagePreviewContainer = (
+        <div className='upload-preview'>
+          <i className='fa fa-window-close cancel-upload' onClick={this.cancelPhotoUpload} aria-hidden='true' />
+          <img src={this.state.imageUrl} />
+        </div>
+      );
     }
 
     return (
       <div className='upload-modal'>
         <div className='upload-preview-container'>
-          <label htmlFor='fileInput' className={uploadBtn} >Select a photo</label>
+          { uploadBtn }
           <input className='hide-element' type='file'
             onChange={this.handleFile} id='fileInput' />
-          <div className='upload-preview'>
-            <i className={cancelUpload} onClick={this.cancelPhotoUpload} aria-hidden='true' />
-            <img src={this.state.imageUrl} />
-          </div>
+          { imagePreviewContainer }
         </div>
         <div className='upload-details-form'>
-          <i className='fa fa-times-circle modal-close' aria-hidden='true' />
+          <i className='fa fa-times modal-close' aria-hidden='true' />
           <h3>Upload your photo!</h3>
           <form>
             <label><span className='upload-label'>Title</span>
