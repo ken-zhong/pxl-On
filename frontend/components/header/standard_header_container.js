@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import StandardHeader from './standard_header';
 import { logout } from '../../actions/session_actions';
+import { toggleUploadModal } from '../../actions/ui_actions';
+
 // import { login, signup, clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = state => {
@@ -13,7 +15,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    toggleUploadModal: () => dispatch(toggleUploadModal())
   };
 };
 

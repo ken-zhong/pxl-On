@@ -34,7 +34,6 @@ class UploadComponent extends React.Component {
   }
 
   handleSubmit (e) {
-    console.log(this.props);
     e.preventDefault();
     const formData = new FormData();
     formData.append('photo[title]', this.state.title);
@@ -42,8 +41,13 @@ class UploadComponent extends React.Component {
     formData.append('photo[image]', this.state.imageFile);
     formData.append('photo[author_id]', this.props.currentUser.id);
     this.props.createPhoto(formData).then(res => {
-      console.log(res);
-      this.props.history.push(`/${this.props.currentUser.username}`);
+      this.props.toggleUploadModal();
+      let newPath = `/${this.props.currentUser.username}`;
+      if (newPath === this.props.location.pathname) {
+        window.location.reload();
+      } else {
+        this.props.history.push(newPath);
+      }
     });
   }
 
@@ -53,6 +57,8 @@ class UploadComponent extends React.Component {
   }
 
   render () {
+    console.log(this.props);
+
     let uploadBtn;
     let imagePreviewContainer;
     if (!this.state.imageUrl) {
@@ -65,35 +71,38 @@ class UploadComponent extends React.Component {
         </div>
       );
     }
+    // <div className='upload-modal'>
+    // </div>
 
     return (
-      <div className='upload-modal'>
-        <div className='upload-preview-container'>
-          { uploadBtn }
-          <input className='hide-element' type='file'
-            onChange={this.handleFile} id='fileInput' />
-          { imagePreviewContainer }
-        </div>
-        <div className='upload-details-form'>
-          <i className='fa fa-times modal-close' aria-hidden='true' />
-          <h3>Upload your photo!</h3>
-          <form>
-            <label><span className='upload-label'>Title</span>
+      <ReactModal isOpen={this.props.showUploadModal} className='upload-modal'
+        onRequestClose={this.props.toggleUploadModal} overlayClassName='overlay'>
+          <div className='upload-preview-container'>
+            { uploadBtn }
+            <input className='hide-element' type='file'
+              onChange={this.handleFile} id='fileInput' />
+            { imagePreviewContainer }
+          </div>
+          <div className='upload-details-form'>
+            <i onClick={this.props.toggleUploadModal} className='fa fa-times modal-close' aria-hidden='true' />
+            <h3>Upload your photo!</h3>
+            <form>
+              <label><span className='upload-label'>Title</span>
+                <br />
+                <input value={this.state.title} type='text'
+                  onChange={this.handleInput('title')} />
+              </label>
               <br />
-              <input value={this.state.title} type='text'
-                onChange={this.handleInput('title')} />
-            </label>
-            <br />
-            <label><span className='upload-label'>Description</span>
-              <br />
-              <textarea onChange={this.handleInput('description')}
-                placeholder='Tell us more about your awesome photo!'
-                value={this.state.description} ></textarea>
-            </label>
-            <button onClick={this.handleSubmit} className='submit-btn'>Submit</button>
-          </form>
-        </div>
-      </div>
+              <label><span className='upload-label'>Description</span>
+                <br />
+                <textarea onChange={this.handleInput('description')}
+                  placeholder='Tell us more about your awesome photo!'
+                  value={this.state.description} ></textarea>
+              </label>
+              <button onClick={this.handleSubmit} className='submit-btn'>Submit</button>
+            </form>
+          </div>
+      </ReactModal>
     );
   }
 }

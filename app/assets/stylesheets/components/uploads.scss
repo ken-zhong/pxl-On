@@ -1,18 +1,34 @@
  @import "base/specs.scss";
 
- .upload-modal {
-   border: solid 1px $light-grey;
-   width: 90vw;
-   height: 70vh;
-   max-width: 80em;
-   background-color: $white;
-   margin: auto;
-   margin-top: 10vh;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   overflow: none;
- }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(155, 155, 155, 0.75);
+  overflow: hidden;
+  z-index: 15;
+}
+
+.upload-modal {
+  z-index: 20;
+  border: solid 1px $light-grey;
+  width: 90vw;
+  max-width: 80em;
+  height: 90vh;
+  margin: 5vh auto;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.upload-modal:focus {
+  outline: none;
+}
 
 .upload-preview-container {
   display: flex;
@@ -26,7 +42,7 @@
 
 .upload-preview {
   position: relative;
-  max-height: 65vh;
+  max-height: 33vh;
   max-width: 90%;
   margin-top: -3em;
   overflow: none;
@@ -36,7 +52,7 @@
 .upload-preview img {
   display: inline-flex;
   align-self: center;
-  max-height: 65vh;
+  max-height: 33vh;
   max-width: 100%;
   width: auto;
 }
@@ -74,7 +90,6 @@
   align-items: center;
   height: 100%;
   width: 32em;
-  border-left: 1px solid $light-grey;
   position: relative;
 }
 
@@ -82,6 +97,7 @@
   font-size: 1.4em;
   padding-bottom: 2em;
   color: $dark-grey;
+  display: none;
 }
 
 .upload-details-form input, .upload-details-form textarea {
@@ -92,14 +108,14 @@
 }
 
 .upload-details-form input {
-  margin-bottom: 1.5em;
+  margin-bottom: .5em;
 }
 
 .upload-details-form textarea {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
-  height: 10em;
+  height: 6em;
 }
 
 .upload-details-form input:focus, .upload-details-form textarea:focus {
@@ -109,12 +125,12 @@
 }
 
 .modal-close {
-  display: flex;
   position: absolute;
   background-color: white;
   font-size: 2em;
   top: .5em;
   right: .5em;
+  display: none;
 }
 
 .modal-close:hover {
@@ -137,4 +153,39 @@
 }
 
 @media (min-width: 668px) {
+  .upload-modal {
+    flex-direction: row;
+    overflow: auto;
+    height: 80vh;
+    margin: 10vh auto;
+  }
+
+  .upload-preview {
+    max-height: 65vh;
+  }
+
+  .upload-preview img {
+    max-height: 65vh;
+  }
+
+  .upload-details-form {
+    border-left: 1px solid $light-grey;
+  }
+
+  .upload-details-form h3 {
+    display: flex;
+  }
+
+  .modal-close {
+    display: flex;
+  }
+
+  .upload-details-form input {
+    margin-bottom: 1.5em;
+  }
+
+  .upload-details-form textarea {
+    height: 10em;
+  }
+
 }

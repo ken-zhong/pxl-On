@@ -5,9 +5,11 @@ import Splash from './splash';
 import Header from './header/header';
 import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
-import UploadFormContainer from './upload/upload_container';
 import AboutPage from './about_page';
 import UserProfileContainer from './user_profile/user_profile_container';
+
+import UploadFormContainer from './upload/upload_container';
+// <ProtectedRoute exact path='/upload' component={UploadFormContainer} />
 
 const App = () => (
   <div id='app'>
@@ -18,9 +20,9 @@ const App = () => (
       <AuthRoute path='/signup' component={SessionFormContainer} />
       <Route path='/about' component={AboutPage} />
       <ProtectedRoute exact path='/home' component={HomeContainer} />
-      <ProtectedRoute exact path='/upload' component={UploadFormContainer} />
       <Route path='/:username' component={UserProfileContainer} />
     </Switch>
+    <UploadFormContainer />
   </div>
 );
 

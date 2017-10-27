@@ -16,10 +16,13 @@ class UserNavComponent extends React.Component {
   }
 
   toggleDropdown () {
-    let showState = this.setState.showDropdown;
-    this.setState({showDropdown: !showState});
+    let show = !this.state.showDropdown;
+    this.setState({showDropdown: show});
   }
 
+  showUpload () {
+    this.props.toggleUploadModal();
+  }
 
   render () {
     let dropdownClass = this.state.showDropdown ? 'nav-dropdown visible' : 'nav-dropdown';
@@ -38,10 +41,10 @@ class UserNavComponent extends React.Component {
             <li onClick={this.props.logout}>Logout</li>
           </ul>
         </span>
-        <Link to='/upload' className='nav-btn-tall flex-center'>
+        <span onClick={this.showUpload.bind(this)} className='nav-btn-tall flex-center'>
           <i className='fa fa-cloud-upload display-if' aria-hidden='true' />
           <span className='nav-link-text'>Upload</span>
-        </Link>
+        </span>
       </div>
     );
   }
