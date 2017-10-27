@@ -1,11 +1,17 @@
 class Api::PhotosController < ApplicationController
   def index
-    @photos = Photo.all
-  end
 
-  def user_index
-    @photos = User.find_by_username(params[:username]).photos
-    render "api/photos/index"
+    if params[:user_id]
+      user = User.find_by_username(params[:user_id])
+      if user
+        @photos = user.photos
+      else
+        render json: ['User not found'], status: 422
+      end
+    else
+      @photos = Photo.all
+    end
+
   end
 
   def create

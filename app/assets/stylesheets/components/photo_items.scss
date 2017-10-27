@@ -1,0 +1,18 @@
+@import "base/specs.scss";
+
+.photos-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photo-preview-container {
+  margin: .3em;
+  height: 20em;
+  overflow: hidden;
+
+}
+.photo-preview-container img {
+  height: 100%;
+  width: auto;
+  display: block;
+}

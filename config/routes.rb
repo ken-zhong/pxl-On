@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
-    resources :user, only: [:create, :show, :index]
+    resources :user, only: [:create, :show, :index] do
+      resources :photos, only: [:index]
+    end
     resources :photos, only: [:create, :show, :update, :destroy, :index]
     resource :session, only: [:create, :destroy]
 
-    get "/photos/users/:username" => "photos#user_index", as: "photos_user"
+    # get "/photos/users/:username" => "photos#user_index", as: "photos_user"
   end
 
   root 'static_pages#root'

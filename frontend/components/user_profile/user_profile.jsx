@@ -12,7 +12,7 @@ class UserProfile extends React.Component {
     const photos = this.props.photos.map((photo, idx) => {
       console.log(photo);
       return (
-        <div key={idx}>
+        <div className='photo-preview-container' key={idx}>
           <img src={photo.preview_url} />
         </div>
       );
@@ -20,9 +20,11 @@ class UserProfile extends React.Component {
     return (
       <div>
         <h1>User Component</h1>
-        { photos }
+        <div className='photos-container'>
+          { photos }
+        </div>
       </div>
-    )
+    );
   }
 }
 

@@ -3,7 +3,7 @@ import UsersReducer from './users_reducer';
 import PhotosReducer from './photos_reducer';
 
 const EntitiesReducer = combineReducers({
-  // users: UsersReducer,
+  users: UsersReducer,
   photos: PhotosReducer
 });
 
