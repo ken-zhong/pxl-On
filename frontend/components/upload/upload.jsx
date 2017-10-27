@@ -41,6 +41,7 @@ class UploadComponent extends React.Component {
     formData.append('photo[image]', this.state.imageFile);
     formData.append('photo[author_id]', this.props.currentUser.id);
     this.props.createPhoto(formData).then(res => {
+      this.setState({imageUrl: null});
       this.props.toggleUploadModal();
       let newPath = `/${this.props.currentUser.username}`;
       if (newPath === this.props.location.pathname) {
@@ -57,8 +58,6 @@ class UploadComponent extends React.Component {
   }
 
   render () {
-    console.log(this.props);
-
     let uploadBtn;
     let imagePreviewContainer;
     if (!this.state.imageUrl) {
@@ -71,8 +70,6 @@ class UploadComponent extends React.Component {
         </div>
       );
     }
-    // <div className='upload-modal'>
-    // </div>
 
     return (
       <ReactModal isOpen={this.props.showUploadModal} className='upload-modal'

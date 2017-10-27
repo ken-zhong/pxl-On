@@ -24,9 +24,15 @@ class UserNavComponent extends React.Component {
     this.props.toggleUploadModal();
   }
 
+  logout () {
+    this.props.logout().then(() => {
+      this.props.history.push('/');
+    });
+  }
+
   render () {
     let dropdownClass = this.state.showDropdown ? 'nav-dropdown visible' : 'nav-dropdown';
-
+    console.log(this.props);
     return (
       <div className='flex-center nav-component'>
         <span href='#' onMouseEnter={this.dropdownEnter.bind(this)}
@@ -38,7 +44,7 @@ class UserNavComponent extends React.Component {
             <li>Manage Photos</li>
             <li>Following</li>
             <li>Followers</li>
-            <li onClick={this.props.logout}>Logout</li>
+            <li onClick={this.logout.bind(this)}>Logout</li>
           </ul>
         </span>
         <span onClick={this.showUpload.bind(this)} className='nav-btn-tall flex-center'>

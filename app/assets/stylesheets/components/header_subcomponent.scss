@@ -37,15 +37,16 @@
   height: 100%;
   background-color: $btn-blue;
   color: $white;
+  cursor: default;
 }
 
 .nav-dropdown {
   position: absolute;
   color: gray;
-  margin-top: .5em;
+  margin-top: .7em;
   margin-left: -3em;
   background: $white;
-  width: 10em;
+  width: 10.5em;
   visibility: hidden;
 }
 

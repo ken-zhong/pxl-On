@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import StandardHeader from './standard_header';
 import { logout } from '../../actions/session_actions';
 import { toggleUploadModal } from '../../actions/ui_actions';
+import { withRouter } from 'react-router-dom';
 
 // import { login, signup, clearErrors } from '../../actions/session_actions';
 
@@ -20,4 +21,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(StandardHeader);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StandardHeader));

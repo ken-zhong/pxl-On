@@ -8,9 +8,7 @@ class UserProfile extends React.Component {
   }
 
   render () {
-    console.log(this.props);
     const photos = this.props.photos.map((photo, idx) => {
-      console.log(photo);
       return (
         <div className='photo-preview-container' key={idx}>
           <img src={photo.preview_url} />

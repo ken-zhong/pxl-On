@@ -14,7 +14,7 @@ class StandardHeader extends React.Component {
     let navComponentRight;
     if (this.props.loggedIn) {
       navComponentRight = <NavUser logout={this.props.logout}
-        currentUser={this.props.currentUser}
+        currentUser={this.props.currentUser} history={this.props.history}
         toggleUploadModal={this.props.toggleUploadModal} />;
     } else {
       navComponentRight = <NavAuth />;

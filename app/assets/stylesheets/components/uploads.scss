@@ -16,8 +16,8 @@
   border: solid 1px $light-grey;
   width: 90vw;
   max-width: 80em;
-  height: 90vh;
-  margin: 5vh auto;
+  height: 80vh;
+  margin: 10vh auto;
   background-color: $white;
   display: flex;
   align-items: center;
@@ -156,8 +156,6 @@
   .upload-modal {
     flex-direction: row;
     overflow: auto;
-    height: 80vh;
-    margin: 10vh auto;
   }
 
   .upload-preview {
