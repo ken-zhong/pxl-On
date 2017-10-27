@@ -1,13 +1,14 @@
 import { RECEIVE_PHOTO, RECEIVE_ALL_PHOTOS, REMOVE_PHOTO,
   RECEIVE_PHOTO_ERRORS } from '../actions/photo_actions';
+import merge from 'lodash/merge';
 
-const PhotosReducer = (state = [], action) => {
+const PhotosReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_PHOTO:
-      return [action.photo];
+      return action.photo;
     case RECEIVE_ALL_PHOTOS:
-      return [];
+      return merge({}, state, action.photos);
     case REMOVE_PHOTO:
       return [];
     case RECEIVE_PHOTO_ERRORS:

@@ -1,5 +1,11 @@
 class Api::PhotosController < ApplicationController
   def index
+    @photos = Photo.all
+  end
+
+  def user_index
+    @photos = User.find_by_username(params[:username]).photos
+    render "api/photos/index"
   end
 
   def create

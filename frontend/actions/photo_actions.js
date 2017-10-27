@@ -33,7 +33,7 @@ const receivePhotoErrors = errors => {
   };
 };
 
-export const fetchPhotos = () => dispatch => {
+export const fetchAllPhotos = () => dispatch => {
   return PhotoApiUtil.fetchPhotos().then(
     photos => dispatch(receiveAllPhotos(photos)),
     errors => dispatch(receivePhotoErrors(errors))
@@ -43,6 +43,13 @@ export const fetchPhotos = () => dispatch => {
 export const fetchPhoto = id => dispatch => {
   return PhotoApiUtil.fetchPhoto(id).then(
     photo => dispatch(receivePhoto(photo)),
+    errors => dispatch(receivePhotoErrors(errors))
+  );
+};
+
+export const fetchUserPhotos = username => dispatch => {
+  return PhotoApiUtil.fetchUserPhotos(username).then(
+    photos => dispatch(receiveAllPhotos(photos)),
     errors => dispatch(receivePhotoErrors(errors))
   );
 };

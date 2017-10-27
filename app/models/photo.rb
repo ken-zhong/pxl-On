@@ -18,6 +18,7 @@ class Photo < ApplicationRecord
   before_validation :ensure_description, unless: :persisted?
   has_attached_file :image, styles: { medium: "500x500>", thumb: "100x100>" },
     default_url: "images/thinking_face.png"
+
   belongs_to :author,
     class_name: "User",
     foreign_key: :author_id

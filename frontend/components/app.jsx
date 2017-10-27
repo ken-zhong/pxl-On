@@ -7,8 +7,7 @@ import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
 import UploadFormContainer from './upload/upload_container';
 import AboutPage from './about_page';
-// import UserProfileContainer from './user_profile_container';
-// <Route path='/:username' component={UserProfileContainer} />
+import UserProfileContainer from './user_profile/user_profile_container';
 
 const App = () => (
   <div id='app'>
@@ -20,6 +19,7 @@ const App = () => (
       <Route path='/about' component={AboutPage} />
       <ProtectedRoute exact path='/home' component={HomeContainer} />
       <ProtectedRoute exact path='/upload' component={UploadFormContainer} />
+      <Route path='/:username' component={UserProfileContainer} />
     </Switch>
   </div>
 );

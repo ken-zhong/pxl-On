@@ -6,6 +6,12 @@ export const fetchPhotos = () => {
   });
 };
 
+export const fetchUserPhotos = (username) => {
+  return $.ajax({
+    url: `api/photos/users/${username}`
+  });
+};
+
 export const fetchPhoto = (id) => {
   return $.ajax({
     url: `api/photos/${id}`

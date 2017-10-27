@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :user, only: [:create, :show, :index]
     resources :photos, only: [:create, :show, :update, :destroy, :index]
     resource :session, only: [:create, :destroy]
+
+    get "/photos/users/:username" => "photos#user_index", as: "photos_user"
   end
 
   root 'static_pages#root'

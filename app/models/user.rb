@@ -20,8 +20,8 @@ class User < ApplicationRecord
 
   has_many :photos,
     class_name: 'Photo',
-    foreign_key: :id
-    
+    foreign_key: :author_id
+
 
   def password=(password)
     @password = password
