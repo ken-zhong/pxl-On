@@ -32,22 +32,33 @@
 }
 
 .nav-user-profile {
-  padding: 0 1em;
-  margin: 0 .2em;
   height: 100%;
-  background-color: $btn-blue;
-  color: $white;
+  width: 3.5em;
+  padding: .5em;
+  display: flex;
+  align-items: center;
+}
+
+.nav-user-icon {
   cursor: default;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background-image: image-url('user_default.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .nav-dropdown {
   position: absolute;
   color: gray;
-  margin-top: .7em;
-  margin-left: -3em;
+  margin-top: 1.02em;
+  margin-left: -1em;
   background: $white;
   width: 10.5em;
   visibility: hidden;
+  border: solid 1px $light-grey;
 }
 
 .visible {

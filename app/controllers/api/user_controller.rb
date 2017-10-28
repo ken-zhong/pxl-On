@@ -3,6 +3,8 @@ class Api::UserController < ApplicationController
   end
 
   def show
+    @user = User.find_by_username(params[:id])
+    render "api/users/show"
   end
 
   def create

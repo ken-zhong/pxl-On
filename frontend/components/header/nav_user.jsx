@@ -35,18 +35,21 @@ class UserNavComponent extends React.Component {
     console.log(this.props);
     return (
       <div className='flex-center nav-component'>
-        <span href='#' onMouseEnter={this.dropdownEnter.bind(this)}
+        <div className='nav-user-profile'
+          onMouseEnter={this.dropdownEnter.bind(this)}
           onMouseLeave={this.dropdownLeave.bind(this)}
-          onTouchStart={this.toggleDropdown.bind(this)}
-          className='nav-user-profile flex-center'>DROPDOWN
-          <ul className={dropdownClass}>
-            <li>My Profile</li>
-            <li>Manage Photos</li>
-            <li>Following</li>
-            <li>Followers</li>
-            <li onClick={this.logout.bind(this)}>Logout</li>
-          </ul>
-        </span>
+          onTouchStart={this.toggleDropdown.bind(this)}>
+          <span className='nav-user-icon flex-center'>
+            <br />
+            <ul className={dropdownClass}>
+              <li>My Profile</li>
+              <li>Manage Photos</li>
+              <li>Following</li>
+              <li>Followers</li>
+              <li onClick={this.logout.bind(this)}>Logout</li>
+            </ul>
+          </span>
+        </div>
         <span onClick={this.showUpload.bind(this)} className='nav-btn-tall flex-center'>
           <i className='fa fa-cloud-upload display-if' aria-hidden='true' />
           <span className='nav-link-text'>Upload</span>

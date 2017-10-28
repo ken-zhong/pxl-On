@@ -44,9 +44,7 @@ class UploadComponent extends React.Component {
       this.setState({imageUrl: null});
       this.props.toggleUploadModal();
       let newPath = `/${this.props.currentUser.username}`;
-      if (newPath === this.props.location.pathname) {
-        window.location.reload();
-      } else {
+      if (newPath !== this.props.location.pathname) {
         this.props.history.push(newPath);
       }
     });

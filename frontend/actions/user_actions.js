@@ -19,7 +19,7 @@ const receiveUserErrors = errors => {
 
 export const fetchUser = id => dispatch => {
   return UserApiUtil.fetchUser(id).then(
-    photo => dispatch(receiveUser(photo)),
+    user => dispatch(receiveUser(user)),
     errors => dispatch(receiveUserErrors(errors))
   );
 };

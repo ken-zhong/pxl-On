@@ -11,6 +11,7 @@ const mapStateToProps = state => {
     loggedIn: Boolean(state.session.currentUser),
     currentUser: state.session.currentUser,
     errors: state.errors,
+    user: state.entities.users,
     photos
   };
 };
