@@ -65,19 +65,24 @@
   visibility: visible;
 }
 
-.nav-dropdown li {
+.nav-dropdown-link {
   margin: .2 .5em;
   padding: .3em;
   padding-left: 1.2em;
+  color: gray;
 }
 
-.nav-dropdown li:last-child {
+.nav-dropdown-link:first-child {
+  padding-top: 1em;
+}
+
+.nav-dropdown-link:last-child {
   border-top: 1px solid $light-grey;
   padding-top: 1em;
   margin-top: 1em;
 }
 
-.nav-dropdown li:hover {
+.nav-dropdown-link:hover {
   color: $nav-blue-hover;
   cursor: pointer;
 }

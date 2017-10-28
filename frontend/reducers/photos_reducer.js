@@ -10,10 +10,8 @@ const PhotosReducer = (state = {}, action) => {
       return merge({}, state, newPhoto);
     case RECEIVE_ALL_PHOTOS:
       return merge({}, state, action.photos);
-    case REMOVE_PHOTO:
-      return [];
-    case RECEIVE_PHOTO_ERRORS:
-      return [];
+    // case REMOVE_PHOTO:
+    //   return [];
     default: return state;
   }
 };

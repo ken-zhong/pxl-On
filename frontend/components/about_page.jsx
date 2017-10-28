@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutPage = props => {
   return (
-    <div>
+    <div className='fadeIn'>
       <div className='about-background-img-container'>
       </div>
       <div>

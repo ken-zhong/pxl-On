@@ -14,13 +14,14 @@
 
  */
 
- // CSS Reset
+ // CSS Reset and base
  @import "base/base.scss";
 
  // Specs
  @import url('https://fonts.googleapis.com/css?family=Maven+Pro');
  @import "font-awesome";
  @import "base/specs.scss";
+ @import "base/animations.scss";
 
  // Components
  @import "components/*";

@@ -101,7 +101,7 @@ class SessionForm extends React.Component {
     }
 
     return (
-      <div>
+      <div className='zoomOpen'>
         <div className='container login-grid'>
           <main className='container flex-col login-body'>
             <h3>{headerText}</h3>

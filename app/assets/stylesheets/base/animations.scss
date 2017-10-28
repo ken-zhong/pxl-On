@@ -1,0 +1,42 @@
+@keyframes fadeIn {
+  0% {opacity: .1}
+  100% {opacity: 1}
+}
+@-webkit-keyframes fadeIn {
+  0% {opacity: .1}
+  100% {opacity: 1}
+}
+.fadeIn {
+  -webkit-animation: .6s fadeIn;
+  animation: .6s fadeIn;
+}
+.fadeIn-slow {
+  -webkit-animation: 2s fadeIn;
+  animation: 2s fadeIn;
+}
+
+@keyframes zoomOpen {
+  0% {transform: scale(0.3, 0.3)}
+  100% {transform: scale(1, 1)}
+}
+@-webkit-keyframes zoomOpen {
+  0% {transform: scale(0.3, 0.3)}
+  100% {transform: scale(1, 1)}
+}
+.zoomOpen {
+  -webkit-animation: .4s zoomOpen;
+  animation: .4s zoomOpen;
+}
+
+@keyframes slideUp {
+  0% {transform: translateY(100%)}
+  100% {transform: translateY(0)}
+}
+@-webkit-keyframes slideUp {
+  0% {transform: translateY(100%)}
+  100% {transform: translateY(0)}
+}
+.slideUp {
+  -webkit-animation: .4s slideUp;
+  animation: .4s slideUp;
+}

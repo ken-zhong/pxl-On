@@ -13,7 +13,6 @@ class UploadComponent extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.cancelPhotoUpload = this.cancelPhotoUpload.bind(this);
   }
 
   handleInput (field) {
@@ -55,6 +54,15 @@ class UploadComponent extends React.Component {
     this.setState({imageUrl: null});
   }
 
+  closeModal () {
+    document.body.style.overflow = 'auto';
+    this.props.toggleUploadModal();
+  }
+
+  openModal () {
+    document.body.style.overflow = 'hidden';
+  }
+
   render () {
     let uploadBtn;
     let imagePreviewContainer;
@@ -63,7 +71,7 @@ class UploadComponent extends React.Component {
     } else {
       imagePreviewContainer = (
         <div className='upload-preview'>
-          <i className='fa fa-window-close cancel-upload' onClick={this.cancelPhotoUpload} aria-hidden='true' />
+          <i className='fa fa-window-close cancel-upload' onClick={this.cancelPhotoUpload.bind(this)} aria-hidden='true' />
           <img src={this.state.imageUrl} />
         </div>
       );
@@ -71,7 +79,8 @@ class UploadComponent extends React.Component {
 
     return (
       <ReactModal isOpen={this.props.showUploadModal} className='upload-modal'
-        onRequestClose={this.props.toggleUploadModal} overlayClassName='overlay'>
+        onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
+        onAfterOpen={this.openModal.bind(this)}>
           <div className='upload-preview-container'>
             { uploadBtn }
             <input className='hide-element' type='file'
@@ -79,7 +88,7 @@ class UploadComponent extends React.Component {
             { imagePreviewContainer }
           </div>
           <div className='upload-details-form'>
-            <i onClick={this.props.toggleUploadModal} className='fa fa-times modal-close' aria-hidden='true' />
+            <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close' aria-hidden='true' />
             <h3>Upload your photo!</h3>
             <form>
               <label><span className='upload-label'>Title</span>

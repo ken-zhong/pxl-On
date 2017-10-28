@@ -42,11 +42,11 @@ class UserNavComponent extends React.Component {
           <span className='nav-user-icon flex-center'>
             <br />
             <ul className={dropdownClass}>
-              <li>My Profile</li>
-              <li>Manage Photos</li>
-              <li>Following</li>
-              <li>Followers</li>
-              <li onClick={this.logout.bind(this)}>Logout</li>
+              <Link to={`/${this.props.currentUser.username}`} className='nav-dropdown-link'>My Profile</Link>
+              <li className='nav-dropdown-link'>Manage Photos</li>
+              <li className='nav-dropdown-link'>Following</li>
+              <li className='nav-dropdown-link'>Followers</li>
+              <li className='nav-dropdown-link' onClick={this.logout.bind(this)}>Logout</li>
             </ul>
           </span>
         </div>
