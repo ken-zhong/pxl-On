@@ -42,7 +42,7 @@ class SessionForm extends React.Component {
         { this.props.errors.session.map((e, idx) => <div key={idx}>{e}</div>) }
       </span>;
     } else {
-      errors = <span />;
+      errors = null;
     }
     return errors;
   }

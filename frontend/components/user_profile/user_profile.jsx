@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import ProfileEditModal from './user_profile_edit_modal';
 
 class UserProfile extends React.Component {
   constructor (props) {
@@ -48,7 +49,7 @@ class UserProfile extends React.Component {
     return (
       <div>
         <div style={coverUrl} className='cover-image'>
-          <span className='profile-edit-btn'>Edit Profile</span>
+          <span onClick={() => this.setState({editModalOpen: true})} className='profile-edit-btn'>Edit Profile</span>
         </div>
         <div className='user-profile-masthead'>
           <span style={profilePhotoUrl} className='profile-photo' />
@@ -61,9 +62,10 @@ class UserProfile extends React.Component {
         <div className='photos-grid'>
           { photos }
         </div>
-        <ReactModal isOpen={this.props.showUploadModal} className='upload-modal'
+        <ReactModal isOpen={this.state.editModalOpen} className='upload-modal profile-modal'
           onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
           onAfterOpen={this.openModal.bind(this)}>
+          <ProfileEditModal />
         </ReactModal>
       </div>
     );

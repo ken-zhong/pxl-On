@@ -8,7 +8,8 @@ class UploadComponent extends React.Component {
       title: '',
       description: '',
       imageFile: null,
-      imageUrl: null
+      imageUrl: null,
+      loading: false
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleFile = this.handleFile.bind(this);
@@ -35,18 +36,25 @@ class UploadComponent extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
+    if (!this.state.imageFile) {
+      return;
+    }
     const formData = new FormData();
     formData.append('photo[title]', this.state.title);
     formData.append('photo[description]', this.state.description);
     formData.append('photo[image]', this.state.imageFile);
     formData.append('photo[author_id]', this.props.currentUser.id);
+    this.setState({loading: true});
     this.props.createPhoto(formData).then(res => {
       this.setState({imageUrl: null});
       this.closeModal();
+      this.setState({loading: false});
       let newPath = `/${this.props.currentUser.username}`;
       if (newPath !== this.props.location.pathname) {
         this.props.history.push(newPath);
       }
+    }, res => {
+      this.setState({loading: false});
     });
   }
 
@@ -88,6 +96,30 @@ class UploadComponent extends React.Component {
       );
     }
 
+    let errors;
+    if (this.props.errors.app.length > 0) {
+      errors = <span className='session-errors'>
+        { this.props.errors.app.map((e, idx) => <div key={idx}>{e}</div>) }
+      </span>;
+    } else {
+      errors = null;
+    }
+
+    let submitButton;
+    if (this.state.loading) {
+      submitButton = (
+        <div className='submit-loading'>
+          <i className='fa fa-spinner fa-spin fa-3x fa-fw' />
+        </div>
+      );
+
+    } else {
+      submitButton = (
+        <button onClick={this.handleSubmit}
+          className='submit-btn'>Submit</button>
+      );
+    }
+
     return (
       <ReactModal isOpen={this.props.showUploadModal} className='upload-modal'
         onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
@@ -101,6 +133,7 @@ class UploadComponent extends React.Component {
         <div className='upload-details-form'>
           <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close' aria-hidden='true' />
           <h3>Upload your photo!</h3>
+          { errors }
           <form>
             <label><span className='upload-label'>Title</span>
               <br />
@@ -114,7 +147,7 @@ class UploadComponent extends React.Component {
                 placeholder='Tell us more about your awesome photo!'
                 value={this.state.description} ></textarea>
             </label>
-            <button onClick={this.handleSubmit} className='submit-btn'>Submit</button>
+            { submitButton }
           </form>
         </div>
       </ReactModal>

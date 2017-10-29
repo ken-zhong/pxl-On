@@ -26,6 +26,10 @@
   overflow: auto;
 }
 
+.profile-modal {
+  max-width: 40em;
+}
+
 .upload-modal:focus {
   outline: none;
 }
@@ -152,6 +156,11 @@
   cursor: pointer;
 }
 
+.submit-loading {
+  text-align: center;
+  margin-top: 1em;
+}
+
 @media (min-width: 668px) {
   .upload-modal {
     flex-direction: row;
@@ -185,5 +194,4 @@
   .upload-details-form textarea {
     height: 10em;
   }
-
 }

@@ -24,7 +24,7 @@ class Photo < ApplicationRecord
     foreign_key: :author_id
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-  validates :title, :author, :description, presence: true
+  validates :title, :author, presence: true
 
   def ensure_description
     self.description ||= ''
