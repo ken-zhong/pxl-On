@@ -4,7 +4,11 @@ class Api::UserController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:id])
-    render "api/users/show"
+    if @user
+      render "api/users/show"
+    else
+      render json: ['User not found!'], status: 422
+    end
   end
 
   def create

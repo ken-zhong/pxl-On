@@ -13,6 +13,7 @@ class UploadComponent extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearState = this.clearState.bind(this);
   }
 
   handleInput (field) {
@@ -49,6 +50,15 @@ class UploadComponent extends React.Component {
     });
   }
 
+  clearState () {
+    this.setState({
+      title: '',
+      description: '',
+      imageFile: null,
+      imageUrl: null
+    });
+  }
+
   cancelPhotoUpload (e) {
     e.preventDefault();
     this.setState({imageUrl: null});
@@ -56,6 +66,7 @@ class UploadComponent extends React.Component {
 
   closeModal () {
     document.body.style.overflow = 'auto';
+    this.clearState();
     this.props.toggleUploadModal();
   }
 

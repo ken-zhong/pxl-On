@@ -32,3 +32,37 @@
   color: $dark-grey;
   font-size: 2em;
 }
+
+.photos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photos-grid img {
+  box-sizing: border-box;
+  margin: .3em;
+  max-height: 20em;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.photo-preview-container {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 668px) {
+  // .photo-preview-container {
+  //   width: 32%;
+  // }
+}
+
+@media (min-width: 1025px) {
+
+}
+//
+// @media (min-width: 1440px) {
+//   .photos-grid {}
+// }

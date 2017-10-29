@@ -13,6 +13,7 @@ class UserProfile extends React.Component {
       this.props.fetchUserPhotos(username);
       this.props.fetchUser(username);
     }
+    console.log(nextProps);
   }
 
   render () {
@@ -20,6 +21,7 @@ class UserProfile extends React.Component {
     [coverUrl, profilePhotoUrl] = this.getUserUrls();
 
     const photos = this.props.photos.map((photo, idx) => {
+      // let imgUrl = {backgroundImage: `url(${photo.preview_url})`};
       return (
         <div className='photo-preview-container' key={idx}>
           <img src={photo.preview_url} />
@@ -34,9 +36,12 @@ class UserProfile extends React.Component {
         <div className='user-profile-masthead'>
           <span style={profilePhotoUrl} className='profile-photo' />
           <h1 className='profile-header'>{this.props.user.username}</h1>
-          <h1>This user is: {this.props.user.username}</h1>
+          <div>
+            <span>32 Followers</span>
+            <span>12 Following</span>
+          </div>
         </div>
-        <div className='photos-container'>
+        <div className='photos-grid'>
           { photos }
         </div>
       </div>
