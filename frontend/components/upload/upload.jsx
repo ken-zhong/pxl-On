@@ -92,31 +92,31 @@ class UploadComponent extends React.Component {
       <ReactModal isOpen={this.props.showUploadModal} className='upload-modal'
         onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
         onAfterOpen={this.openModal.bind(this)}>
-          <div className='upload-preview-container'>
-            { uploadBtn }
-            <input className='hide-element' type='file'
-              onChange={this.handleFile} id='fileInput' />
-            { imagePreviewContainer }
-          </div>
-          <div className='upload-details-form'>
-            <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close' aria-hidden='true' />
-            <h3>Upload your photo!</h3>
-            <form>
-              <label><span className='upload-label'>Title</span>
-                <br />
-                <input value={this.state.title} type='text'
-                  onChange={this.handleInput('title')} />
-              </label>
+        <div className='upload-preview-container'>
+          { uploadBtn }
+          <input className='hide-element' type='file'
+            onChange={this.handleFile} id='fileInput' />
+          { imagePreviewContainer }
+        </div>
+        <div className='upload-details-form'>
+          <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close' aria-hidden='true' />
+          <h3>Upload your photo!</h3>
+          <form>
+            <label><span className='upload-label'>Title</span>
               <br />
-              <label><span className='upload-label'>Description</span>
-                <br />
-                <textarea onChange={this.handleInput('description')}
-                  placeholder='Tell us more about your awesome photo!'
-                  value={this.state.description} ></textarea>
-              </label>
-              <button onClick={this.handleSubmit} className='submit-btn'>Submit</button>
-            </form>
-          </div>
+              <input value={this.state.title} type='text'
+                onChange={this.handleInput('title')} />
+            </label>
+            <br />
+            <label><span className='upload-label'>Description</span>
+              <br />
+              <textarea onChange={this.handleInput('description')}
+                placeholder='Tell us more about your awesome photo!'
+                value={this.state.description} ></textarea>
+            </label>
+            <button onClick={this.handleSubmit} className='submit-btn'>Submit</button>
+          </form>
+        </div>
       </ReactModal>
     );
   }

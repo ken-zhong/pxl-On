@@ -1,12 +1,35 @@
  @import "base/specs.scss";
 
 .cover-image {
+  position: relative;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  z-index: 0;
 }
 
+.profile-edit-btn {
+  position: absolute;
+  bottom: 0;
+  right: 1em;
+  margin-bottom: -2.8em;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: $btn-blue;
+  cursor: pointer;
+  color: $white;
+  border: none;
+  font-size: 1em;
+  padding: .3em .7em;
+  border-radius: .2em;
+  z-index: 1;
+}
+
+.profile-edit-btn:hover {
+  background-color: $btn-blue-hover;
+}
 .user-profile-masthead {
+  z-index: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +38,17 @@
   border-bottom: 1px solid $light-grey;
 }
 
+.user-profile-subheader-text {
+  margin: 1em 0;
+}
+
+.user-profile-subheader-text span {
+  margin: 0 1em;
+  color: $grey;
+}
+
 .profile-photo {
+  z-index: 5;
   background-color: red;
   height: 8em;
   width: 8em;
@@ -54,15 +87,7 @@
 }
 
 @media (min-width: 668px) {
-  // .photo-preview-container {
-  //   width: 32%;
-  // }
+  .profile-edit-btn {
+    right: 5vw;
+  }
 }
-
-@media (min-width: 1025px) {
-
-}
-//
-// @media (min-width: 1440px) {
-//   .photos-grid {}
-// }

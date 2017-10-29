@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user1 = User.create({username: 'demo_user', password: 'starwars'})
-
+admin = User.create({username: 'admin', password: 'password123'})
 
 Photo.create(title: 'test', author_id: user1.id)

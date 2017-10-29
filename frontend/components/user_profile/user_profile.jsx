@@ -33,14 +33,14 @@ class UserProfile extends React.Component {
     return (
       <div>
         <div style={coverUrl} className='cover-image'>
-          <span>Profile pic and cover pic goes here</span>
+          <span className='profile-edit-btn'>Edit Profile</span>
         </div>
         <div className='user-profile-masthead'>
           <span style={profilePhotoUrl} className='profile-photo' />
           <h1 className='profile-header'>{this.props.user.username}</h1>
-          <div>
-            <span>32 Followers</span>
-            <span>12 Following</span>
+          <div className='user-profile-subheader-text'>
+            <span>## Followers</span>
+            <span>## Following</span>
           </div>
         </div>
         <div className='photos-grid'>
