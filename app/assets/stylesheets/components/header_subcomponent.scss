@@ -55,6 +55,7 @@
   color: gray;
   margin-top: 1.02em;
   margin-left: -1em;
+  padding-top: 1em;
   background: $white;
   width: 10.5em;
   visibility: hidden;
@@ -71,10 +72,6 @@
   padding-left: 1.2em;
   color: gray;
   transition: color .2s;
-}
-
-.nav-dropdown-link:first-child {
-  padding-top: 1em;
 }
 
 .nav-dropdown-link:last-child {

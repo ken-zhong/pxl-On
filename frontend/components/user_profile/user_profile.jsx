@@ -1,6 +1,12 @@
 import React from 'react';
+import ReactModal from 'react-modal';
 
 class UserProfile extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {editModalOpen: false};
+  }
+
   componentDidMount () {
     let username = this.props.match.params.username;
     this.props.fetchUserPhotos(username);
@@ -16,6 +22,15 @@ class UserProfile extends React.Component {
       this.props.history.push('/oops');
     }
     console.log(nextProps);
+  }
+
+  closeModal () {
+    document.body.style.overflow = 'auto';
+    this.setState({editModalOpen: false});
+  }
+
+  openModal () {
+    document.body.style.overflow = 'hidden';
   }
 
   render () {
@@ -46,6 +61,10 @@ class UserProfile extends React.Component {
         <div className='photos-grid'>
           { photos }
         </div>
+        <ReactModal isOpen={this.props.showUploadModal} className='upload-modal'
+          onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
+          onAfterOpen={this.openModal.bind(this)}>
+        </ReactModal>
       </div>
     );
   }
