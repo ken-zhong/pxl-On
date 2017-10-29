@@ -41,7 +41,7 @@ class UploadComponent extends React.Component {
     formData.append('photo[author_id]', this.props.currentUser.id);
     this.props.createPhoto(formData).then(res => {
       this.setState({imageUrl: null});
-      this.props.toggleUploadModal();
+      this.closeModal();
       let newPath = `/${this.props.currentUser.username}`;
       if (newPath !== this.props.location.pathname) {
         this.props.history.push(newPath);

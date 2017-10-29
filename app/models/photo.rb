@@ -16,7 +16,7 @@
 
 class Photo < ApplicationRecord
   before_validation :ensure_description, unless: :persisted?
-  has_attached_file :image, styles: { medium: "500x500>", thumb: "100x100>" },
+  has_attached_file :image, styles: { large: "2200x2200", medium: "500x500>", thumb: "100x100>" },
     default_url: "images/thinking_face.png"
 
   belongs_to :author,
@@ -27,7 +27,7 @@ class Photo < ApplicationRecord
   validates :title, :author, :description, presence: true
 
   def ensure_description
-    self.description ||= 'n/a'
+    self.description ||= ''
   end
 
 

@@ -23,9 +23,11 @@
   color: black;
   font-family: 'Maven Pro', sans-serif;
   margin-left: .2em;
+  transition: color .2s;
 }
 
 .nav-logo:hover {
+  transition: color .2s;
   color: $nav-blue-hover;
 }
 
@@ -38,9 +40,11 @@
   color: $white;
   text-decoration: none;
   margin-right: .2em;
+  transition: color .2s;
 }
 
 .nav-link-light:hover {
+  transition: color .2s;
   color: $nav-blue-hover;
 }
 
@@ -48,9 +52,11 @@
   color: black;
   text-decoration: none;
   margin-right: .2em;
+  transition: color .2s;
 }
 
 .nav-link:hover {
+  transition: color .2s;
   color: $nav-blue-hover;
 }
 

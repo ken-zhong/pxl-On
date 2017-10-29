@@ -32,7 +32,6 @@ class UserNavComponent extends React.Component {
 
   render () {
     let dropdownClass = this.state.showDropdown ? 'nav-dropdown visible' : 'nav-dropdown';
-    console.log(this.props);
     return (
       <div className='flex-center nav-component'>
         <div className='nav-user-profile'
