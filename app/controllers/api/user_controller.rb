@@ -7,7 +7,7 @@ class Api::UserController < ApplicationController
     if @user
       render "api/users/show"
     else
-      render json: ['User not found!'], status: 422
+      render json: ['User not found'], status: 422
     end
   end
 

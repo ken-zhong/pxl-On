@@ -4,7 +4,7 @@ import AppErrorsReducer from './app_errors_reducer';
 
 const ErrorsReducer = combineReducers({
   session: SessionErrorsReducer,
-  app_errors: AppErrorsReducer
+  app: AppErrorsReducer
 });
 
 export default ErrorsReducer;

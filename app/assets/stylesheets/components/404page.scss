@@ -1,0 +1,26 @@
+ @import "base/specs.scss";
+
+.err-404 {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  width: 95vw;
+  max-width: 30em;
+  padding: 1.5em;
+  text-align: center;
+  margin: 5em auto;
+  border: solid 1px $light-grey;
+  background-color: $white;
+}
+
+.nav-blue {
+  color: $btn-blue;
+}
+.nav-blue:hover {
+  color: $btn-blue-hover;
+}
+
+.error-icon {
+  color: red;
+  margin-right: .5em;
+}

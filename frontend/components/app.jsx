@@ -6,6 +6,7 @@ import Header from './header/header';
 import SessionFormContainer from './session_form/session_form_container';
 import HomeContainer from './home/home_container';
 import AboutPage from './about_page';
+import Err404 from './404';
 import UserProfileContainer from './user_profile/user_profile_container';
 
 import UploadFormContainer from './upload/upload_container';
@@ -21,6 +22,7 @@ const App = () => (
       <Route path='/about' component={AboutPage} />
       <Route path='/discover' component={AboutPage} />
       <ProtectedRoute exact path='/home' component={HomeContainer} />
+      <Route path='/oops' component={Err404} />
       <Route path='/:username' component={UserProfileContainer} />
     </Switch>
     <UploadFormContainer />

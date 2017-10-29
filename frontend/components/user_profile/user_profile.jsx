@@ -12,6 +12,8 @@ class UserProfile extends React.Component {
       let username = nextProps.match.params.username;
       this.props.fetchUserPhotos(username);
       this.props.fetchUser(username);
+    } else if (nextProps.errors.app.includes('User not found')) {
+      this.props.history.push('/oops');
     }
     console.log(nextProps);
   }

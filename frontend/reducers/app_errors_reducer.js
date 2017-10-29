@@ -5,9 +5,9 @@ import { RECEIVE_USER_ERRORS } from '../actions/user_actions';
 const AppErrorsReducer = (state = [], action) => {
   switch (action.type) {
     case RECEIVE_PHOTO_ERRORS:
-      return action.errors;
+      return action.errors.responseJSON;
     case RECEIVE_USER_ERRORS:
-      return action.errors;
+      return action.errors.responseJSON;
     default: return state;
   }
 };
