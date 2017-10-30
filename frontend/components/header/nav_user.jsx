@@ -32,7 +32,6 @@ class UserNavComponent extends React.Component {
 
   render () {
     // onTouchStart={this.toggleDropdown.bind(this)}>
-    console.log(this.props);
     let dropdownClass = this.state.showDropdown ? 'nav-dropdown visible' : 'nav-dropdown';
     return (
       <div className='flex-center nav-component'>

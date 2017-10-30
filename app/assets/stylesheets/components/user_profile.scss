@@ -75,7 +75,7 @@
 
 .photos-grid img {
   box-sizing: border-box;
-  margin: .3em;
+  margin: .2em;
   max-height: 20em;
   height: auto;
   width: auto;
@@ -106,8 +106,8 @@
 }
 
 .profile-photo-change {
-  height: 5em;
-  width: 5em;
+  height: 6em;
+  width: 6em;
   z-index: auto;
   margin: 1em auto;
 }
@@ -120,15 +120,21 @@
   margin: 0 auto;
   display: block;
   width: fit-content;
+  font-size: 1em;
 }
 
 .cover-photo-grid {
-  height: 50vh;
-  overflow: scroll;
+  min-height: 50vh;
+  overflow: auto;
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
+  align-content: baseline;
   justify-content: center;
+}
+
+.cover-photo-selected {
+  box-shadow: 0em 0em .8em 2px $btn-blue-hover;
+  border: 1px solid $btn-blue;
 }
 
 .cover-photo-selector {

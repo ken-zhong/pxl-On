@@ -37,6 +37,22 @@ class Api::PhotosController < ApplicationController
   end
 
   def update
+    if params[:coverphoto]
+      @photo = Photo.find(params[:id])
+      if @photo.author.cover_photo
+        oldphoto = @photo.author.cover_photo
+        oldphoto.author_cover_id = nil
+        oldphoto.save
+      end
+      @photo.author_cover_id = @photo.author_id
+      if @photo.save
+        render "api/photos/show"
+      else
+        render json: @photo.errors.full_messages, status: 422
+      end
+    else
+        render json: ['invalid request!'], status: 422
+    end
   end
 
   def destroy

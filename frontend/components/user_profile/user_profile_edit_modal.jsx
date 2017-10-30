@@ -33,6 +33,10 @@ class ProfileEditModal extends React.Component {
     }
   }
 
+  selectCover (photo) {
+    this.props.setCoverPhoto(photo.id).then((res) => this.forceUpdate());
+  }
+
   render () {
     let changeProfilePicBtn;
     if (this.state.loading) {
@@ -43,15 +47,18 @@ class ProfileEditModal extends React.Component {
       );
     } else {
       changeProfilePicBtn = (
-        <label htmlFor='profileFileInput' className='text-small demo-login-btn'>
+        <label htmlFor='profileFileInput' className='demo-login-btn'>
           Change your profile picture
         </label>
       );
     }
-
     const photos = this.props.photos.map((photo, idx) => {
+      let classList = 'cover-photo-selector';
+      if (photo.isCoverPhoto) {
+        classList += ' cover-photo-selected';
+      }
       return (
-        <div className='cover-photo-selector' key={idx}>
+        <div onClick={() => this.selectCover(photo)} className={classList} key={idx}>
           <img src={photo.preview_url} />
         </div>
       );

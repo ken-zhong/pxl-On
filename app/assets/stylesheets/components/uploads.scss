@@ -90,8 +90,12 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 32em;
+  width: 20em;
   position: relative;
+}
+
+.upload-details-form form {
+  width: 80%;
 }
 
 .upload-details-form h3 {
@@ -179,6 +183,7 @@
 
   .upload-details-form {
     border-left: 1px solid $light-grey;
+    width: 32em;
   }
 
   .upload-details-form h3 {

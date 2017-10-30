@@ -53,3 +53,10 @@ export const updatePhoto = (id) => {
     url: `api/photos/${id}`
   });
 };
+
+export const setCoverPhoto = (id) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/photos/${id}?coverphoto=true`
+  });
+};

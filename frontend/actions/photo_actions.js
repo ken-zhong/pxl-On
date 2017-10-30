@@ -89,3 +89,10 @@ export const setProfilePhoto = data => dispatch => {
     errors => dispatch(receivePhotoErrors(errors))
   );
 };
+
+export const setCoverPhoto = data => dispatch => {
+  return PhotoApiUtil.setCoverPhoto(data).then(
+    photo => dispatch(receivePhoto(photo)),
+    errors => dispatch(receivePhotoErrors(errors))
+  );
+};

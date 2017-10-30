@@ -22,7 +22,6 @@ class UserProfile extends React.Component {
     } else if (nextProps.errors.app.includes('User not found')) {
       this.props.history.push('/oops');
     }
-    console.log(nextProps);
   }
 
   closeModal () {
@@ -70,6 +69,7 @@ class UserProfile extends React.Component {
           </div>
           <ProfileEditModal setProfilePhoto={this.props.setProfilePhoto}
             oldProfileUrl={this.props.user.profilePhotoUrl}
+            setCoverPhoto={this.props.setCoverPhoto}
             photos={this.props.photos}
             currentUser={this.props.currentUser} />
         </ReactModal>
