@@ -4,6 +4,10 @@ import NavUser from './nav_user';
 import NavAuth from './nav_auth';
 
 class StandardHeader extends React.Component {
+  componentDidMount () {
+    this.props.fetchUser(this.props.currentUser.username);
+  }
+
   componentWillReceiveProps (nextProps) {
     if (nextProps.errors.session.includes('Nobody signed in')) {
       window.location.reload();
@@ -15,6 +19,7 @@ class StandardHeader extends React.Component {
     if (this.props.loggedIn) {
       navComponentRight = <NavUser logout={this.props.logout}
         currentUser={this.props.currentUser} history={this.props.history}
+        user={this.props.user}
         toggleUploadModal={this.props.toggleUploadModal} />;
     } else {
       navComponentRight = <NavAuth />;

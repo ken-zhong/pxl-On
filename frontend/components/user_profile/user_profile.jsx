@@ -10,8 +10,8 @@ class UserProfile extends React.Component {
 
   componentDidMount () {
     let username = this.props.match.params.username;
-    this.props.fetchUserPhotos(username);
     this.props.fetchUser(username);
+    this.props.fetchUserPhotos(username);
   }
 
   componentWillReceiveProps (nextProps) {
