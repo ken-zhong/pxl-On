@@ -8,15 +8,14 @@ import { withRouter } from 'react-router-dom';
 // import { login, signup, clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = state => {
-  let user;
+  let user = state.session.currentUser;
   if (state.session.currentUser) {
-    user = state.entities.users[state.session.currentUser.username] || {};
+    user = state.entities.users[state.session.currentUser.username] || state.session.currentUser;
   }
   return {
     loggedIn: Boolean(state.session.currentUser),
-    currentUser: state.session.currentUser,
+    currentUser: user,
     errors: state.errors,
-    user
   };
 };
 
