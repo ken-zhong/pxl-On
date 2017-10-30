@@ -1,5 +1,7 @@
 ## Issues / Questions that I'm having, kept track temporarily here
 
+- forcing rerenders, profile page, currently just refreshing the page
+
 
 - can I use this - https://github.com/guoyunhe/flexbin
 

@@ -32,7 +32,7 @@ class Api::PhotosController < ApplicationController
     elsif @photo.save
       render "api/photos/show"
     else
-      render json: @photo.errors.full_messages, status: 422
+      render json:['Invalid input'], status: 422
     end
   end
 

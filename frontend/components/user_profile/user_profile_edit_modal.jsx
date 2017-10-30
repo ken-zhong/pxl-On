@@ -17,18 +17,10 @@ class ProfileEditModal extends React.Component {
   }
 
   handleFile (e) {
-    this.setState({loading: true});
     const file = e.target.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
       this.setState({ imageFile: file, profileUrl: fileReader.result });
-      const formData = new FormData();
-      formData.append('photo[title]', 'profile_pic');
-      formData.append('photo[image]', file);
-      formData.append('photo[author_id]', this.props.currentUser.id);
-      this.props.setProfilePhoto(formData).then(() => {
-        this.setState({loading: false});
-      });
     };
     if (file) {
       fileReader.readAsDataURL(file);
@@ -40,7 +32,26 @@ class ProfileEditModal extends React.Component {
   }
 
   handleSubmit (e) {
-    this.props.setCoverPhoto(this.state.selectedCover);
+    this.setState({loading: true});
+    if (this.state.imageFile) {
+      const formData = new FormData();
+      formData.append('photo[title]', 'profile_pic');
+      formData.append('photo[image]', this.state.imageFile);
+      formData.append('photo[author_id]', this.props.currentUser.id);
+      this.props.setProfilePhoto(formData).then(() => {
+        if (this.state.selectedCover) {
+          this.props.setCoverPhoto(this.state.selectedCover).then(() => {
+            window.location.reload();
+          });
+        } else {
+          window.location.reload();
+        }
+      });
+    } else if (this.state.selectedCover) {
+      this.props.setCoverPhoto(this.state.selectedCover).then(() => {
+        window.location.reload();
+      });
+    }
   }
 
   getPhotoElements () {
@@ -60,16 +71,16 @@ class ProfileEditModal extends React.Component {
   }
 
   render () {
-    let subtmitBtn;
+    let submitBtn;
     if (this.state.loading) {
-      subtmitBtn = (
+      submitBtn = (
         <div className='submit-loading'>
           <i className='fa fa-spinner fa-spin fa-3x fa-fw' />
         </div>
       );
     } else {
-      subtmitBtn = (
-        <button className='submit-btn'>Save</button>
+      submitBtn = (
+        <button onClick={this.handleSubmit.bind(this)} className='submit-btn'>Save</button>
       );
     }
 
@@ -82,15 +93,15 @@ class ProfileEditModal extends React.Component {
           {photos}
         </div>
         <div className='profile-photo-change-component'>
-            <label htmlFor='profileFileInput' >
-              <div className='profile-photo profile-photo-change'
-                style={{backgroundImage: `url(${this.state.profileUrl})`}} />
-              <span className='demo-login-btn'>Change your profile picture</span>
-            </label>
+          <label htmlFor='profileFileInput' >
+            <div className='profile-photo profile-photo-change'
+              style={{backgroundImage: `url(${this.state.profileUrl})`}} />
+            <span className='demo-login-btn mobile-hide'>Change profile picture</span>
+          </label>
           <input className='hide-element' type='file'
             onChange={this.handleFile} id='profileFileInput' />
         </div>
-        <button className='submit-btn'>Save</button>
+        { submitBtn }
       </div>
     );
   }
