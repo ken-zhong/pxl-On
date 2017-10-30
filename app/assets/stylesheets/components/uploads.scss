@@ -16,7 +16,7 @@
   border: solid 1px $light-grey;
   width: 90vw;
   max-width: 80em;
-  height: 80vh;
+  max-height: 80vh;
   margin: 10vh auto;
   background-color: $white;
   display: flex;
@@ -26,6 +26,9 @@
   overflow: auto;
 }
 
+.force-height {
+  height: 80vh;
+}
 
 .upload-modal:focus {
   outline: none;

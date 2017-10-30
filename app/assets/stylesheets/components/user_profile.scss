@@ -90,7 +90,7 @@
 // MODAL STYLE
 .profile-modal {
   max-width: 43em;
-  height: 90vh;
+  max-height: 90vh;
   margin: 5vh auto;
   position: relative;
   background-color: $background-blue;
@@ -120,7 +120,7 @@
 }
 
 .profile-photo-change-component span {
-  margin: 0 auto;  
+  margin: 0 auto;
 }
 
 .profile-photo-change {
@@ -175,8 +175,8 @@
 @media (min-width: 668px) {
 
   .profile-modal {
-    height: 80vh;
-      margin: 10vh auto;
+    max-height: 80vh;
+    margin: 10vh auto;
   }
   .profile-edit-btn {
     right: 5vw;

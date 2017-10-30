@@ -124,7 +124,7 @@ class UploadComponent extends React.Component {
     }
 
     return (
-      <ReactModal isOpen={this.props.showUploadModal} className='upload-modal'
+      <ReactModal isOpen={this.props.showUploadModal} className='upload-modal force-height'
         onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
         onAfterOpen={this.openModal.bind(this)}>
         <div className='upload-preview-container'>
