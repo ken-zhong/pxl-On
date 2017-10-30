@@ -38,7 +38,8 @@ class UserNavComponent extends React.Component {
         <div className='nav-user-profile'
           onMouseEnter={this.dropdownEnter.bind(this)}
           onMouseLeave={this.dropdownLeave.bind(this)}>
-          <span className='nav-user-icon flex-center'>
+          <span className='nav-user-icon flex-center'
+            style={{backgroundImage: `url(${this.props.currentUser.profilePhotoUrl})`}}>
             <br />
             <ul className={dropdownClass}>
               <Link to={`/${this.props.currentUser.username}`} className='nav-dropdown-link'>My Profile</Link>
