@@ -40,7 +40,7 @@ class UserProfile extends React.Component {
 
     const photos = this.props.photos.map((photo, idx) => {
       return (
-        <div className='photo-preview-container' key={idx}>
+        <div key={idx}>
           <img src={photo.preview_url} />
         </div>
       );
@@ -59,7 +59,7 @@ class UserProfile extends React.Component {
             <span>## Following</span>
           </div>
         </div>
-        <div className='photos-grid'>
+        <div className='flexbin'>
           { photos }
         </div>
         <ReactModal isOpen={this.state.editModalOpen} className='upload-modal profile-modal'
