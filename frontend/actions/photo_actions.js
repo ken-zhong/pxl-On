@@ -1,14 +1,22 @@
 import * as PhotoApiUtil from '../util/photo_api_util';
+import { receiveUser } from './user_actions'
 
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const RECEIVE_PHOTO_ERRORS = 'RECEIVE_PHOTO_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 const receivePhoto = photo => {
   return {
     type: RECEIVE_PHOTO,
     photo
+  };
+};
+
+const clearErrors = () => {
+  return {
+    type: CLEAR_ERRORS
   };
 };
 
@@ -71,6 +79,13 @@ export const deletePhoto = id => dispatch => {
 export const createPhoto = data => dispatch => {
   return PhotoApiUtil.createPhoto(data).then(
     photo => dispatch(receivePhoto(photo)),
+    errors => dispatch(receivePhotoErrors(errors))
+  );
+};
+
+export const setProfilePhoto = data => dispatch => {
+  return PhotoApiUtil.setProfilePhoto(data).then(
+    user => dispatch(receiveUser(user)),
     errors => dispatch(receivePhotoErrors(errors))
   );
 };

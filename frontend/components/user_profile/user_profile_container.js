@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import UserProfile from './user_profile';
-import { fetchUserPhotos } from '../../actions/photo_actions';
+import { fetchUserPhotos, setProfilePhoto } from '../../actions/photo_actions';
 import { fetchUser } from '../../actions/user_actions';
 // import { login, signup, clearErrors } from '../../actions/session_actions';
 
@@ -21,7 +21,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchUserPhotos: (data) => dispatch(fetchUserPhotos(data)),
-    fetchUser: (data) => dispatch(fetchUser(data))
+    fetchUser: (data) => dispatch(fetchUser(data)),
+    setProfilePhoto: (data) => dispatch(setProfilePhoto(data))
   };
 };
 

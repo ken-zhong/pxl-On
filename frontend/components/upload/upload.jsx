@@ -15,6 +15,7 @@ class UploadComponent extends React.Component {
     this.handleFile = this.handleFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearState = this.clearState.bind(this);
+    this.getErrors = this.getErrors.bind(this);
   }
 
   handleInput (field) {
@@ -47,8 +48,8 @@ class UploadComponent extends React.Component {
     this.setState({loading: true});
     this.props.createPhoto(formData).then(res => {
       this.setState({imageUrl: null});
-      this.closeModal();
       this.setState({loading: false});
+      this.closeModal();
       let newPath = `/${this.props.currentUser.username}`;
       if (newPath !== this.props.location.pathname) {
         this.props.history.push(newPath);
@@ -82,6 +83,18 @@ class UploadComponent extends React.Component {
     document.body.style.overflow = 'hidden';
   }
 
+  getErrors () {
+    let errors;
+    if (this.props.errors.app.length > 0) {
+      errors = <span className='session-errors'>
+        { this.props.errors.app.map((e, idx) => <div key={idx}>{e}</div>) }
+      </span>;
+    } else {
+      errors = null;
+    }
+    return errors;
+  }
+
   render () {
     let uploadBtn;
     let imagePreviewContainer;
@@ -96,15 +109,6 @@ class UploadComponent extends React.Component {
       );
     }
 
-    let errors;
-    if (this.props.errors.app.length > 0) {
-      errors = <span className='session-errors'>
-        { this.props.errors.app.map((e, idx) => <div key={idx}>{e}</div>) }
-      </span>;
-    } else {
-      errors = null;
-    }
-
     let submitButton;
     if (this.state.loading) {
       submitButton = (
@@ -112,7 +116,6 @@ class UploadComponent extends React.Component {
           <i className='fa fa-spinner fa-spin fa-3x fa-fw' />
         </div>
       );
-
     } else {
       submitButton = (
         <button onClick={this.handleSubmit}
@@ -133,7 +136,7 @@ class UploadComponent extends React.Component {
         <div className='upload-details-form'>
           <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close' aria-hidden='true' />
           <h3>Upload your photo!</h3>
-          { errors }
+          { this.getErrors() }
           <form>
             <label><span className='upload-label'>Title</span>
               <br />

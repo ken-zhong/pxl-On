@@ -39,13 +39,13 @@ class UserProfile extends React.Component {
     [coverUrl, profilePhotoUrl] = this.getUserUrls();
 
     const photos = this.props.photos.map((photo, idx) => {
-      // let imgUrl = {backgroundImage: `url(${photo.preview_url})`};
       return (
         <div className='photo-preview-container' key={idx}>
           <img src={photo.preview_url} />
         </div>
       );
     });
+    // save profilePhoto el so we can pass it to the modal
     return (
       <div>
         <div style={coverUrl} className='cover-image'>
@@ -65,7 +65,13 @@ class UserProfile extends React.Component {
         <ReactModal isOpen={this.state.editModalOpen} className='upload-modal profile-modal'
           onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
           onAfterOpen={this.openModal.bind(this)}>
-          <ProfileEditModal />
+          <div>
+            <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close' aria-hidden='true' />
+          </div>
+          <ProfileEditModal setProfilePhoto={this.props.setProfilePhoto}
+            oldProfilePhoto={profilePhotoUrl}
+            photos={this.props.photos}
+            currentUser={this.props.currentUser}/>
         </ReactModal>
       </div>
     );
@@ -90,9 +96,7 @@ class UserProfile extends React.Component {
         backgroundImage: `url(${this.props.user.profilePhotoUrl})`
       };
     } else {
-      profilePhotoUrl = {
-        backgroundImage: `url(${this.props.user.profilePhotoUrl})`
-      };
+      profilePhotoUrl = {};
     }
     return [coverUrl, profilePhotoUrl];
   }

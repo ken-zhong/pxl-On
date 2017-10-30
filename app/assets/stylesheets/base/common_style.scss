@@ -1,0 +1,38 @@
+ @import "base/specs.scss";
+
+// this hide element courtesy of Osvaldas Valutis
+// https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.hide-element {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.bold-h1 {
+  font-size: 3em;
+  font-weight: 700;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.text-large {
+  font-size: 1.8em;
+}
+
+.text-small {
+  font-size: .8em;
+}

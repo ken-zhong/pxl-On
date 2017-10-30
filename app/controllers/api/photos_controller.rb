@@ -17,7 +17,19 @@ class Api::PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     if @photo.save
-      render "api/photos/show"
+      # check to see if the uploaded photo is intended to be the profile pic
+      # cover photos are set in the users controller instead
+      if (params[:profile])
+        @user = User.find(@photo.author_id)
+        @user.profile_picture_id = @photo.id
+        if @user.save
+          render "api/users/show"
+        else
+          render json: ['error with update'], statute: 422
+        end
+      else
+        render "api/photos/show"
+      end
     else
       render json: @photo.errors.full_messages, status: 422
     end

@@ -4,7 +4,9 @@
 - why do some import require .jsx and not others? e.g. nav_auth.jsx
 
 - how to store profile pictures and keep them separate from the gallery pictures?
-  - assign them an 'admin' id? 
+  - assign them an 'admin' id?
+
+- current user not getting deleted from window
 
 - can I use this - https://github.com/guoyunhe/flexbin
 

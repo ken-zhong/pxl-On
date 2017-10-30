@@ -26,9 +26,6 @@
   overflow: auto;
 }
 
-.profile-modal {
-  max-width: 40em;
-}
 
 .upload-modal:focus {
   outline: none;
@@ -165,6 +162,11 @@
   .upload-modal {
     flex-direction: row;
     overflow: auto;
+  }
+
+  .profile-modal {
+    flex-direction: column;
+    overflow-x: auto;
   }
 
   .upload-preview {

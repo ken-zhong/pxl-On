@@ -16,11 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  // *** TESTING ***
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
-  window.logout = logout;
-  // *** DELETE ***
 
   const root = document.querySelector('#root');
   ReactDom.render(<Root store={store} />, root);

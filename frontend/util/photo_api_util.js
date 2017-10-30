@@ -36,6 +36,17 @@ export const createPhoto = (formData) => {
   });
 };
 
+export const setProfilePhoto = (formData) => {
+  return $.ajax({
+    method: 'POST',
+    url: 'api/photos?profile=true',
+    dataType: 'json',
+    contentType: false,
+    processData: false,
+    data: formData
+  });
+};
+
 export const updatePhoto = (id) => {
   return $.ajax({
     method: 'PATCH',

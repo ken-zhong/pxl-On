@@ -3,14 +3,14 @@ import * as UserApiUtil from '../util/user_api_util';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USER_ERRORS = 'RECEIVE_USER_ERRORS';
 
-const receiveUser = user => {
+export const receiveUser = user => {
   return {
     type: RECEIVE_USER,
     user
   };
 };
 
-const receiveUserErrors = errors => {
+export const receiveUserErrors = errors => {
   return {
     type: RECEIVE_USER_ERRORS,
     errors
