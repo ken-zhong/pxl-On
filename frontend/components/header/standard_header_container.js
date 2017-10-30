@@ -7,10 +7,9 @@ import { withRouter } from 'react-router-dom';
 // import { login, signup, clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = state => {
-  let user = state.entities.users[state.session.currentUser.username] || {};
   return {
     loggedIn: Boolean(state.session.currentUser),
-    currentUser: user,
+    currentUser: state.session.currentUser,
     errors: state.errors
   };
 };

@@ -123,8 +123,6 @@ class UploadComponent extends React.Component {
       );
     }
 
-    window.setState = this.setState
-
     return (
       <ReactModal isOpen={this.props.showUploadModal} className='upload-modal'
         onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
