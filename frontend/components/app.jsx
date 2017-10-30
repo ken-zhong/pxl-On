@@ -26,6 +26,7 @@ const App = () => (
       <Route path='/:username' component={UserProfileContainer} />
     </Switch>
     <UploadFormContainer />
+    
   </div>
 );
 

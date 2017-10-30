@@ -1,14 +1,5 @@
 ## Issues / Questions that I'm having, kept track temporarily here
 
-- error messages with AuthRoute and ProtectedRoute
-- why do some import require .jsx and not others? e.g. nav_auth.jsx
-
-- how to store profile pictures and keep them separate from the gallery pictures?
-  - assign them an 'admin' id?
-
-- current user not getting deleted from window
-
-- updating associations, photos controller line 28
 
 - can I use this - https://github.com/guoyunhe/flexbin
 

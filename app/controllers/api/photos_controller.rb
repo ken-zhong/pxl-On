@@ -22,10 +22,9 @@ class Api::PhotosController < ApplicationController
       @user = User.find(@photo.author_id)
       # delete the previous profile pic first!
       @user.profile_photo.destroy if @user.profile_photo
-      @photo.author_profile_id = @user.id
+      @user.profile_photo = @photo
       if @photo.save
         #  need to refresh the user to get the correctly updated association
-        @user = User.find(@photo.author_id)
         render "api/users/show"
       else
         render json: ['error with update'], statute: 422
