@@ -8,8 +8,8 @@ import HomeContainer from './home/home_container';
 import AboutPage from './about_page';
 import Err404 from './404';
 import UserProfileContainer from './user_profile/user_profile_container';
-
 import UploadFormContainer from './upload/upload_container';
+import PhotoContainer from './photos/photo_container.js';
 // <ProtectedRoute exact path='/upload' component={UploadFormContainer} />
 
 const App = () => (
@@ -25,8 +25,8 @@ const App = () => (
       <Route path='/oops' component={Err404} />
       <Route path='/:username' component={UserProfileContainer} />
     </Switch>
+    <Route path='/photos/:id' component={PhotoContainer} />
     <UploadFormContainer />
-    
   </div>
 );
 
