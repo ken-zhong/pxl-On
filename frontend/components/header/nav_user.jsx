@@ -31,13 +31,13 @@ class UserNavComponent extends React.Component {
   }
 
   render () {
+    // onTouchStart={this.toggleDropdown.bind(this)}>
     let dropdownClass = this.state.showDropdown ? 'nav-dropdown visible' : 'nav-dropdown';
     return (
       <div className='flex-center nav-component'>
         <div className='nav-user-profile'
           onMouseEnter={this.dropdownEnter.bind(this)}
-          onMouseLeave={this.dropdownLeave.bind(this)}
-          onTouchStart={this.toggleDropdown.bind(this)}>
+          onMouseLeave={this.dropdownLeave.bind(this)}>
           <span className='nav-user-icon flex-center'>
             <br />
             <ul className={dropdownClass}>

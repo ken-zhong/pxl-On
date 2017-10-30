@@ -2,14 +2,12 @@
 #
 # Table name: users
 #
-#  id                 :integer          not null, primary key
-#  username           :string           not null
-#  password_digest    :string           not null
-#  session_token      :string           not null
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  profile_picture_id :integer
-#  profile_cover_id   :integer
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 class User < ApplicationRecord
@@ -24,15 +22,13 @@ class User < ApplicationRecord
     class_name: 'Photo',
     foreign_key: :author_id
 
-  belongs_to :profile_photo,
+  has_one :profile_photo,
     class_name: 'Photo',
-    foreign_key: :profile_picture_id,
-    optional: true
+    foreign_key: :author_profile_id
 
-  belongs_to :cover_photo,
+  has_one :cover_photo,
     class_name: 'Photo',
-    foreign_key: :profile_cover_id,
-    optional: true
+    foreign_key: :author_cover_id
 
 
   def password=(password)

@@ -12,6 +12,8 @@
 #  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  author_profile_id  :integer
+#  author_cover_id    :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

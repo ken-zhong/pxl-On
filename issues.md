@@ -8,6 +8,8 @@
 
 - current user not getting deleted from window
 
+- updating associations, photos controller line 28
+
 - can I use this - https://github.com/guoyunhe/flexbin
 
 More readings on responsive image grid

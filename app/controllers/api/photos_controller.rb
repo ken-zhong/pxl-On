@@ -4,7 +4,7 @@ class Api::PhotosController < ApplicationController
       user = User.find_by_username(params[:user_id])
       if user
         # makes sure that the profile pic doesn't show up on a user's gallery
-        @photos = user.photos.reject { |photo| photo.id == user.profile_picture_id }
+        @photos = user.photos.reject { |photo| photo.author_profile_id == user.id }
       else
         render json: ['User not found'], status: 422
       end
@@ -16,20 +16,22 @@ class Api::PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
-    if @photo.save
+    if params[:profile]
       # check to see if the uploaded photo is intended to be the profile pic
       # cover photos are set in the users controller instead
-      if (params[:profile])
+      @user = User.find(@photo.author_id)
+      # delete the previous profile pic first!
+      @user.profile_photo.destroy if @user.profile_photo
+      @photo.author_profile_id = @user.id
+      if @photo.save
+        #  need to refresh the user to get the correctly updated association
         @user = User.find(@photo.author_id)
-        @user.profile_picture_id = @photo.id
-        if @user.save
-          render "api/users/show"
-        else
-          render json: ['error with update'], statute: 422
-        end
+        render "api/users/show"
       else
-        render "api/photos/show"
+        render json: ['error with update'], statute: 422
       end
+    elsif @photo.save
+      render "api/photos/show"
     else
       render json: @photo.errors.full_messages, status: 422
     end

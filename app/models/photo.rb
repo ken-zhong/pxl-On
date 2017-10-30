@@ -12,6 +12,8 @@
 #  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  author_profile_id  :integer
+#  author_cover_id    :integer
 #
 
 class Photo < ApplicationRecord
@@ -21,6 +23,16 @@ class Photo < ApplicationRecord
   belongs_to :author,
     class_name: "User",
     foreign_key: :author_id
+
+  belongs_to :author_profile,
+    class_name: 'Photo',
+    foreign_key: :author_profile_id,
+    optional: true
+
+  belongs_to :author_cover,
+    class_name: 'Photo',
+    foreign_key: :author_cover_id,
+    optional: true
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates :title, :author, presence: true

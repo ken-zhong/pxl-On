@@ -69,9 +69,9 @@ class UserProfile extends React.Component {
             <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close' aria-hidden='true' />
           </div>
           <ProfileEditModal setProfilePhoto={this.props.setProfilePhoto}
-            oldProfilePhoto={profilePhotoUrl}
+            oldProfileUrl={this.props.user.profilePhotoUrl}
             photos={this.props.photos}
-            currentUser={this.props.currentUser}/>
+            currentUser={this.props.currentUser} />
         </ReactModal>
       </div>
     );

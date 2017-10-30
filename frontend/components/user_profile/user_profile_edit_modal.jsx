@@ -9,7 +9,7 @@ class ProfileEditModal extends React.Component {
       imageFile: null,
       imageUrl: null,
       loading: false,
-      profileUrl: this.props.oldProfilePhoto
+      profileUrl: this.props.oldProfileUrl
     };
     this.handleFile = this.handleFile.bind(this);
   }
@@ -65,7 +65,7 @@ class ProfileEditModal extends React.Component {
         </div>
         <div className='profile-photo-change-component'>
           <div className='profile-photo profile-photo-change'
-            style={this.props.oldProfilePhoto} />
+            style={{backgroundImage: `url(${this.state.profileUrl})`}} />
           { changeProfilePicBtn }
           <input className='hide-element' type='file'
             onChange={this.handleFile} id='profileFileInput' />
