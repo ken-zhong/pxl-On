@@ -135,7 +135,6 @@
   font-size: 2em;
   top: .5em;
   right: .5em;
-  display: none;
 }
 
 .modal-close:hover {
@@ -187,10 +186,6 @@
   }
 
   .upload-details-form h3 {
-    display: flex;
-  }
-
-  .modal-close {
     display: flex;
   }
 

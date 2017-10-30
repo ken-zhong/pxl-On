@@ -9,9 +9,11 @@ class ProfileEditModal extends React.Component {
       imageFile: null,
       imageUrl: null,
       loading: false,
-      profileUrl: this.props.oldProfileUrl
+      profileUrl: this.props.oldProfileUrl,
+      selectedCover: null
     };
     this.handleFile = this.handleFile.bind(this);
+    this.getPhotoElements = this.getPhotoElements.bind(this);
   }
 
   handleFile (e) {
@@ -33,36 +35,45 @@ class ProfileEditModal extends React.Component {
     }
   }
 
-  selectCover (photo) {
-    this.props.setCoverPhoto(photo.id).then((res) => this.forceUpdate());
+  selectCover (id) {
+    this.setState({selectedCover: id});
   }
 
-  render () {
-    let changeProfilePicBtn;
-    if (this.state.loading) {
-      changeProfilePicBtn = (
-        <div className='submit-loading'>
-          <i className='fa fa-spinner fa-spin fa-2x fa-fw' />
-        </div>
-      );
-    } else {
-      changeProfilePicBtn = (
-        <label htmlFor='profileFileInput' className='demo-login-btn'>
-          Change your profile picture
-        </label>
-      );
-    }
-    const photos = this.props.photos.map((photo, idx) => {
+  handleSubmit (e) {
+    this.props.setCoverPhoto(this.state.selectedCover);
+  }
+
+  getPhotoElements () {
+    return this.props.photos.map((photo, idx) => {
       let classList = 'cover-photo-selector';
-      if (photo.isCoverPhoto) {
+      if (photo.isCoverPhoto && !this.state.selectedCover) {
+        this.setState({selectedCover: photo.id});
+      } else if (photo.id === this.state.selectedCover) {
         classList += ' cover-photo-selected';
       }
       return (
-        <div onClick={() => this.selectCover(photo)} className={classList} key={idx}>
+        <div onClick={() => this.selectCover(photo.id)} className={classList} key={idx}>
           <img src={photo.preview_url} />
         </div>
       );
     });
+  }
+
+  render () {
+    let subtmitBtn;
+    if (this.state.loading) {
+      subtmitBtn = (
+        <div className='submit-loading'>
+          <i className='fa fa-spinner fa-spin fa-3x fa-fw' />
+        </div>
+      );
+    } else {
+      subtmitBtn = (
+        <button className='submit-btn'>Save</button>
+      );
+    }
+
+    const photos = this.getPhotoElements();
 
     return (
       <div className='profile-edit-component'>
@@ -71,12 +82,15 @@ class ProfileEditModal extends React.Component {
           {photos}
         </div>
         <div className='profile-photo-change-component'>
-          <div className='profile-photo profile-photo-change'
-            style={{backgroundImage: `url(${this.state.profileUrl})`}} />
-          { changeProfilePicBtn }
+            <label htmlFor='profileFileInput' >
+              <div className='profile-photo profile-photo-change'
+                style={{backgroundImage: `url(${this.state.profileUrl})`}} />
+              <span className='demo-login-btn'>Change your profile picture</span>
+            </label>
           <input className='hide-element' type='file'
             onChange={this.handleFile} id='profileFileInput' />
         </div>
+        <button className='submit-btn'>Save</button>
       </div>
     );
   }

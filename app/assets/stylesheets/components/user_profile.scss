@@ -89,7 +89,7 @@
 
 // MODAL STYLE
 .profile-modal {
-  max-width: 40em;
+  max-width: 43em;
   position: relative;
 }
 
@@ -105,12 +105,6 @@
   color: $nav-blue-hover;
 }
 
-.profile-photo-change {
-  height: 6em;
-  width: 6em;
-  z-index: auto;
-  margin: 1em auto;
-}
 
 .profile-photo-change-component {
   margin-bottom: 1em;
@@ -123,8 +117,24 @@
   font-size: 1em;
 }
 
+.profile-photo-change {
+  height: 6em;
+  width: 6em;
+  z-index: auto;
+  margin: 1em auto;
+  cursor: pointer;
+}
+// submit button
+.profile-edit-component button {
+  width: fit-content;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: block;
+  margin: 1em auto;
+}
+
 .cover-photo-grid {
-  min-height: 50vh;
+  max-height: 50vh;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
@@ -134,7 +144,7 @@
 
 .cover-photo-selected {
   box-shadow: 0em 0em .8em 2px $btn-blue-hover;
-  border: 1px solid $btn-blue;
+  border: 1px solid $btn-blue-hover;
 }
 
 .cover-photo-selector {
@@ -159,5 +169,9 @@
 @media (min-width: 668px) {
   .profile-edit-btn {
     right: 5vw;
+  }
+
+  .profile-edit-component button {
+    margin-top: 2em;
   }
 }

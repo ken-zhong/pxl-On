@@ -134,7 +134,7 @@ class UploadComponent extends React.Component {
           { imagePreviewContainer }
         </div>
         <div className='upload-details-form'>
-          <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close' aria-hidden='true' />
+          <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close mobile-hide' aria-hidden='true' />
           <h3>Upload your photo!</h3>
           { this.getErrors() }
           <form>

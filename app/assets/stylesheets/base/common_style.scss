@@ -36,3 +36,13 @@
 .text-small {
   font-size: .8em;
 }
+
+.mobile-hide {
+  display: none;
+}
+
+@media (min-width: 668px) {
+  .mobile-hide {
+    display: flex;
+  }
+}
