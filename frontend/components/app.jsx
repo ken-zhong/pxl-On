@@ -26,7 +26,7 @@ const App = () => (
       <Route exact path='/oops' component={Err404} />
       <Route exact path='/:username' component={UserProfileContainer} />
     </Switch>
-    <Route path='/photos/:id' component={PhotoContainer} />
+    <Route path='/photos/:photoId' component={PhotoContainer} />
     <UploadFormContainer />
   </div>
 );

@@ -9,10 +9,16 @@ class PhotoShow extends React.Component{
 
   }
 
+  closePhoto () {
+    this.props.history.goBack();
+  }
+
   render () {
+    console.log(this.props);
     return (
       <div>
-        <h1>UNDER CONSTRUCTION - PHOTO SHOW PAGE</h1>;
+        <h1>UNDER CONSTRUCTION - PHOTO SHOW PAGE</h1>
+        <button onClick={this.closePhoto.bind(this)}>go back</button>
       </div>
     );
   }

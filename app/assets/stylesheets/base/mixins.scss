@@ -44,6 +44,7 @@
 }
 
 @mixin hover-blue {
+  cursor: pointer;
   &:hover {
     transition: color .2s;
     color: $nav-blue-hover;

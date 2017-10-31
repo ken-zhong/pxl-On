@@ -46,13 +46,14 @@
   height: 3em;
   border-radius: 50%;
   @include default-user-profile;
+  position: relative;
 }
 
 .nav-dropdown {
   position: absolute;
   color: gray;
-  margin-top: 1.02em;
-  margin-left: -1em;
+  top: 3.28em;
+  right: -1em;
   padding-top: 1em;
   background: $white;
   width: 10.5em;
@@ -70,17 +71,14 @@
   padding-left: 1.2em;
   color: gray;
   transition: color .2s;
+  @include hover-blue;
+  display: block;
 }
 
 .nav-dropdown-link:last-child {
   border-top: 1px solid $light-grey;
   padding-top: 1em;
   margin-top: 1em;
-}
-
-.nav-dropdown-link:hover {
-  color: $nav-blue-hover;
-  cursor: pointer;
 }
 
 @media only screen and (min-width: 668px) {
@@ -91,5 +89,9 @@
   .nav-btn-tall {
     margin-left: 1.5em;
     margin-right: 2.5em;
+  }
+
+  .nav-dropdown {
+    left: -1em;
   }
 }
