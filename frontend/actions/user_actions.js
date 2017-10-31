@@ -23,3 +23,17 @@ export const fetchUser = id => dispatch => {
     errors => dispatch(receiveUserErrors(errors))
   );
 };
+
+export const followUser = (followRequest) => dispatch => {
+  return UserApiUtil.followUser(followRequest).then(
+    user => dispatch(receiveUser(user)),
+    errors => dispatch(receiveUserErrors(errors))
+  );
+};
+
+export const unfollowUser = (unfollowRequest) => dispatch => {
+  return UserApiUtil.unfollowUser(unfollowRequest).then(
+    user => dispatch(receiveUser(user)),
+    errors => dispatch(receiveUserErrors(errors))
+  );
+};

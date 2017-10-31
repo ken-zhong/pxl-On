@@ -1,0 +1,38 @@
+@import "base/mixins.scss";
+@import "base/specs.scss";
+
+.follow-btn {
+  color: $nav-blue-hover;
+  border: 1px solid $nav-blue-hover;
+  @include follows-btn-small;
+}
+.follow-btn:hover {
+  background-color: #eaf0fc;
+}
+
+.following-btn {
+  color: $white;
+  background-color: $btn-green;
+  @include follows-btn-small;
+}
+
+.unfollow-btn {
+  color: $white;
+  background-color: $red-destroy;
+  @include follows-btn-small;
+}
+
+.follow-btn-profile {
+  @include profile-btn;
+  border: none;
+  background-color: $btn-blue;
+  color: $white;
+}
+.follow-btn-profile:hover {
+  background-color: $btn-blue-hover;
+}
+
+.following-btn-profile {
+  @include profile-btn;
+  color: white;
+}

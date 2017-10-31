@@ -1,0 +1,28 @@
+@mixin profile-btn {
+  position: absolute;
+  bottom: 0;
+  right: 1em;
+  margin-bottom: -2.8em;
+  box-sizing: border-box;
+  text-align: center;
+  border: none;
+  font-size: 1em;
+  padding: .3em .7em;
+  border-radius: .2em;
+}
+
+@mixin default-user-profile {
+  background-image: image-url('user_default.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin follows-btn-small {
+  padding: .3em .5em;
+  margin: .2em;
+  border-radius: .3em;
+  cursor: pointer;
+  width: fit-content;
+  font-size: .9em;
+}

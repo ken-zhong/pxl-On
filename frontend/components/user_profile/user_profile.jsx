@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import ProfileEditModal from './user_profile_edit_modal';
+import FollowButton from '../follows/follow_button'
 
 class UserProfile extends React.Component {
   constructor (props) {
@@ -51,10 +52,19 @@ class UserProfile extends React.Component {
         style={{padding: '5em'}}>
         No photos uploaded yet!</div>);
     }
+
+    let profileBtn;
+    if (this.props.loggedIn && this.props.currentUser.id === this.props.user.id) {
+      profileBtn = <span onClick={() => this.setState({editModalOpen: true})}
+        className='profile-edit-btn'>Edit Profile</span>;
+    } else {
+      profileBtn = <FollowButton user={this.props.user} profile='true' />;
+    }
+
     return (
       <div>
         <div style={coverUrl} className='cover-image'>
-          <span onClick={() => this.setState({editModalOpen: true})} className='profile-edit-btn'>Edit Profile</span>
+          {profileBtn}
         </div>
         <div className='user-profile-masthead'>
           <span style={profilePhotoUrl} className='profile-photo' />

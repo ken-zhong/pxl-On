@@ -12,15 +12,17 @@ export const fetchUser = (id) => {
   });
 };
 
-export const followUser = (followerId, followeeId) => {
+export const followUser = followRequest => {
   return $.ajax({
-    url: `api/user/${followeeId}/follow`,
-    data: followerId
+    url: `api/user/${followRequest.followeeId}/follow`,
+    data: {followerId: followRequest.followerId},
+    method: 'PATCH'
   });
 };
-export const unfollowUser = (followerId, followeeId) => {
+export const unfollowUser = unfollowRequest => {
   return $.ajax({
-    url: `api/user/${followeeId}/unfollow`,
-    data: followerId
+    url: `api/user/${unfollowRequest.followeeId}/unfollow`,
+    data: {followerId: unfollowRequest.followerId},
+    method: 'DELETE'
   });
 };

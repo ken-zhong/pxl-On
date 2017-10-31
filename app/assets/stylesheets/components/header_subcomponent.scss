@@ -1,4 +1,5 @@
  @import "base/specs.scss";
+ @import "base/mixins.scss";
 
 .nav-component {
   height: 100%;
@@ -44,10 +45,7 @@
   width: 3em;
   height: 3em;
   border-radius: 50%;
-  background-image: image-url('user_default.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  @include default-user-profile;
 }
 
 .nav-dropdown {
