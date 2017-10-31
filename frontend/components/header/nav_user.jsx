@@ -31,7 +31,9 @@ class UserNavComponent extends React.Component {
   }
 
   render () {
+    // TODO IOS dropdown not working! fix it
     // onTouchStart={this.toggleDropdown.bind(this)}>
+
     let dropdownClass = this.state.showDropdown ? 'nav-dropdown visible' : 'nav-dropdown';
     let navIcon = {};
     if (this.props.currentUser.profilePhotoUrl) {

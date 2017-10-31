@@ -87,6 +87,12 @@
   height: auto;
 }
 
+.no-photos-warning {
+  padding: 2em;
+  font-size: 1.2em;
+  color: $grey;
+}
+
 // MODAL STYLE
 .profile-modal {
   max-width: 43em;
@@ -105,7 +111,8 @@
   font-weight: 600;
   text-align: center;
   margin: 2vh auto;
-  color: $nav-blue-hover;
+  color: $black;
+  // color: $nav-blue-hover;
 }
 
 .profile-photo-change-component {

@@ -19,7 +19,7 @@ class UserProfile extends React.Component {
       let username = nextProps.match.params.username;
       this.props.fetchUserPhotos(username);
       this.props.fetchUser(username);
-    } else if (nextProps.errors.app.includes('User not found')) {
+    } else if (this.props.errors.app.includes('User not found')) {
       this.props.history.push('/oops');
     }
   }
@@ -37,14 +37,20 @@ class UserProfile extends React.Component {
     let coverUrl, profilePhotoUrl;
     [coverUrl, profilePhotoUrl] = this.getUserUrls();
 
-    const photos = this.props.photos.map((photo, idx) => {
-      return (
-        <div className='photo-preview-container' key={idx}>
-          <img src={photo.preview_url} />
-        </div>
-      );
-    });
-    // save profilePhoto el so we can pass it to the modal
+    let photos;
+    if (this.props.photos.length > 0) {
+      photos = this.props.photos.map((photo, idx) => {
+        return (
+          <div className='photo-preview-container' key={idx}>
+            <img src={photo.preview_url} />
+          </div>
+        );
+      });
+    } else {
+      photos = (<div className='flex-center container no-photos-warning'
+        style={{padding: '5em'}}>
+        No photos uploaded yet!</div>);
+    }
     return (
       <div>
         <div style={coverUrl} className='cover-image'>
@@ -54,8 +60,8 @@ class UserProfile extends React.Component {
           <span style={profilePhotoUrl} className='profile-photo' />
           <h1 className='profile-header'>{this.props.user.username}</h1>
           <div className='user-profile-subheader-text'>
-            <span>## Followers</span>
-            <span>## Following</span>
+            <span>{this.props.user.numFollowers} Followers</span>
+            <span>{this.props.user.numFollowing} Following</span>
           </div>
         </div>
         <div className='photos-grid'>

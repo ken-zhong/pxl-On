@@ -83,9 +83,12 @@ class ProfileEditModal extends React.Component {
         <button onClick={this.handleSubmit.bind(this)} className='submit-btn'>Save</button>
       );
     }
+    let photos = this.getPhotoElements();
+    if (photos.length === 0) {
+      photos = <div className='flex-center container no-photos-warning'>No photos uploaded yet!</div>;
+    }
 
-    const photos = this.getPhotoElements();
-
+    let profileUrl = this.state.profileUrl ? {backgroundImage: `url(${this.state.profileUrl})`} : {};
     return (
       <div className='profile-edit-component'>
         <h2>Select your cover photo</h2>
@@ -95,7 +98,7 @@ class ProfileEditModal extends React.Component {
         <div className='profile-photo-change-component'>
           <label htmlFor='profileFileInput' >
             <div className='profile-photo profile-photo-change'
-              style={{backgroundImage: `url(${this.state.profileUrl})`}} />
+              style={profileUrl} />
             <span className='demo-login-btn mobile-hide'>Change profile picture</span>
           </label>
           <input className='hide-element' type='file'
