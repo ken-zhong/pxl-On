@@ -23,6 +23,7 @@ class UserProfile extends React.Component {
   componentWillReceiveProps (nextProps) {
     if (this.props.match.url !== nextProps.match.url) {
       let username = nextProps.match.params.username;
+      window.scrollTo(0, 0);
       this.props.fetchUserPhotos(username);
       this.props.fetchUser(username);
     } else if (this.props.errors.app.includes('User not found')) {
