@@ -18,6 +18,22 @@ class User < ApplicationRecord
   attr_reader :password
   before_validation :ensure_session_token
 
+  has_many :follows,
+    class_name: 'Follow',
+    foreign_key: :following_id
+
+  has_many :followers,
+    through: :follows,
+    source: :follower
+
+  has_many :followings,
+    class_name: 'Follow',
+    foreign_key: :follower_id
+
+  has_many :followees,
+    through: :followings,
+    source: :followee
+
   has_many :photos,
     class_name: 'Photo',
     foreign_key: :author_id
