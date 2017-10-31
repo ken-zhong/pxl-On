@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import onClickOutside from 'react-onclickoutside';
 
 class UserNavComponent extends React.Component {
   constructor (props) {
@@ -24,6 +25,10 @@ class UserNavComponent extends React.Component {
     this.props.toggleUploadModal();
   }
 
+  handleClickOutside () {
+    this.setState({showDropdown: false});
+  }
+
   logout () {
     this.props.logout().then(() => {
       this.props.history.push('/');
@@ -31,9 +36,6 @@ class UserNavComponent extends React.Component {
   }
 
   render () {
-    // TODO IOS dropdown not working! fix it
-    // onTouchStart={this.toggleDropdown.bind(this)}>
-
     let dropdownClass = this.state.showDropdown ? 'nav-dropdown visible' : 'nav-dropdown';
     let navIcon = {};
     if (this.props.currentUser.profilePhotoUrl) {
@@ -42,6 +44,7 @@ class UserNavComponent extends React.Component {
     return (
       <div className='flex-center nav-component'>
         <div className='nav-user-profile'
+          onClick={this.dropdownEnter.bind(this)}
           onMouseEnter={this.dropdownEnter.bind(this)}
           onMouseLeave={this.dropdownLeave.bind(this)}>
           <span className='nav-user-icon flex-center'
@@ -65,4 +68,4 @@ class UserNavComponent extends React.Component {
   }
 }
 
-export default UserNavComponent;
+export default onClickOutside(UserNavComponent);
