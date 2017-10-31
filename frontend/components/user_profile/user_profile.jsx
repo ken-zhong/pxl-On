@@ -32,7 +32,11 @@ class UserProfile extends React.Component {
 
   closeModal () {
     document.body.style.overflow = 'auto';
-    this.setState({editModalOpen: false});
+    this.setState({
+      editModalOpen: false,
+      followersModalOpen: false,
+      followingModalOpen: false
+    });
   }
 
   openModal () {
@@ -75,13 +79,18 @@ class UserProfile extends React.Component {
           <span style={profilePhotoUrl} className='profile-photo' />
           <h1 className='profile-header'>{this.props.user.username}</h1>
           <div className='user-profile-subheader-text'>
-            <span>{this.props.user.numFollowers} Followers</span>
-            <span>{this.props.user.numFollowing} Following</span>
+            <span onClick={() => this.setState({followersModalOpen: true})} className='hover-blue'>
+              {this.props.user.numFollowers} Followers
+            </span>
+            <span onClick={() => this.setState({followingModalOpen: true})} className='hover-blue'>
+              {this.props.user.numFollowing} Following
+            </span>
           </div>
         </div>
         <div className='photos-grid'>
           { photos }
         </div>
+
         <ReactModal isOpen={this.state.editModalOpen} className='profile-modal'
           onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
           onAfterOpen={this.openModal.bind(this)}>
@@ -93,6 +102,31 @@ class UserProfile extends React.Component {
             setCoverPhoto={this.props.setCoverPhoto}
             photos={this.props.photos}
             currentUser={this.props.currentUser} />
+        </ReactModal>
+
+        <ReactModal isOpen={this.state.followersModalOpen} className='follow-modal'
+          onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
+          onAfterOpen={this.openModal.bind(this)}>
+          <div className='follow-header'>
+            <h4>Followers </h4>
+            <span> {this.props.user.numFollowers}</span>
+            <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close' aria-hidden='true' />
+          </div>
+          <FollowModal closeModal={this.closeModal.bind(this)}
+            user={this.props.user} type='followers' />
+        </ReactModal>
+
+        <ReactModal isOpen={this.state.followingModalOpen} className='follow-modal'
+          onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
+          onAfterOpen={this.openModal.bind(this)}>
+          <div className='follow-header'>
+            <h4>Following </h4>
+            <span> {this.props.user.numFollowing}</span>
+            <i onClick={this.closeModal.bind(this)} className='fa fa-times modal-close' aria-hidden='true' />
+          </div>
+          <FollowModal closeModal={this.closeModal.bind(this)}
+            user={this.props.user} type='following' />
+
         </ReactModal>
       </div>
     );

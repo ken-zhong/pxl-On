@@ -12,7 +12,7 @@ export const receiveUser = user => {
 };
 export const receiveUsers = users => {
   return {
-    type: RECEIVE_USER,
+    type: RECEIVE_USERS,
     users
   };
 };
@@ -45,15 +45,8 @@ export const unfollowUser = (unfollowRequest) => dispatch => {
   );
 };
 
-export const getFollowers = id => dispatch => {
-  return UserApiUtil.getFollowers(id).then(
-    users => dispatch(receiveUsers(users)),
-    errors => dispatch(receiveUserErrors(errors))
-  );
-};
-
-export const getFollowings = id => dispatch => {
-  return UserApiUtil.getFollowings(id).then(
+export const getAllFollows = id => dispatch => {
+  return UserApiUtil.getAllFollows(id).then(
     users => dispatch(receiveUsers(users)),
     errors => dispatch(receiveUserErrors(errors))
   );

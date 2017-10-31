@@ -1,36 +1,38 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getFollowers, getFollowings } from '../../actions/user_actions';
+import { getAllFollows } from '../../actions/user_actions';
 import FollowUserItem from './follows_user_item';
 
 // this component should always be passed as a prop the user id it is attached to
 
 class FollowsButton extends React.Component {
   componentDidMount () {
-    this.props.getUsers(this.props.user.id);
+    this.props.getAllFollows(this.props.user.id);
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.user.id !== this.props.user.id) {
+      this.props.getAllFollows(this.props.user.id);
+    }
   }
 
   render () {
-    let users = this.props.users.map(user => {
-      return <FollowUserItem user={user} />;
+    let users = this.props.users.map((user, idx) => {
+      return <FollowUserItem user={user} key={idx} closeModal={this.props.closeModal} />;
     });
 
     return (
-      <div>
-        <div>
-          <h4>${this.props.type}</h4>
-          <span>${users.length}</span>
-        </div>
-        <div className='follows-users-list'>
-          { users }
-        </div>
+      <div className='follow-users-list'>
+        { users }
       </div>
     );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
-  let users = Object.values(state.entities.users);
+  let users = ownProps.user[ownProps.type].map(username => {
+    return state.entities.users[username];
+  });
   return {
     loggedIn: Boolean(state.session.currentUser),
     currentUser: state.session.currentUser,
@@ -38,14 +40,8 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
-  let getUsers;
-  if (ownProps.type === 'followers') {
-    getUsers = getFollowers;
-  } else {
-    getUsers = getFollowings;
-  }
   return {
-    getUsers: (data) => dispatch(getUsers(data))
+    getAllFollows: (data) => dispatch(getAllFollows(data))
   };
 };
 

@@ -35,7 +35,9 @@ class FollowButton extends React.Component {
     let followingBtn = <span className={btnSmall ? 'following-btn' : 'following-btn following-btn-profile'}>Following</span>;
     let unFollowBtn = <span className={btnSmall ? 'unfollow-btn' : 'unfollow-btn following-btn-profile'}>Unfollow</span>;
 
-    if (this.props.user.isFollowing) {
+    if (this.props.currentUser && this.props.user.id === this.props.currentUser.id) {
+      return <div>{"That's you!"}</div>;
+    } else if (this.props.user.isFollowing) {
       return (
         <div onMouseEnter={() => this.setState({isHovering: true})}
           onMouseLeave={() => this.setState({isHovering: false})}

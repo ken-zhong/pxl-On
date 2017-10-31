@@ -2,38 +2,71 @@
 @import "base/specs.scss";
 
 .follow-modal {
+  @include modal-view;
+  border-radius: .2em;
   overflow: none;
   background: $white;
   width: 90%;
   max-width: 25em;
   height: 35em;
+  margin: calc(50vh - 17.5em) auto;
 }
 
-.follow-user-list {
+.follow-header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  padding: .7em;
+  width: 100%;
+  position: relative;
+  background-color: $white;
+  border-bottom: 1px solid $light-grey;
+    i {
+      font-size: 1.3em;
+    }
+}
+
+.follow-users-list {
+  width: 100%;
+  height: 100%;
   background-color: $background-blue;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow: auto;
+  padding: .3em;
+  box-sizing: border-box;
 }
 
 .follow-user-item {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  width: 100%;
+  margin-bottom: .5em;
+}
+
+.follow-user-item .nav-user-icon {
+  margin-right: .5em;
+}
+
+.follow-user-item-info {
+  display: flex;
 }
 
 .follow-user-link {
   font-weight: bold;
   color: $dark-grey;
   text-decoration: none;
+  @include hover-blue;
 }
 
 .follow-modal h4 {
   color: $grey;
   font-weight: bold;
   text-transform: uppercase;
+  margin-right: .8em;
 }
-
-
-
-
-
 
 .follow-btn {
   color: $nav-blue-hover;

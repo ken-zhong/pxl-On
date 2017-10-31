@@ -1,13 +1,9 @@
 class Api::UserController < ApplicationController
   def index
     case params[:type]
-    when 'getfollows'
+    when 'getallfollows'
       user = User.find(params[:id])
-      @users = user.followers
-      render "api/users/index"
-    when 'getfollowings'
-      user = User.find(params[:id])
-      @users = user.followings
+      @users = user.followers + user.followees + user
       render "api/users/index"
     else
       @users = User.all

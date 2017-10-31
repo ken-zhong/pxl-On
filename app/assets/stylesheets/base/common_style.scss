@@ -7,6 +7,10 @@
   display: flex;
   align-items: center;
 }
+.flex-between {
+  display: flex;
+  align-items: space-between;
+}
 
 .container {
   display: flex;
@@ -39,6 +43,11 @@
 
 .mobile-hide {
   display: none;
+}
+
+.hover-blue {
+  @include hover-blue;
+  cursor: pointer;
 }
 
 @media (min-width: 668px) {

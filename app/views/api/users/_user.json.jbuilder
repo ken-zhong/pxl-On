@@ -18,3 +18,7 @@ else
   #  how to handle else case? We'll try just not show the isFollowing property.
   # json.isFollowing 'disabled'
 end
+
+json.followers user.followers.map { |user| user.username }
+json.following user.followees.map { |user| user.username }
+json.photos user.photos.map {|photo| photo.id }

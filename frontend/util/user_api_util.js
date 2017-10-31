@@ -28,14 +28,8 @@ export const unfollowUser = unfollowRequest => {
   });
 };
 
-export const getFollowers = (id) => {
+export const getAllFollows = (id) => {
   return $.ajax({
-    url: `api/user?type=getfollowers&id=${id}`
-  });
-};
-
-export const getFollowings = (id) => {
-  return $.ajax({
-    url: `api/user?type=getfollowings&id=${id}`
+    url: `api/user?type=getAllFollows&id=${id}`
   });
 };
