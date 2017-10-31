@@ -21,6 +21,20 @@ class Api::UserController < ApplicationController
     end
   end
 
+  def follow
+    new_follow = Follow.new(follower_id: :id, followee_id: params[:followee_id])
+    if new_follow.save
+      @user = new_follow.followee
+      render "api/users/show"
+    else
+      render json: ['User not found'], status: 422
+    end
+  end
+
+  def unfollow
+
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :password)
