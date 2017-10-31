@@ -16,7 +16,7 @@ class Api::PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
-    if params[:profile]
+    if params[:type] == 'profile'
       # check to see if the uploaded photo is intended to be the profile pic
       # cover photos are set in the users controller instead
       @user = User.find(@photo.author_id)
@@ -37,7 +37,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def update
-    if params[:coverphoto]
+    if params[:type] == 'coverphoto'
       @photo = Photo.find(params[:id])
       if @photo.author.cover_photo
         oldphoto = @photo.author.cover_photo

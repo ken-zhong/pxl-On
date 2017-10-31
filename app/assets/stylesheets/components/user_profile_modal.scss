@@ -1,89 +1,8 @@
 @import "base/specs.scss";
 @import "base/mixins.scss";
 
-.cover-image {
-  position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 0;
-}
-
-.profile-edit-btn {
-  @include profile-btn;
-  cursor: pointer;
-  background-color: $btn-blue;
-  color: $white;
-  z-index: 1;
-}
-
-.profile-edit-btn:hover {
-  background-color: $btn-blue-hover;
-}
-
-.user-profile-masthead {
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: $white;
-  border-bottom: 1px solid $light-grey;
-}
-
-.user-profile-subheader-text {
-  margin: 1em 0;
-}
-
-.user-profile-subheader-text span {
-  margin: 0 1em;
-  color: $grey;
-}
-
-.profile-photo {
-  z-index: 5;
-  height: 8em;
-  width: 8em;
-  border-radius: 50%;
-  margin-top: -4em;
-  margin-bottom: 1em;
-  border: 2px solid $white;
-  @include default-user-profile;
-}
-
-.profile-header {
-  color: $dark-grey;
-  font-size: 2em;
-}
-
-
-.photos-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.photos-grid img {
-  box-sizing: border-box;
-  margin: .2em;
-  max-height: 20em;
-  height: auto;
-  width: auto;
-  max-width: 100%;
-}
-
-.photo-preview-container {
-  max-width: 100%;
-  height: auto;
-}
-
-.no-photos-warning {
-  padding: 2em;
-  font-size: 1.2em;
-  color: $grey;
-}
-
 .profile-modal {
+  @include modal-view;
   max-width: 43em;
   max-height: 90vh;
   margin: 5vh auto;
@@ -169,11 +88,8 @@
 }
 
 @media (min-width: 668px) {
-  .profile-edit-btn {
-    right: 5vw;
-  }
-
-  .profile-edit-component button {
-    margin-top: 1.2em;
+  .profile-modal {
+    max-height: 80vh;
+    margin: 10vh auto;
   }
 }

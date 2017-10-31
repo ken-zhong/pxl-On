@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { followUser, unfollowUser } from '../../actions/user_actions';
 
-// this component should always be passed as a prop the user id it is attached to
+// this component should always be passed as a prop the user it is attached to
 // props: user, followUser(), unfollowUser()
 
 class FollowButton extends React.Component {

@@ -39,7 +39,7 @@ export const createPhoto = (formData) => {
 export const setProfilePhoto = (formData) => {
   return $.ajax({
     method: 'POST',
-    url: 'api/photos?profile=true',
+    url: 'api/photos?type=profile',
     dataType: 'json',
     contentType: false,
     processData: false,
@@ -58,6 +58,6 @@ export const updatePhoto = (photo) => {
 export const setCoverPhoto = (id) => {
   return $.ajax({
     method: 'PATCH',
-    url: `api/photos/${id}?coverphoto=true`
+    url: `api/photos/${id}?type=coverphoto`
   });
 };

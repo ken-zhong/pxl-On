@@ -1,5 +1,18 @@
 class Api::UserController < ApplicationController
   def index
+    case params[:type]
+    when 'getfollows'
+      user = User.find(params[:id])
+      @users = user.followers
+      render "api/users/index"
+    when 'getfollowings'
+      user = User.find(params[:id])
+      @users = user.followings
+      render "api/users/index"
+    else
+      @users = User.all
+      render "api/users/index"
+    end
   end
 
   def show

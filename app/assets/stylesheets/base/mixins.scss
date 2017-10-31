@@ -26,3 +26,26 @@
   width: fit-content;
   font-size: .9em;
 }
+
+@mixin modal-view {
+  z-index: 20;
+  border: solid 1px $light-grey;
+  background-color: $white;
+  border-radius: .5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  overflow: auto;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin hover-blue {
+  &:hover {
+    transition: color .2s;
+    color: $nav-blue-hover;
+  }
+}

@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import ProfileEditModal from './user_profile_edit_modal';
-import FollowButton from '../follows/follow_button'
+import FollowButton from '../follows/follow_button';
+import FollowModal from '../follows/follows_modal';
 
 class UserProfile extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {editModalOpen: false};
+    this.state = {
+      editModalOpen: false,
+      followersModalOpen: false,
+      followingModalOpen: false
+    };
   }
 
   componentDidMount () {
@@ -77,7 +82,7 @@ class UserProfile extends React.Component {
         <div className='photos-grid'>
           { photos }
         </div>
-        <ReactModal isOpen={this.state.editModalOpen} className='upload-modal profile-modal'
+        <ReactModal isOpen={this.state.editModalOpen} className='profile-modal'
           onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
           onAfterOpen={this.openModal.bind(this)}>
           <div>

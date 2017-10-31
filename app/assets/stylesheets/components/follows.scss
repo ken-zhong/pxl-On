@@ -1,6 +1,40 @@
 @import "base/mixins.scss";
 @import "base/specs.scss";
 
+.follow-modal {
+  overflow: none;
+  background: $white;
+  width: 90%;
+  max-width: 25em;
+  height: 35em;
+}
+
+.follow-user-list {
+  background-color: $background-blue;
+}
+
+.follow-user-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.follow-user-link {
+  font-weight: bold;
+  color: $dark-grey;
+  text-decoration: none;
+}
+
+.follow-modal h4 {
+  color: $grey;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+
+
+
+
+
 .follow-btn {
   color: $nav-blue-hover;
   border: 1px solid $nav-blue-hover;

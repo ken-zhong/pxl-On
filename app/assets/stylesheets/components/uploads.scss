@@ -1,4 +1,5 @@
  @import "base/specs.scss";
+ @import "base/mixins.scss";
 
 .overlay {
   position: fixed;
@@ -12,27 +13,15 @@
 }
 
 .upload-modal {
-  z-index: 20;
-  border: solid 1px $light-grey;
+  @include modal-view;
+  margin: 10vh auto;
   width: 90vw;
   max-width: 80em;
   max-height: 80vh;
-  margin: 10vh auto;
-  background-color: $white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  overflow: auto;
-  border-radius: 1em;
 }
 
 .force-height {
   height: 80vh;
-}
-
-.upload-modal:focus {
-  outline: none;
 }
 
 .upload-preview-container {
