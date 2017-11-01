@@ -1,0 +1,91 @@
+.photo-feed-page {
+  display: flex;
+  margin: 2em auto;
+  width: 100%;
+  position: relative;
+}
+
+.photo-feed-item-container {
+  width: 100%;
+  border: 1px solid red;
+}
+
+.photo-feed-item {
+  background: $white;
+}
+
+.feed-currentuser {
+  // position: fixed;
+  // top: 0;
+  // right: 0;
+  box-sizing: border-box;
+  width: 20em;
+  display: none;
+  border: 1px solid $light-grey;
+  border-radius: .2em;
+  background: $white;
+
+  .follow-user-item-info {
+    box-sizing: border-box;
+    border-bottom: 1px solid $light-grey;
+    display: flex;
+    padding: 1em;
+    align-items: center;
+    width: 100%;
+  }
+  .nav-user-icon {
+    height: 4em;
+    width: 4em;
+    margin-right: 1em;
+  }
+  h4 {
+    font-size: 1.3em;
+    font-weight: 200;
+    @include hover-blue;
+    color: $grey;
+  }
+}
+
+.follow-user-item-subrow {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+
+  span {
+    @include hover-blue;
+    box-sizing: border-box;
+    width: 33.33%;
+    height: 6em;
+    border-right: 1px solid $light-grey;
+    color: $grey;
+    text-align: center;
+    padding: 1em;
+
+    h5{
+      font-size: 1.7em;
+      padding: 0;
+      margin: 0;
+      font-weight: 200;
+    }
+  }
+
+  span:last-child {
+    border-right: none;
+  }
+}
+
+@media (min-width: 668px) {
+  .photo-feed-item-container {
+    width: calc(100% - 22em);
+    margin-right: 2em;
+  }
+
+  .feed-currentuser {
+    display: flex;
+    flex-direction: column;
+  }
+  .photo-feed-page {
+    width: 86%;
+    max-width: 90em;
+  }
+}

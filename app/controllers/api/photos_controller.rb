@@ -1,6 +1,11 @@
 class Api::PhotosController < ApplicationController
   def index
-    if params[:user_id]
+    if params[:type] == 'feed'
+      @photos = []
+      current_user.followees.each do |user|
+        @photos.concat(user.photos)
+      end
+    elsif params[:user_id]
       user = User.find_by_username(params[:user_id])
       if user
         # makes sure that the profile pic doesn't show up on a user's gallery
@@ -8,7 +13,6 @@ class Api::PhotosController < ApplicationController
       else
         render json: ['User not found'], status: 422
       end
-    elsif params[:type] == 'feed'
     else
       @photos = Photo.all
     end
@@ -32,7 +36,8 @@ class Api::PhotosController < ApplicationController
     elsif @photo.save
       render "api/photos/show"
     else
-      render json:['Invalid input'], status: 422
+      # render json:['Invalid input'], status: 422
+      render json: @photo.errors.full_messages, status: 422
     end
   end
 

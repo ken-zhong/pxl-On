@@ -55,6 +55,13 @@ export const fetchPhoto = id => dispatch => {
   );
 };
 
+export const fetchPhotoFeed = () => dispatch => {
+  return PhotoApiUtil.fetchPhotoFeed().then(
+    photos => dispatch(receiveAllPhotos(photos)),
+    errors => dispatch(receivePhotoErrors(errors))
+  );
+};
+
 export const fetchUserPhotos = username => dispatch => {
   return PhotoApiUtil.fetchUserPhotos(username).then(
     photos => dispatch(receiveAllPhotos(photos)),
