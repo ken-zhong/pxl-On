@@ -27,14 +27,16 @@ class PhotoShow extends React.Component {
     let user = this.props.user;
     let userProfileUrl;
     if (user.coverPhotoUrl) {
-      userProfileUrl = {backgroundImage: `url(${user.coverPhotoUrl})`};
+      userProfileUrl = {backgroundImage: `url(${user.profilePhotoUrl})`};
     }
     return (
       <div className='photo-show-page'>
         <div className='photo-show-img'><img src={this.props.photo.large_url} /></div>
         <div className='photo-show-user-info-col'>
           <div className='follow-user-item-info'>
-            <div className='nav-user-icon' style={userProfileUrl} />
+            <Link to={`/${user.username}`}>
+              <div className='nav-user-icon' style={userProfileUrl} />
+            </Link>
             <div>
               <Link to={`/${user.username}`} className='follow-user-link'>{user.username}</Link>
               <br />
