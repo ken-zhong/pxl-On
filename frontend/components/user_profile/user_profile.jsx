@@ -22,8 +22,8 @@ class UserProfile extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    let username = nextProps.match.params.username;
     if (this.props.match.url !== nextProps.match.url) {
-      let username = nextProps.match.params.username;
       window.scrollTo(0, 0);
       this.props.fetchUserPhotos(username);
       this.props.fetchUser(username).then(null,
@@ -33,6 +33,11 @@ class UserProfile extends React.Component {
 
   closeModal () {
     document.body.style.overflow = 'auto';
+
+    if (this.state.followersModalOpen || this.state.followingModalOpen) {
+      this.props.fetchUser(this.props.match.params.username);
+    }
+
     this.setState({
       editModalOpen: false,
       followersModalOpen: false,
@@ -128,7 +133,6 @@ class UserProfile extends React.Component {
           </div>
           <FollowModal closeModal={this.closeModal.bind(this)}
             user={this.props.user} type='following' />
-
         </ReactModal>
       </div>
     );

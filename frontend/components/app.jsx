@@ -8,7 +8,7 @@ import HomeContainer from './home/home_container';
 import AboutPage from './about_page';
 import UserProfileContainer from './user_profile/user_profile_container';
 import UploadFormContainer from './upload/upload_container';
-import PhotoContainer from './photos/photo_container.js';
+import PhotoContainer from './photos/photo_show_container';
 import Err404 from './404';
 
 // <ProtectedRoute exact path='/upload' component={UploadFormContainer} />

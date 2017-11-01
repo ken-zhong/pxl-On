@@ -36,7 +36,7 @@ class Photo < ApplicationRecord
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates :title, :author, presence: true
-  validates :title, length: {maximum: 24}
+  validates :title, length: {maximum: 48}
   def ensure_description
     self.description ||= ''
   end

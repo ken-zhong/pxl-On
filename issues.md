@@ -2,6 +2,9 @@
 
 - forcing rerenders, profile page, currently just refreshing the page
 
+- followers updates real time
+
+
 
 - can I use this - https://github.com/guoyunhe/flexbin
 
