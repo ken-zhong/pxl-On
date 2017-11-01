@@ -7,6 +7,8 @@ class PhotoShow extends React.Component {
     let id = this.props.match.params.photoId;
     this.props.fetchPhoto(id).then((res) => {
       this.props.fetchUser(res.photo.author);
+    }, () => {
+      this.props.history.push('/oops');
     });
   }
 
@@ -15,7 +17,8 @@ class PhotoShow extends React.Component {
       let id = this.props.match.params.photoId;
       this.props.fetchPhoto(id).then((res) => {
         this.props.fetchUser(res.photo.author);
-      });
+      }, () => this.props.history.push('/oops')
+    );
     }
   }
 
@@ -24,7 +27,6 @@ class PhotoShow extends React.Component {
   }
 
   render () {
-    console.log(this.props);
     let user = this.props.user;
     let userProfileUrl;
     if (user.coverPhotoUrl) {

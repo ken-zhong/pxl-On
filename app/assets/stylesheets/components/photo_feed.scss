@@ -42,9 +42,15 @@
 }
 
 .photo-feed-img-container {
-  width: 100%;
-  img {
-    cursor: zoom-in;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+    img {
+      cursor: zoom-in;
+      max-width: 100%;
+      max-height: 90vh;
+      width: auto;
+      height: auto;
   }
 }
 

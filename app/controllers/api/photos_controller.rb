@@ -3,7 +3,7 @@ class Api::PhotosController < ApplicationController
     if params[:type] == 'feed'
       @photos = []
       current_user.followees.each do |user|
-        @photos.concat(user.photos)
+        @photos.concat(user.photos.reject { |photo| photo.author_profile_id == user.id } )
       end
     elsif params[:user_id]
       user = User.find_by_username(params[:user_id])
@@ -43,7 +43,7 @@ class Api::PhotosController < ApplicationController
 
   def update
     if params[:type] == 'coverphoto'
-      @photo = Photo.find(params[:id])
+      @photo = Photo.find_by(id: params[:id])
       if @photo.author.cover_photo
         oldphoto = @photo.author.cover_photo
         oldphoto.author_cover_id = nil
@@ -64,7 +64,12 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(params[:id])
+    @photo = Photo.find_by(id: params[:id])
+    if @photo
+      render "api/photos/show"
+    else
+      render json: ['photo doesn\'t exist'], status: 422
+    end
   end
 
   private

@@ -1,6 +1,7 @@
 import * as UserApiUtil from '../util/user_api_util';
 
 export const RECEIVE_USER = 'RECEIVE_USER';
+export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const RECEIVE_USER_ERRORS = 'RECEIVE_USER_ERRORS';
 
@@ -10,6 +11,14 @@ export const receiveUser = user => {
     user
   };
 };
+
+export const receiveFollow = user => {
+  return {
+    type: RECEIVE_FOLLOW,
+    user
+  };
+};
+
 export const receiveUsers = users => {
   return {
     type: RECEIVE_USERS,
