@@ -7,8 +7,9 @@ import { getAllFollows, fetchUser } from '../../actions/user_actions';
 const mapStateToProps = (state, ownProps) => {
   const users = Object.values(state.entities.users);
   const photos = Object.values(state.entities.photos);
+  const currentUser = state.entities.users[state.session.currentUser.username] || state.session.currentUser;
   return {
-    currentUser: state.session.currentUser,
+    currentUser,
     users,
     photos
   };

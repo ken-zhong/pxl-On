@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import FollowButton from '../follows/follow_button';
 import ReactModal from 'react-modal';
 import FollowModal from '../follows/follows_modal';
+import PhotoFeedItem from './photo_feed_item';
 
 class PhotoFeed extends React.Component {
   constructor (props) {
@@ -14,11 +15,21 @@ class PhotoFeed extends React.Component {
     };
   }
 
+
+  componentDidMount () {
+    this.props.getAllFollows();
+    this.props.fetchPhotoFeed();
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.currentUser.numFollowing !== this.props.currentUser.numFollowing) {
+      this.props.fetchPhotoFeed();
+    }
+  }
+
   closeModal () {
     document.body.style.overflow = 'auto';
-    if (this.state.followersModalOpen || this.state.followingModalOpen) {
-      this.props.fetchUser(this.props.currentUser.username);
-    }
+    this.props.fetchUser(this.props.currentUser.username);
     this.setState({
       followersModalOpen: false,
       followingModalOpen: false
@@ -28,49 +39,58 @@ class PhotoFeed extends React.Component {
     document.body.style.overflow = 'hidden';
   }
 
-  componentDidMount () {
-    this.props.fetchPhotoFeed();
-    this.props.getAllFollows();
-  }
-
   render () {
     let currentUser = this.props.currentUser;
-    let userProfileUrl;
+    let userProfileUrl, photoFeedItems;
     if (currentUser.coverPhotoUrl) {
       userProfileUrl = {backgroundImage: `url(${currentUser.profilePhotoUrl})`};
+    }
+
+    if (this.props.photos.length > 0) {
+      photoFeedItems = this.props.photos.map((photo, idx) => {
+        return <PhotoFeedItem photo={photo} key={idx} />;
+      });
+    } else {
+      photoFeedItems = (
+        <div>
+          You're not following anyone yet! <br />
+          <Link to='/discover'>Find some inspiration now</Link>
+        </div>
+      );
     }
 
     return (
       <div className='photo-feed-page'>
         <div className='photo-feed-item-container'>
-          <div>feed component</div>
+          { photoFeedItems }
         </div>
 
-        <div className='feed-currentuser mobile-hide'>
-          <div className='follow-user-item-info'>
-            <Link to={`/${currentUser.username}`}>
-              <div className='nav-user-icon' style={userProfileUrl} />
-            </Link>
-            <div>
-              <Link to={`/${currentUser.username}`}><h4>{currentUser.username}</h4></Link>
+        <div className='feed-sidecol slideUp'>
+          <div className='feed-currentuser'>
+            <div className='follow-user-item-info'>
+              <Link to={`/${currentUser.username}`}>
+                <div className='nav-user-icon' style={userProfileUrl} />
+              </Link>
+              <div>
+                <Link to={`/${currentUser.username}`}><h4>{currentUser.username}</h4></Link>
+              </div>
+            </div>
+            <div className='follow-user-item-subrow'>
+              <span><Link to={`/${currentUser.username}`}>
+                <h5>{currentUser.photos.length}</h5>
+                Photos
+              </Link></span>
+              <span onClick={() => this.setState({followersModalOpen: true})} >
+                <h5>{currentUser.numFollowers}</h5>
+                Followers
+              </span>
+              <span onClick={() => this.setState({followingModalOpen: true})} >
+                <h5>{currentUser.numFollowing}</h5>
+                Following
+              </span>
             </div>
           </div>
-          <div className='follow-user-item-subrow'>
-            <span><Link to={`/${currentUser.username}`}>
-              <h5>{currentUser.photos.length}</h5>
-              Photos
-            </Link></span>
-            <span>
-              <h5>{currentUser.numFollowers}</h5>
-              Followers
-          </span>
-            <span>
-              <h5>{currentUser.numFollowing}</h5>
-              Following
-            </span>
-          </div>
         </div>
-
 
         <ReactModal isOpen={this.state.followersModalOpen} className='follow-modal'
           onRequestClose={this.closeModal.bind(this)} overlayClassName='overlay'
