@@ -1,7 +1,22 @@
  @import "base/specs.scss";
 
-// this hide element courtesy of Osvaldas Valutis
-// https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+
+.ReactModalPortal > * {
+    // When the modal is closed, overlay div has no css class
+    // This selector should be overridden by the &--after-open class below
+    opacity: 0;
+}
+
+.ReactModal__Overlay {
+    transition: opacity 300ms ease-in-out;
+    background: rgba(0, 0, 0, 0.15);
+    &--after-open {
+        opacity: 1;
+    }
+    &--before-close {
+        opacity: 0;
+    }
+}
 
 .flex-center {
   display: flex;
@@ -17,6 +32,8 @@
   justify-content: center;
 }
 
+// this hide element courtesy of Osvaldas Valutis
+// https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
 .hide-element {
   width: 0.1px;
 	height: 0.1px;

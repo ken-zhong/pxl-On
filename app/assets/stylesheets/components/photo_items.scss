@@ -5,14 +5,40 @@
   flex-wrap: wrap;
 }
 
+// I learned how to do this overlay from www.w3schools.com
 .photo-preview-container {
   margin: .3em;
   height: 20em;
   overflow: hidden;
-
+  position: relative;
+  cursor: zoom-in;
 }
+
+.photo-preview-container:hover .photo-preview-overlay {
+  height: 2em;
+  padding-top: .2em;
+}
+
+.photo-preview-overlay {
+  padding-left: 1em;
+  box-sizing: border-box;
+  background-color: rgba(12, 15, 18, .5);
+  position: absolute;
+  margin: 0 auto;
+  width: calc(100% - 6px);
+  height: 0;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  transition: .5s ease;
+  overflow: hidden;
+  color: $white;
+  font-weight: 200;
+}
+
 .photo-preview-container img {
   height: 100%;
   width: auto;
   display: block;
+  margin: 0;
 }

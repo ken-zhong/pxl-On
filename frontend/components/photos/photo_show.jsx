@@ -2,11 +2,15 @@ import React from 'react';
 
 class PhotoShow extends React.Component{
   componentDidMount () {
-
+    let id = this.props.match.params.photoId;
+    this.props.fetchPhoto(id);
   }
 
-  componentWillReceiveProps () {
-
+  componentWillReceiveProps (nextProps) {
+    if (this.props.match.params.photoId !== nextProps.match.params.photoId) {
+      let id = this.props.match.params.photoId;
+      this.props.fetchPhoto(id);
+    }
   }
 
   closePhoto () {

@@ -54,6 +54,7 @@ class UserProfile extends React.Component {
         return (
           <div className='photo-preview-container' key={idx}>
             <img src={photo.preview_url} />
+            <div className='photo-preview-overlay'>{photo.title}</div>
           </div>
         );
       });
