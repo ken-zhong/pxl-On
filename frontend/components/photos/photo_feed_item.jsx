@@ -6,7 +6,7 @@ import FollowButton from '../follows/follow_button';
 const PhotoFeedItem = (props) => {
 
   let userProfileUrl;
-  if (props.author.coverPhotoUrl) {
+  if (props.author.profilePhotoUrl) {
     userProfileUrl = {backgroundImage: `url(${props.author.profilePhotoUrl})`};
   }
 
