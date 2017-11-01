@@ -10,7 +10,7 @@ const AppErrorsReducer = (state = [], action) => {
       return action.errors.responseJSON;
     case CLEAR_ERRORS:
       return [];
-    default: return state;
+    default: return [];
   }
 };
 

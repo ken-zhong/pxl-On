@@ -1,0 +1,24 @@
+.photo-show-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100vh - 3.4em);
+}
+
+.photo-show-img {
+  width: 100%;
+}
+
+.photo-show-user-info-col {
+  width: 15em;
+}
+
+@media (min-width: 668px) {
+  .photo-show-page {
+    flex-direction: row;
+  }
+
+  .photo-show-img {
+    width: calc(100% - 15.5em);
+  }
+}

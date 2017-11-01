@@ -3,6 +3,7 @@ import ReactModal from 'react-modal';
 import ProfileEditModal from './user_profile_edit_modal';
 import FollowButton from '../follows/follow_button';
 import FollowModal from '../follows/follows_modal';
+import { Link } from 'react-router-dom';
 
 class UserProfile extends React.Component {
   constructor (props) {
@@ -25,9 +26,8 @@ class UserProfile extends React.Component {
       let username = nextProps.match.params.username;
       window.scrollTo(0, 0);
       this.props.fetchUserPhotos(username);
-      this.props.fetchUser(username);
-    } else if (this.props.errors.app.includes('User not found')) {
-      this.props.history.push('/oops');
+      this.props.fetchUser(username).then(null,
+        () => this.props.history.push('/oops'));
     }
   }
 
@@ -52,10 +52,10 @@ class UserProfile extends React.Component {
     if (this.props.photos.length > 0) {
       photos = this.props.photos.map((photo, idx) => {
         return (
-          <div className='photo-preview-container' key={idx}>
+          <Link to={`/photos/${photo.id}`} className='photo-preview-container' key={idx}>
             <img src={photo.preview_url} />
             <div className='photo-preview-overlay'>{photo.title}</div>
-          </div>
+          </Link>
         );
       });
     } else {
