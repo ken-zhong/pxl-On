@@ -3,7 +3,7 @@
 - forcing rerenders, profile page, currently just refreshing the page
 - username can have spaces. oops.
 - followers updates real time
-  - TODO: change currnet implementation to RECEIVE_FOLLOW instead 
+  - TODO: change currnet implementation to RECEIVE_FOLLOW instead
 
 
 

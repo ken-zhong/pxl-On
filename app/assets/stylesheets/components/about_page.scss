@@ -3,5 +3,21 @@
   background-image: image_url("mountains_low_res.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 70%;
+  cursor: default;
+  font-weight: 200;
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+.about-text {
+  font-size: 1.3em;
+  width: 100%;
+  max-width: 40em;
+  text-align: center;
+  margin: 2em auto;
+  i {
+    margin: 0 .5em;
+  }
 }

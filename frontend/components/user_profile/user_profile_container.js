@@ -6,7 +6,7 @@ import { fetchUser, getAllFollows } from '../../actions/user_actions';
 // import { login, signup, clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  let photos = Object.values(state.entities.photos);
+  let photos = Object.values(state.entities.photos).reverse();
   let user = state.entities.users[ownProps.match.params.username] || {};
 
   return {

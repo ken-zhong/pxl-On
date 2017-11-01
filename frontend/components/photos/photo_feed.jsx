@@ -15,7 +15,6 @@ class PhotoFeed extends React.Component {
     };
   }
 
-
   componentDidMount () {
     this.props.getAllFollows();
     this.props.fetchPhotoFeed();

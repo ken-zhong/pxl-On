@@ -56,25 +56,9 @@
   font-size: 2em;
 }
 
-
 .photos-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.photos-grid img {
-  box-sizing: border-box;
-  margin: .2em;
-  max-height: 20em;
-  height: auto;
-  width: auto;
-  max-width: 100%;
-}
-
-.photo-preview-container {
-  max-width: 100%;
-  height: auto;
+  width: 98%;
+  margin: 0 auto;
 }
 
 .no-photos-warning {
@@ -175,5 +159,9 @@
 
   .profile-edit-component button {
     margin-top: 1.2em;
+  }
+
+  .photos-grid {
+    width: 96vw;
   }
 }

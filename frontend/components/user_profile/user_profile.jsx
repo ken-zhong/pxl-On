@@ -100,7 +100,9 @@ class UserProfile extends React.Component {
           </div>
         </div>
         <div className='photos-grid'>
-          { photos }
+          <div className='flexbin'>
+            { photos }
+          </div>
         </div>
 
         <ReactModal isOpen={this.state.editModalOpen} className='profile-modal'
