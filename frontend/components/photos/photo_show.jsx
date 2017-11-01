@@ -32,7 +32,7 @@ class PhotoShow extends React.Component {
     }
     // <span>{user.numFollowers} followers</span>
     return (
-      <div className='photo-show-page'>
+      <div className='photo-show-page fadeIn'>
         <div className='photo-show-img'><img src={this.props.photo.large_url} /></div>
         <div className='photo-show-user-info-col'>
           <div className='follow-user-item-info'>

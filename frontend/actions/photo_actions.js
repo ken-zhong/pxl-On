@@ -6,6 +6,7 @@ export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';
 export const REMOVE_PHOTO = 'REMOVE_PHOTO';
 export const RECEIVE_PHOTO_ERRORS = 'RECEIVE_PHOTO_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const CLEAR_PHOTOS = 'CLEAR_PHOTOS';
 
 const receivePhoto = photo => {
   return {
@@ -14,9 +15,15 @@ const receivePhoto = photo => {
   };
 };
 
-const clearErrors = () => {
+export const clearErrors = () => {
   return {
     type: CLEAR_ERRORS
+  };
+};
+
+export const clearPhotos = () => {
+  return {
+    type: CLEAR_PHOTOS
   };
 };
 

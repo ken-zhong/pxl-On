@@ -31,6 +31,10 @@ class UserProfile extends React.Component {
     }
   }
 
+  componentWillUnmount () {
+    this.props.clearPhotos();
+  }
+
   closeModal () {
     document.body.style.overflow = 'auto';
 

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const Auth = ({component: Component, path, loggedIn}) => {
   return (<Route path={path} render={(props) => {
     if (loggedIn) {
-      return <Redirect to='/home' />;
+      return <Redirect to='/feed' />;
     } else {
       return <Component {...props} />;
     }

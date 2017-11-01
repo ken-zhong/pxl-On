@@ -52,9 +52,10 @@ class PhotoFeed extends React.Component {
       });
     } else {
       photoFeedItems = (
-        <div>
-          You're not following anyone yet! <br />
-          <Link to='/discover'>Find some inspiration now</Link>
+        <div className='no-feed-msg'>
+          You're not following anyone yet!
+          <br />
+          <Link to='/discover'>Discover some photos now</Link>
         </div>
       );
     }

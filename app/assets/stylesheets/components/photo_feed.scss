@@ -1,23 +1,51 @@
 .photo-feed-page {
   display: flex;
   margin: 3em auto;
-  width: 100%;
+  width: 96%;
   position: relative;
 }
 
 .photo-feed-item-container {
   width: 100%;
-  border: 1px solid red;
 }
 
 .photo-feed-item {
   box-sizing: border-box;
   background-color: $white;
   margin-bottom: 2em;
+  border: 1px solid $light-grey;
+  color: $dark-grey;
+}
+
+.photo-feed-item-header {
+  height: 5em;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  div {
+    margin-right: 1em;
+  }
+  h4 {
+    font-size: 1.2em;
+    @include hover-blue;
+    font-weight: bold;
+  }
+}
+
+.photo-feed-item-footer {
+  padding: 1em;
+  h3 {
+    font-size: 1.3em;
+    margin-bottom: .8em;
+    @include hover-blue;
+  }
 }
 
 .photo-feed-img-container {
   width: 100%;
+  img {
+    cursor: zoom-in;
+  }
 }
 
 .feed-sidecol {
@@ -85,7 +113,32 @@
   }
 }
 
+.no-feed-msg {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  border: 1px $light-grey solid;
+  background: $white;
+  height: 20em;
+  font-size: 1.3em;
+  color: $grey;
+  a {
+    text-decoration: underline;
+    font-size: 1.5em;
+    margin-top: 1em;
+    @include hover-blue;
+  }
+}
+
 @media (min-width: 668px) {
+  .photo-feed-page {
+    width: 86%;
+  }
+}
+
+@media (min-width: 900px) {
   .photo-feed-item-container {
     width: calc(100% - 22em);
     margin-right: 2em;
@@ -100,7 +153,6 @@
     flex-direction: column;
   }
   .photo-feed-page {
-    width: 86%;
     max-width: 90em;
   }
 }
