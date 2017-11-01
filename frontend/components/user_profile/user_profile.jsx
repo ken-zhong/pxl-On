@@ -17,7 +17,8 @@ class UserProfile extends React.Component {
 
   componentDidMount () {
     let username = this.props.match.params.username;
-    this.props.fetchUser(username);
+    this.props.fetchUser(username).then(null,
+      () => this.props.history.push('/oops'));
     this.props.fetchUserPhotos(username);
   }
 
@@ -25,9 +26,9 @@ class UserProfile extends React.Component {
     let username = nextProps.match.params.username;
     if (this.props.match.url !== nextProps.match.url) {
       window.scrollTo(0, 0);
-      this.props.fetchUserPhotos(username);
       this.props.fetchUser(username).then(null,
         () => this.props.history.push('/oops'));
+      this.props.fetchUserPhotos(username);
     }
   }
 
