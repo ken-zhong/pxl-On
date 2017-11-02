@@ -1,0 +1,46 @@
+@import "base/specs.scss";
+@import "base/mixins.scss";
+
+.photo-manage-page {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
+
+  .upload-details-form {
+    border: none;
+    width: 32em;
+    margin: 0 auto;
+  }
+}
+
+.photo-manage-container{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+.photo-delete-btn {
+  @include btn-large;
+  display: block;
+  text-align: center;
+  margin-top: 2em;
+  background-color: $red-destroy;
+}
+
+.photo-edit-form {
+
+}
+
+@media (min-width: 668px) {
+  .photo-manage-page {
+    display: flex;
+    flex-direction: row;
+    .upload-details-form {
+      border: none;
+      width: 32em;
+    }
+  }
+}

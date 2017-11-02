@@ -94,6 +94,7 @@
   border: none;
   background-color: $btn-blue;
   color: $white;
+  right: 5vw;
 }
 .follow-btn-profile:hover {
   background-color: $btn-blue-hover;
@@ -102,4 +103,5 @@
 .following-btn-profile {
   @include profile-btn;
   color: white;
+  right: 5vw;
 }

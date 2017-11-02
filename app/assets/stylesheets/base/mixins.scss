@@ -50,3 +50,16 @@
     color: $nav-blue-hover;
   }
 }
+
+@mixin btn-large {
+  box-sizing: border-box;
+  width: 100%;
+  cursor: pointer;
+  color: $white;
+  border: none;
+  height: 2.5em;
+  padding: .5em;
+  margin-top: 2em;
+  font-size: 1.2em;
+  border-radius: .2em;
+}

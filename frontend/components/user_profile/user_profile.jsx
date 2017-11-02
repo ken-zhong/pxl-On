@@ -58,7 +58,7 @@ class UserProfile extends React.Component {
     let coverUrl, profilePhotoUrl;
     [coverUrl, profilePhotoUrl] = this.getUserUrls();
 
-    let photos;
+    let photos, noPhotosWarning;
     if (this.props.photos.length > 0) {
       photos = this.props.photos.map((photo, idx) => {
         return (
@@ -69,7 +69,7 @@ class UserProfile extends React.Component {
         );
       });
     } else {
-      photos = (<div className='flex-center container no-photos-warning'
+      noPhotosWarning = (<div className='flex-center container no-photos-warning'
         style={{padding: '5em'}}>
         No photos uploaded yet!</div>);
     }
@@ -100,6 +100,7 @@ class UserProfile extends React.Component {
           </div>
         </div>
         <div className='photos-grid'>
+          { noPhotosWarning }
           <div className='flexbin'>
             { photos }
           </div>

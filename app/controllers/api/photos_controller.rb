@@ -56,11 +56,16 @@ class Api::PhotosController < ApplicationController
         render json: @photo.errors.full_messages, status: 422
       end
     else
-        render json: ['invalid request!'], status: 422
+      @photo = Photo.find_by(id: params[:id])
+
+      render json: ['invalid request!'], status: 422
     end
   end
 
   def destroy
+    @photo.find(params[:id])
+    @photo.destroy
+    render "api/photos/show"
   end
 
   def show

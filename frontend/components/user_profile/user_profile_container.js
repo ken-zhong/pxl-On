@@ -22,9 +22,9 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchUserPhotos: (data) => dispatch(fetchUserPhotos(data)),
     fetchUser: (data) => dispatch(fetchUser(data)),
-    getAllFollows: (data) => dispatch(getAllFollows(data)),
     setProfilePhoto: (data) => dispatch(setProfilePhoto(data)),
     setCoverPhoto: (data) => dispatch(setCoverPhoto(data)),
+    getAllFollows: (data) => dispatch(getAllFollows(data)),
     clearPhotos: () => dispatch(clearPhotos())
   };
 };

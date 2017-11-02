@@ -13,6 +13,10 @@ const PhotosReducer = (state = {}, action) => {
       return action.photos;
     case CLEAR_PHOTOS:
       return {};
+    case REMOVE_PHOTO:
+      let newState = Object.assign({}, state);
+      delete newState[action.photoId];
+      return newState;
     case RECEIVE_CURRENT_USER:
       if (action.user) {
         return state;

@@ -39,7 +39,7 @@ class UserNavComponent extends React.Component {
     let dropdownClass = this.state.showDropdown ? 'nav-dropdown visible' : 'nav-dropdown';
     let navIcon = {};
     if (this.props.currentUser.profilePhotoUrl) {
-      navIcon = {backgroundImage: `url(${this.props.currentUser.profilePhotoUrl})`}
+      navIcon = {backgroundImage: `url(${this.props.currentUser.profilePhotoUrl})`};
     }
     return (
       <div className='flex-center nav-component'>
@@ -52,7 +52,7 @@ class UserNavComponent extends React.Component {
             <br />
             <ul className={dropdownClass}>
               <Link to={`/${this.props.currentUser.username}`} className='nav-dropdown-link'>My Profile</Link>
-              <li className='nav-dropdown-link'>Manage Photos</li>
+              <Link to='/manage' className='nav-dropdown-link'>Manage Photos</Link>
               <Link to='/feed' className='nav-dropdown-link'>My Feed</Link>
               <Link to='/discover' className='nav-dropdown-link'>Discover</Link>
               <li className='nav-dropdown-link' onClick={this.logout.bind(this)}>Logout</li>

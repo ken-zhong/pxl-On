@@ -16,7 +16,7 @@ const AboutPage = props => {
           photos.
         </p>
         <p>
-          For more details, you can find me on:
+          Find me on:
           <a href='https://github.com/ken-zhong'>
             <i className='fa fa-github fa-2x' aria-hidden='true' />
           </a>
