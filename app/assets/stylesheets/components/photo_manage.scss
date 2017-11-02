@@ -4,7 +4,9 @@
 .photo-manage-page {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   margin-top: 5vh;
+  max-width: 100em;
 
   .upload-details-form {
     border: none;

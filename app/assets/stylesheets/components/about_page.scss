@@ -1,4 +1,4 @@
-.about-background-img-container {
+.background-img-container {
   height: 66vh;
   background-image: image_url("mountains_low_res.jpg");
   background-size: cover;
@@ -20,4 +20,13 @@
   i {
     margin: 0 .5em;
   }
+}
+
+.discover-img-container {
+  height: 50vh;
+  background-image: image_url("discover_page.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
+  cursor: default;
 }

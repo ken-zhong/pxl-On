@@ -3,7 +3,7 @@ import React from 'react';
 const AboutPage = props => {
   return (
     <div className='fadeIn'>
-      <div className='about-background-img-container'>
+      <div className='background-img-container'>
         <div className='splash-text'>
           <h1>pxl-On</h1>
           <p>Share your best photos, discover inspiration, and find new photo friends!</p>
