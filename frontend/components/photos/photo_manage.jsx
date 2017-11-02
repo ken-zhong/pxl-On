@@ -7,11 +7,12 @@ class PhotoManage extends React.Component {
       selectedPhoto: null,
       title: '',
       description: '',
-      author_id: this.props.currentUser.id,
       loading: false
     });
     this.getPhotoElements = this.getPhotoElements.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.getErrors = this.getErrors.bind(this);
+    this.clearLoading = this.clearLoading.bind(this);
   }
 
   componentDidMount () {
@@ -20,18 +21,48 @@ class PhotoManage extends React.Component {
     this.props.fetchUserPhotos(username);
   }
 
+  clearLoading () {
+    this.setState({loading: false});
+  }
+
   handleInput (field) {
     return (e) => {
       this.setState({ [field]: e.target.value });
     };
   }
 
-  handleDelete (id) {
-    this.props.deletePhoto(id);
+  handleDelete () {
+    this.setState({
+      loading: true,
+      title: '',
+      description: ''
+    });
+    this.props.deletePhoto(this.state.selectedPhoto).then(this.clearLoading,
+      this.clearLoading);
   }
 
-  handleUpdate (formData) {
-    this.props.updatePhoto(formData);
+  handleUpdate () {
+    this.setState({loading: true});
+    let formData = {
+      id: this.state.selectedPhoto,
+      title: this.state.title,
+      description: this.state.description,
+      author_id: this.props.currentUser.id
+    };
+    this.props.updatePhoto(formData).then(this.clearLoading,
+      this.clearLoading);
+  }
+
+  getErrors () {
+    let errors;
+    if (this.props.errors.app.length > 0) {
+      errors = <span className='session-errors'>
+        { this.props.errors.app.map((e, idx) => <div key={idx}>{e}</div>) }
+      </span>;
+    } else {
+      errors = null;
+    }
+    return errors;
   }
 
   getPhotoElements () {
@@ -57,29 +88,20 @@ class PhotoManage extends React.Component {
   }
 
   render () {
-    let submitButton;
-    if (this.state.loading) {
-      submitButton = (
-        <div className='submit-loading'>
-          <i className='fa fa-spinner fa-spin fa-3x fa-fw' />
-        </div>
-      );
-    } else {
-      submitButton = (
-        <button onClick={this.handleUpdate.bind(this)}
-          className='submit-btn'>Update</button>
-      );
-    }
-    // { this.getErrors() }
-
     const photos = this.getPhotoElements();
+    let loadingOverlay;
+    if (this.state.loading) {
+      loadingOverlay = <div className='form-overlay' />;
+    }
     return (
       <div className='photo-manage-page'>
         <div className='photo-manage-container'>
           { photos }
         </div>
         <div className='upload-details-form'>
+          { loadingOverlay }
           <h3>Edit your photos</h3>
+          { this.getErrors() }
           <form className='photo-edit-form'>
             <label><span className='upload-label'>Title</span>
               <br />
@@ -92,8 +114,8 @@ class PhotoManage extends React.Component {
               <textarea onChange={this.handleInput('description')}
                 value={this.state.description} ></textarea>
             </label>
-            { submitButton }
-            <br />
+            <button onClick={this.handleUpdate.bind(this)}
+              className='submit-btn'>Update</button>
             <span onClick={this.handleDelete.bind(this)} className='photo-delete-btn'>Delete</span>
           </form>
         </div>

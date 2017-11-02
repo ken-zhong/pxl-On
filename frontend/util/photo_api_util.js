@@ -31,6 +31,14 @@ export const deletePhoto = (id) => {
   });
 };
 
+export const updatePhoto = (photo) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/photos/${photo.id}`,
+    data: { photo }
+  });
+};
+
 export const createPhoto = (formData) => {
   return $.ajax({
     method: 'POST',
@@ -53,13 +61,6 @@ export const setProfilePhoto = (formData) => {
   });
 };
 
-export const updatePhoto = (photo) => {
-  return $.ajax({
-    method: 'PATCH',
-    url: `api/photos/${photo.id}`,
-    data: photo.formData
-  });
-};
 
 export const setCoverPhoto = (id) => {
   return $.ajax({

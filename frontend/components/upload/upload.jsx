@@ -103,7 +103,8 @@ class UploadComponent extends React.Component {
     } else {
       imagePreviewContainer = (
         <div className='upload-preview'>
-          <i className='fa fa-window-close cancel-upload' onClick={this.cancelPhotoUpload.bind(this)} aria-hidden='true' />
+          <i className='fa fa-window-close cancel-upload'
+            onClick={this.cancelPhotoUpload.bind(this)} aria-hidden='true' />
           <img src={this.state.imageUrl} />
         </div>
       );

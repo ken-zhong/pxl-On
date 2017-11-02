@@ -57,13 +57,16 @@ class Api::PhotosController < ApplicationController
       end
     else
       @photo = Photo.find_by(id: params[:id])
-
-      render json: ['invalid request!'], status: 422
+      if @photo.update(photo_params)
+        render "api/photos/show"
+      else
+        render json: ['invalid request!'], status: 422
+      end
     end
   end
 
   def destroy
-    @photo.find(params[:id])
+    @photo = Photo.find(params[:id])
     @photo.destroy
     render "api/photos/show"
   end

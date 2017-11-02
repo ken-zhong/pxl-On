@@ -10,7 +10,22 @@
     border: none;
     width: 32em;
     margin: 0 auto;
+    position: relative;
   }
+}
+
+.form-overlay {
+  box-sizing: border-box;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background: $grey;
+  opacity: .2;
+  z-index: 10;
 }
 
 .photo-manage-container{
@@ -19,7 +34,7 @@
   align-content: center;
   justify-content: center;
   max-height: 80vh;
-  overflow-y: scroll;
+  overflow: auto;
 }
 
 .photo-delete-btn {

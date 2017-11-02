@@ -22,4 +22,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoManage)
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoManage);
