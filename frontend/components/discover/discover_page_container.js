@@ -7,6 +7,10 @@ import DiscoverPage from './discover_page';
 const mapStateToProps = (state, ownProps) => {
   const photos = Object.values(state.entities.photos).reverse();
   const users = Object.values(state.entities.users).filter(user => user.photos.length > 0);
+  // we'll attach one photo per user to use as their 'featured photo'
+  users.forEach(user => {
+    user.featuredPhoto = state.entities.photos[user.photos[0]];
+  });
   return {
     loggedIn: Boolean(state.session.currentUser),
     currentUser: state.session.currentUser,

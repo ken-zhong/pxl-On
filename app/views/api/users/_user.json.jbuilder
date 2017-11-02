@@ -4,6 +4,8 @@ json.id user.id
 json.numFollowers user.followers.length
 json.numFollowing user.followees.length
 
+json.thumbnails user.photos.map { |photo| asset_path(photo.image.url(:thumb)) }
+
 if user.profile_photo
   json.profilePhotoUrl asset_path(user.profile_photo.image.url(:thumb))
 end

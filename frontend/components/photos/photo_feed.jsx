@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FollowButton from '../follows/follow_button';
 import ReactModal from 'react-modal';
 import FollowModal from '../follows/follows_modal';
 import PhotoFeedItem from './photo_feed_item';
+import FeaturedPhotog from '../discover/featured_photog_item';
 
 class PhotoFeed extends React.Component {
   constructor (props) {
@@ -16,7 +16,8 @@ class PhotoFeed extends React.Component {
   }
 
   componentDidMount () {
-    this.props.getAllFollows();
+    // this.props.getAllFollows();
+    this.props.fetchUsers();
     this.props.fetchPhotoFeed();
   }
 
@@ -40,11 +41,10 @@ class PhotoFeed extends React.Component {
 
   render () {
     let currentUser = this.props.currentUser;
-    let userProfileUrl, photoFeedItems;
+    let userProfileUrl, photoFeedItems, suggestedFollows;
     if (currentUser.coverPhotoUrl) {
       userProfileUrl = {backgroundImage: `url(${currentUser.profilePhotoUrl})`};
     }
-
     if (this.props.photos.length > 0) {
       photoFeedItems = this.props.photos.map((photo, idx) => {
         return <PhotoFeedItem photo={photo} key={idx} />;
@@ -58,6 +58,13 @@ class PhotoFeed extends React.Component {
         </div>
       );
     }
+    if (this.props.suggestedFollows.length > 0) {
+      suggestedFollows = this.props.suggestedFollows.map(user => (
+        <FeaturedPhotog user={user} />
+      ));
+    } else {
+      suggestedFollows = <h4>Check back later...</h4>;
+    }
 
     return (
       <div className='photo-feed-page'>
@@ -69,7 +76,7 @@ class PhotoFeed extends React.Component {
           <div className='feed-currentuser'>
             <div className='follow-user-item-info'>
               <Link to={`/${currentUser.username}`}>
-                <div className='nav-user-icon' style={userProfileUrl} />
+                <div className='nav-user-icon' style={userProfileUrl}></div>
               </Link>
               <div>
                 <Link to={`/${currentUser.username}`}><h4>{currentUser.username}</h4></Link>
@@ -89,6 +96,10 @@ class PhotoFeed extends React.Component {
                 Following
               </span>
             </div>
+          </div>
+          <div className='suggested-follows-container'>
+            <h3>WHO TO FOLLOW</h3>
+            { suggestedFollows }
           </div>
         </div>
 
