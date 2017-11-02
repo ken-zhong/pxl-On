@@ -101,7 +101,7 @@ class UserProfile extends React.Component {
         </div>
         <div className='photos-grid'>
           { noPhotosWarning }
-          <div className='flexbin'>
+          <div className='masonry-grid'>
             { photos }
           </div>
         </div>

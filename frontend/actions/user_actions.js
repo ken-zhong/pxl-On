@@ -40,6 +40,13 @@ export const fetchUser = id => dispatch => {
   );
 };
 
+export const fetchUsers = () => dispatch => {
+  return UserApiUtil.fetchUsers().then(
+    users => dispatch(receiveUsers(users)),
+    errors => dispatch(receiveUserErrors(errors))
+  );
+};
+
 export const followUser = (followRequest) => dispatch => {
   return UserApiUtil.followUser(followRequest).then(
     user => dispatch(receiveUser(user)),

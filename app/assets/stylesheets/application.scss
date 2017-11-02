@@ -16,6 +16,7 @@
 
  // CSS Reset and base
  @import "base/reset.scss";
+ @import "lib/masonry_grid.scss";
 
  // Specs
  @import url('https://fonts.googleapis.com/css?family=Maven+Pro');
@@ -27,5 +28,3 @@
  // Components
  @import "base/common_style.scss";
  @import "components/*";
-
- @import "lib/flexbin.scss";

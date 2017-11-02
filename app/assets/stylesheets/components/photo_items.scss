@@ -6,11 +6,7 @@
   flex-wrap: wrap;
 }
 
-// I learned how to do this overlay from www.w3schools.com
 .photo-preview-container {
-  margin: .3em;
-  height: 20em;
-  overflow: hidden;
   position: relative;
   cursor: zoom-in;
 }
@@ -36,11 +32,4 @@
   font-weight: 200;
   background: rgba(12, 15, 18, .5);
   background: linear-gradient(to top, rgba(12, 15, 18, .8), rgba(12, 15, 18, 0));
-}
-
-.photo-preview-container img {
-  height: 100%;
-  width: auto;
-  display: block;
-  margin: 0;
 }

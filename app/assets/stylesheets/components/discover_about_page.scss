@@ -29,4 +29,19 @@
   background-repeat: no-repeat;
   background-position: 50% 60%;
   cursor: default;
+  h1 {
+    font-weight: 400;
+  }
+}
+
+.discover-page-content-container {
+  margin: 0 auto;
+  width: 98%;
+  h2 {
+    color: $grey;
+    margin-top: 1em;
+    margin-left: 5vw;
+    font-size: 1.7em;
+    font-weight: 200;
+  }
 }
