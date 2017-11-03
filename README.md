@@ -1,7 +1,6 @@
 # pxl-On
 
-[pxl-on live site][pxl-On]
-[pxl-On]: https://pxl-on.herokuapp.com/
+[pxl-on live site](https://pxl-on.herokuapp.com/)
 
 ![splash page](./docs/screenshots/splash.jpg "splash page")
 
