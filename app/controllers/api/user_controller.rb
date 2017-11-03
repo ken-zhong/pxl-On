@@ -41,10 +41,11 @@ class Api::UserController < ApplicationController
   end
 
   def unfollow
-    @user = User.find_by_id(params[:id])
-    if @user
+    user = User.find_by(id: params[:id])
+    if user
       follow = Follow.find_by({follower_id: params[:followerId], following_id: params[:id]})
       follow.destroy
+      @users = [current_user, user]
       render "api/users/index"
     else
       render json: ['User not found'], status: 422

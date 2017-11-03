@@ -6,24 +6,33 @@ import FollowUserItem from './follows_user_item';
 // this component should always be passed as a prop the user id it is attached to
 
 class FollowsButton extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = { userArray: [] };
+  }
+
   componentDidMount () {
-    this.props.getAllFollows(this.props.user.id);
+    this.props.getAllFollows(this.props.user.id).then((users) => {
+      let userArray = this.props.users.map((user, idx) => {
+        return <FollowUserItem user={user} key={idx} closeModal={this.props.closeModal} />;
+      });
+      this.setState({userArray});
+    });
   }
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.user.id !== this.props.user.id) {
       this.props.getAllFollows(this.props.user.id);
-    }
+    };
   }
 
   render () {
-    let users = this.props.users.map((user, idx) => {
-      return <FollowUserItem user={user} key={idx} closeModal={this.props.closeModal} />;
-    });
-
+    // let users = this.props.users.map((user, idx) => {
+    //   return <FollowUserItem user={user} key={idx} closeModal={this.props.closeModal} />;
+    // });
     return (
       <div className='follow-users-list'>
-        { users }
+        { this.state.userArray }
       </div>
     );
   }
