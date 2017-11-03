@@ -1,5 +1,5 @@
 import * as PhotoApiUtil from '../util/photo_api_util';
-import { receiveUser } from './user_actions'
+import { receiveUser } from './user_actions';
 
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const RECEIVE_ALL_PHOTOS = 'RECEIVE_ALL_PHOTOS';

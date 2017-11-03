@@ -33,19 +33,19 @@ class Api::UserController < ApplicationController
   def follow
     new_follow = Follow.new(follower_id: params[:followerId], following_id: params[:id])
     if new_follow.save
-      @user = new_follow.followee
-      render "api/users/show"
+      @users = [current_user, new_follow.followee]
+      render "api/users/index"
     else
       render json: new_follow.errors.full_messages, status: 422
     end
   end
 
   def unfollow
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
     if @user
       follow = Follow.find_by({follower_id: params[:followerId], following_id: params[:id]})
       follow.destroy
-      render "api/users/show"
+      render "api/users/index"
     else
       render json: ['User not found'], status: 422
     end

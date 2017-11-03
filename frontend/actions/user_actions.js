@@ -12,10 +12,10 @@ export const receiveUser = user => {
   };
 };
 
-export const receiveFollow = user => {
+export const receiveFollow = users => {
   return {
     type: RECEIVE_FOLLOW,
-    user
+    users
   };
 };
 
@@ -49,14 +49,14 @@ export const fetchUsers = () => dispatch => {
 
 export const followUser = (followRequest) => dispatch => {
   return UserApiUtil.followUser(followRequest).then(
-    user => dispatch(receiveUser(user)),
+    users => dispatch(receiveFollow(users)),
     errors => dispatch(receiveUserErrors(errors))
   );
 };
 
 export const unfollowUser = (unfollowRequest) => dispatch => {
   return UserApiUtil.unfollowUser(unfollowRequest).then(
-    user => dispatch(receiveUser(user)),
+    users => dispatch(receiveFollow(users)),
     errors => dispatch(receiveUserErrors(errors))
   );
 };
