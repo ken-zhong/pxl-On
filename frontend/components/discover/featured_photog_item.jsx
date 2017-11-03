@@ -25,7 +25,7 @@ const FeaturedPhotog = (props) => {
       </div>
     );
   }
-
+  console.log(props);
   return (
     <div className='featured-photog-item'>
       <header>

@@ -35,7 +35,7 @@ class ProfileEditModal extends React.Component {
     this.setState({loading: true});
     if (this.state.imageFile) {
       const formData = new FormData();
-      formData.append('photo[title]', 'profile_pic');
+      formData.append('photo[title]', 'profile_pic_id#835612');
       formData.append('photo[image]', this.state.imageFile);
       formData.append('photo[author_id]', this.props.currentUser.id);
       this.props.setProfilePhoto(formData).then(() => {

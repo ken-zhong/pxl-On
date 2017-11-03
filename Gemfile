@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
+gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 
 # AWS related gems
 gem 'aws-sdk', '< 3.0'

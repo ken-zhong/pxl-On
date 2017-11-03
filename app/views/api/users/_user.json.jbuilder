@@ -4,7 +4,8 @@ json.id user.id
 json.numFollowers user.followers.length
 json.numFollowing user.followees.length
 
-json.thumbnails user.photos.map { |photo| asset_path(photo.image.url(:thumb)) }
+json.thumbnails user.photos.reject {|photo| photo.title == 'profile_pic_id#835612'}
+  .map { |photo| asset_path(photo.image.url(:thumb)) }
 
 if user.profile_photo
   json.profilePhotoUrl asset_path(user.profile_photo.image.url(:thumb))
@@ -23,4 +24,5 @@ end
 
 json.followers user.followers.map { |user| user.username }
 json.following user.followees.map { |user| user.username }
-json.photos user.photos.map {|photo| photo.id }
+json.photos user.photos.reject { |photo| photo.title == 'profile_pic_id#835612' }
+  .map {|photo| photo.id }

@@ -14,7 +14,7 @@ class Api::PhotosController < ApplicationController
         render json: ['User not found'], status: 422
       end
     else
-      @photos = Photo.all
+      @photos = Photo.all.reject { |photo| photo.title == 'profile_pic_id#835612' }.shuffle
     end
   end
 

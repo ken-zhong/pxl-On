@@ -6,7 +6,7 @@ class Api::UserController < ApplicationController
       @users = user.followers + user.followees + user
       render "api/users/index"
     else
-      @users = User.all
+      @users = User.all.shuffle
       render "api/users/index"
     end
   end

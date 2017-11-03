@@ -1,13 +1,13 @@
-## Issues / Questions that I'm having, kept track temporarily here
+## Issues
+
+TODO
+- Change current implementation of follows to RECEIVE_FOLLOW instead of RECEIVE_FOLLOW
+- change shows to not return profile_pics
+- use algorithims to generate featured photogs and new photos
+
 
 - forcing rerenders, profile page, currently just refreshing the page
 - username can have spaces. oops.
-- followers updates real time
-  - TODO: change currnet implementation to RECEIVE_FOLLOW instead
 
-
-
-- can I use this - https://github.com/guoyunhe/flexbin
-
-More readings on responsive image grid
-- https://medium.com/@danrschlosser/building-the-image-grid-from-google-photos-6a09e193c74a
+## Bonus todos
+- search bar

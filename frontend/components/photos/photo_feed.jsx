@@ -59,8 +59,8 @@ class PhotoFeed extends React.Component {
       );
     }
     if (this.props.suggestedFollows.length > 0) {
-      suggestedFollows = this.props.suggestedFollows.map(user => (
-        <FeaturedPhotog user={user} />
+      suggestedFollows = this.props.suggestedFollows.map((user, idx) => (
+        <FeaturedPhotog user={user} key={idx} />
       ));
     } else {
       suggestedFollows = <h4>Check back later...</h4>;

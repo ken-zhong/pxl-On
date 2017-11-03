@@ -18,7 +18,7 @@
 
 class Photo < ApplicationRecord
   before_validation :ensure_description, unless: :persisted?
-  has_attached_file :image, styles: { large: "2200x2200", medium: "800x800>", thumb: "100x100>" }
+  has_attached_file :image, styles: { medium: "800x800>", thumb: "100x100>" }
 
   belongs_to :author,
     class_name: "User",
