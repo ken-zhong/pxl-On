@@ -6,7 +6,7 @@ import { getAllFollows, fetchUser, fetchUsers } from '../../actions/user_actions
 
 const mapStateToProps = (state, ownProps) => {
   const users = Object.values(state.entities.users);
-  const photos = Object.values(state.entities.photos).reverse();
+  const photos = Object.values(state.entities.photos);
   const currentUser = state.entities.users[state.session.currentUser.username] || state.session.currentUser;
   const suggestedFollows = users.filter(user =>
     (!user.isFollowing && user.id !== currentUser.id

@@ -9,6 +9,7 @@ const PhotoFeedItem = (props) => {
   if (props.author.profilePhotoUrl) {
     userProfileUrl = {backgroundImage: `url(${props.author.profilePhotoUrl})`};
   }
+  console.log(props);
 
   return (
     <div className='photo-feed-item'>
@@ -21,7 +22,7 @@ const PhotoFeedItem = (props) => {
         </div>
       </div>
       <div className='photo-feed-img-container'>
-        <Link to={`/photos/${props.photo.id}`}><img src={props.photo.url} /></Link>
+        <Link to={`/photos/${props.photo.id}`}><img src={props.photo.image_url} /></Link>
       </div>
       <div className='photo-feed-item-footer'>
         <Link to={`/photos/${props.photo.id}`}><h3>{props.photo.title}</h3></Link>

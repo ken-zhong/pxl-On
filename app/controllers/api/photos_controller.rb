@@ -3,7 +3,7 @@ class Api::PhotosController < ApplicationController
     if params[:type] == 'feed'
       @photos = []
       current_user.followees.each do |user|
-        @photos.concat(user.photos.reject { |photo| photo.author_profile_id == user.id } )
+        @photos.concat(user.photos.reject { |photo| photo.author_profile_id == user.id }).shuffle
       end
     elsif params[:user_id]
       user = User.find_by_username(params[:user_id])

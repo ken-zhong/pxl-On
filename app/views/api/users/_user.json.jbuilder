@@ -12,7 +12,7 @@ if user.profile_photo
 end
 
 if user.cover_photo
-  json.coverPhotoUrl asset_path(user.cover_photo.image.url(:large))
+  json.coverPhotoUrl asset_path(user.cover_photo.image.url)
 end
 
 if current_user
