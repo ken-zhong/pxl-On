@@ -21,7 +21,7 @@ const PhotoFeedItem = (props) => {
         </div>
       </div>
       <div className='photo-feed-img-container'>
-        <Link to={`/photos/${props.photo.id}`}><img src={props.photo.large_url} /></Link>
+        <Link to={`/photos/${props.photo.id}`}><img src={props.photo.url} /></Link>
       </div>
       <div className='photo-feed-item-footer'>
         <Link to={`/photos/${props.photo.id}`}><h3>{props.photo.title}</h3></Link>

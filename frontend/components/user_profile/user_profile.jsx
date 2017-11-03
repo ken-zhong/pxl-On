@@ -1,4 +1,4 @@
-import React from 'react';
+limport React from 'react';
 import ReactModal from 'react-modal';
 import ProfileEditModal from './user_profile_edit_modal';
 import FollowButton from '../follows/follow_button';

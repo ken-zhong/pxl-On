@@ -5,7 +5,6 @@ json.extract! photo, :id, :title, :description, :author_id
 # json.thumb_url asset_path(photo.image.url(:thumb))
 # json.preview_url asset_path(photo.image.url(:medium))
 json.image_url photo.image.url
-json.large_url photo.image.url(:large)
 json.thumb_url photo.image.url(:thumb)
 json.preview_url photo.image.url(:medium)
 
