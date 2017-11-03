@@ -9,7 +9,6 @@ const PhotoFeedItem = (props) => {
   if (props.author.profilePhotoUrl) {
     userProfileUrl = {backgroundImage: `url(${props.author.profilePhotoUrl})`};
   }
-  console.log(props);
 
   return (
     <div className='photo-feed-item'>

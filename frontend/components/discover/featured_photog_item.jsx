@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FollowButton from '../follows/follow_button';
-import { connect } from 'redux';
 
 // MUST PASS user in as props
 const FeaturedPhotog = (props) => {
@@ -25,7 +24,6 @@ const FeaturedPhotog = (props) => {
       </div>
     );
   }
-  console.log(props);
   return (
     <div className='featured-photog-item'>
       <header>
@@ -45,4 +43,3 @@ const FeaturedPhotog = (props) => {
 };
 
 export default FeaturedPhotog;
-// export default connect(mapStateToProps, null)(FeaturedPhotog)
