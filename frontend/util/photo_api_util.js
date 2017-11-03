@@ -14,7 +14,7 @@ export const fetchUserPhotos = (username) => {
 
 export const fetchPhotoFeed = () => {
   return $.ajax({
-    url: `api/photos?type=feed`
+    url: 'api/photos?type=feed'
   });
 };
 

@@ -1,26 +1,9 @@
 # pxl-On
 
+[pxl-on live site][pxl-On]
+[pxl-On]: https://pxl-on.herokuapp.com/
 
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+pxl-On is a full-stack single-page app (SPA) inspired by photo sharing sites like 500px
+and Instagram. It uses React/Redux on the front end and a Ruby on Rails backend to
+serve up a RESTful API. Database duties are handled by a postgreSql db and Amazon
+AWS S3 buckets for photo storage.

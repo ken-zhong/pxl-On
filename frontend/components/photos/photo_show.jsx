@@ -6,7 +6,11 @@ class PhotoShow extends React.Component {
   componentDidMount () {
     let id = this.props.match.params.photoId;
     this.props.fetchPhoto(id).then((res) => {
-      this.props.fetchUser(res.photo.author);
+      if (String(res.photo.id) !== id) {
+        this.props.history.push('/oops');
+      } else {
+        this.props.fetchUser(res.photo.author);
+      }
     }, () => {
       this.props.history.push('/oops');
     });
@@ -14,9 +18,13 @@ class PhotoShow extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     if (this.props.match.params.photoId !== nextProps.match.params.photoId) {
-      let id = this.props.match.params.photoId;
+      let id = nextProps.match.params.photoId;
       this.props.fetchPhoto(id).then((res) => {
-        this.props.fetchUser(res.photo.author);
+        if (String(res.photo.id) !== id) {
+          this.props.history.push('/oops');
+        } else {
+          this.props.fetchUser(res.photo.author);
+        }
       }, () => this.props.history.push('/oops')
     );
     }
