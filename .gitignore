@@ -27,6 +27,4 @@ npm-debug.log
 
 # Ignore application configuration
 /config/application.yml
-
-
-# _PXL_SEEDS/
+_PXL_SEEDS/
