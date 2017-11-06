@@ -10,9 +10,9 @@ const AboutPage = props => {
         </div>
       </div>
       <div className='about-text'>
-        <p> pxl-On is a full-stack SPA (single page application) built using
-          React/Redux on the frontend and Ruby on Rails on the backend. Database
-          duties are handled by a postgreSql server and Amazon AWS S3 buckets for
+        <p> pxl-On is a full-stack SPA (single page application) inspired by 500px and Instragram.
+          It uses React/Redux on the frontend and a Ruby on Rails RESTful API on the backend.
+          Database duties are handled by a PostgreSQL server and Amazon AWS S3 buckets for
           photos.
         </p>
         <p>
@@ -29,6 +29,5 @@ const AboutPage = props => {
     </div>
   );
 };
-
 
 export default AboutPage;

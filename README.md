@@ -6,7 +6,7 @@
 
 pxl-On is a full-stack single-page app (SPA) inspired by photo sharing sites like 500px
 and Instagram. It uses React/Redux on the front end and a Ruby on Rails backend to
-serve up a RESTful API.
+serve up a RESTful json API.
 
 ## Features
 - User authentication with demo login
@@ -49,4 +49,4 @@ In addition to the already present features, I plan to continue working on this 
 AWS S3 buckets for photo storage. These are some of the features I plan on implementing:
 - Comments and favorites - users can comment on each other's photos and add them to a 'favorites' list.
 - Search - allow users to search by username and photo title.
-- Backend optimization - optimize SQL queries to reduce database load.
+- Backend optimization - further optimize SQL queries to reduce database load.
