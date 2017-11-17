@@ -43,6 +43,12 @@
   padding: .2em 0;
   box-sizing: border-box;
   color: $dark-grey;
+  border: 1px solid $grey solid;
+}
+
+.login-grid input:focus {
+  outline: none;
+  border: 1px solid $btn-blue-hover;
 }
 
 .submit-btn {

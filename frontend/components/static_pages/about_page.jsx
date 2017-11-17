@@ -17,7 +17,7 @@ const AboutPage = props => {
         </p>
         <p>
           Find me on:
-          <a href='https://github.com/ken-zhong'>
+          <a href='https://github.com/ken-zhong/pxl-on'>
             <i className='fa fa-github fa-2x' aria-hidden='true' />
           </a>
           <a href='#'>
