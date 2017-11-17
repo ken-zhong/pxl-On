@@ -29,7 +29,6 @@ class PhotoFeed extends React.Component {
 
   closeModal () {
     document.body.style.overflow = 'auto';
-    this.props.fetchUser(this.props.currentUser.username);
     this.setState({
       followersModalOpen: false,
       followingModalOpen: false

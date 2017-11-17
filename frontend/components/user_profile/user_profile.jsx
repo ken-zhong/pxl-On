@@ -39,10 +39,6 @@ class UserProfile extends React.Component {
   closeModal () {
     document.body.style.overflow = 'auto';
 
-    if (this.state.followersModalOpen || this.state.followingModalOpen) {
-      this.props.fetchUser(this.props.match.params.username);
-    }
-
     this.setState({
       editModalOpen: false,
       followersModalOpen: false,

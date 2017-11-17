@@ -3,10 +3,11 @@ class Api::UserController < ApplicationController
     case params[:type]
     when 'getallfollows'
       user = User.find(params[:id])
-      @users = user.followers + user.followees + user
+      @users = user.followers.includes(:photos, :cover_photo, :profile_photo)
+      @users += user.followees.includes(:photos, :cover_photo, :profile_photo) + user
       render "api/users/index"
     else
-      @users = User.all.shuffle
+      @users = User.all.includes(:photos, :cover_photo, :profile_photo)
       render "api/users/index"
     end
   end

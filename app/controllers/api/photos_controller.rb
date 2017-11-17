@@ -1,10 +1,15 @@
 class Api::PhotosController < ApplicationController
   def index
     if params[:type] == 'feed'
-      @photos = []
-      current_user.followees.each do |user|
-        @photos.concat(user.photos.reject { |photo| photo.author_profile_id == user.id }).shuffle
-      end
+      # @photos = []
+      # current_user.followees.each do |user|
+      #   @photos.concat(user.photos.where(author_profile_id: nil))
+      # end
+      # @photos.shuffle
+      followees_ids = current_user.followees.map { |user| user.id }
+      @photos = Photo.where(author_profile_id: nil, author_id: followees_ids)
+        .includes(:author)
+
     elsif params[:user_id]
       user = User.find_by_username(params[:user_id])
       if user
@@ -14,7 +19,7 @@ class Api::PhotosController < ApplicationController
         render json: ['User not found'], status: 422
       end
     else
-      @photos = Photo.all.reject { |photo| photo.title == 'profile_pic_id#835612' }.shuffle
+      @photos = Photo.where(author_profile_id: nil).shuffle
     end
   end
 
