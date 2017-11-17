@@ -47,8 +47,9 @@
   background-color: $red-destroy;
 }
 
-.photo-edit-form {
-
+.photo-edit-form input {
+  padding-top: .4em;
+  padding-bottom: .4em;
 }
 
 @media (min-width: 668px) {

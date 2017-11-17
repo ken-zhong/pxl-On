@@ -42,8 +42,9 @@
   height: 2.2em;
   padding: .2em 0;
   box-sizing: border-box;
+  outline: none;
   color: $dark-grey;
-  border: 1px solid $grey solid;
+  border: 1px $light-grey solid;
 }
 
 .login-grid input:focus {
