@@ -5,7 +5,7 @@ import FollowUserItem from './follows_user_item';
 
 // this component should always be passed as a prop the user id it is attached to
 
-class FollowsButton extends React.Component {
+class FollowsModal extends React.Component {
   constructor (props) {
     super(props);
     this.state = { userArray: [] };
@@ -54,4 +54,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FollowsButton);
+export default connect(mapStateToProps, mapDispatchToProps)(FollowsModal);
