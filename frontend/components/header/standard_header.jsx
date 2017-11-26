@@ -21,7 +21,7 @@ class StandardHeader extends React.Component {
     }
 
     return (
-      <div>
+      <div className='header-sticky'>
         <header>
           <nav className='flex-center navbar navbar-std'>
             <div className='flex-center nav-component nav-left'>

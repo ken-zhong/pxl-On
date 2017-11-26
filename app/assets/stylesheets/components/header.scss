@@ -1,21 +1,27 @@
 @import "base/specs.scss";
 @import "base/mixins.scss";
 
- .navbar {
-   justify-content: space-between;
-   position: sticky;
-   top: 0;
-   height: 3.5em;
-   z-index: 10;
-   color: $white;
- }
+.header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar {
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 3.5em;
+  z-index: 10;
+  color: $white;
+}
 
 .navbar-std {
-   border-bottom: 1px solid $light-grey;
-   background-color: $white;
-   color: $dark-grey;
+  border-bottom: 1px solid $light-grey;
+  background-color: $white;
+  color: $dark-grey;
   z-index: 10;
- }
+}
 
 .nav-logo {
   font-size: 1.7em;

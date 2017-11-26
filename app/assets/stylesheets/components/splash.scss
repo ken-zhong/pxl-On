@@ -1,14 +1,15 @@
  @import "base/specs.scss";
 
 html, body, #root, #app {
-  height: 100vh;
+  // height: 100vh;
 }
 
 .splash {
-  top: -3.5em;
-  position: relative;
+  top: 0;
+  position: absolute;
   display: block;
   height: 100vh;
+  width: 100vw;
   background-image: image_url("splash_low_res.jpg");
   background-size: cover;
   background-repeat: no-repeat;
