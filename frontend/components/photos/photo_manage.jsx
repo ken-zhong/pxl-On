@@ -16,6 +16,7 @@ class PhotoManage extends React.Component {
   }
 
   componentDidMount () {
+    window.scrollTo(0, 0);
     let username = this.props.currentUser.username;
     this.props.fetchUser(username);
     this.props.fetchUserPhotos(username);

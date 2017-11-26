@@ -16,6 +16,7 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount () {
+    window.scrollTo(0, 0);
     let username = this.props.match.params.username;
     this.props.fetchUser(username).then(null,
       () => this.props.history.push('/oops'));

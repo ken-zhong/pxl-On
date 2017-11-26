@@ -19,6 +19,7 @@ class PhotoFeed extends React.Component {
     // this.props.getAllFollows();
     this.props.fetchUsers();
     this.props.fetchPhotoFeed();
+    window.scrollTo(0, 0);
   }
 
   componentWillReceiveProps (nextProps) {
