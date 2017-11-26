@@ -43,6 +43,28 @@ Users can set their own cover photo and profile photo on their profile page. Aft
 
 ![profile page](./docs/screenshots/profile.jpg "profile page")
 
+User's photo feed and portfolio page both hit the same controller action, and the controller
+checks the query string to determine the correct data to send back.
+
+```ruby
+  def index
+    if params[:type] == 'feed'
+      followees_ids = current_user.followees.map { |user| user.id }
+      @photos = Photo.where(author_profile_id: nil, author_id: followees_ids)
+        .limit(10).includes(:author)
+    elsif params[:user_id]
+      user = User.find_by_username(params[:user_id])
+      if user
+        # exclude user's profile pic from user's gallery
+        @photos = user.photos.reject { |photo| photo.author_profile_id == user.id }
+      else
+        render json: ['User not found'], status: 422
+      end
+    else
+      @photos = Photo.where(author_profile_id: nil)
+    end
+  end
+```
 
 ### Future Directions
 In addition to the already present features, I plan to continue working on this app over time. Database duties are handled by a postgreSql db and Amazon
