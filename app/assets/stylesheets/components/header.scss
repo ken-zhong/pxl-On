@@ -3,7 +3,8 @@
 
  .navbar {
    justify-content: space-between;
-   position: relative;
+   position: sticky;
+   top: 0;
    height: 3.5em;
    z-index: 10;
    color: $white;

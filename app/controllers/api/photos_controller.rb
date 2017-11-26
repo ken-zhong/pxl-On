@@ -1,15 +1,10 @@
 class Api::PhotosController < ApplicationController
   def index
     if params[:type] == 'feed'
-      # @photos = []
-      # current_user.followees.each do |user|
-      #   @photos.concat(user.photos.where(author_profile_id: nil))
-      # end
-      # @photos.shuffle
+      # this action returns a user's followees photos
       followees_ids = current_user.followees.map { |user| user.id }
       @photos = Photo.where(author_profile_id: nil, author_id: followees_ids)
-        .includes(:author)
-
+        .limit(10).includes(:author)
     elsif params[:user_id]
       user = User.find_by_username(params[:user_id])
       if user
