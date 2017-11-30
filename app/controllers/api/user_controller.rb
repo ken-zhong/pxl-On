@@ -8,6 +8,7 @@ class Api::UserController < ApplicationController
       render "api/users/index"
     else
       @users = User.all.includes(:photos, :cover_photo, :profile_photo)
+      @users = @users.shuffle
       render "api/users/index"
     end
   end
